@@ -1,0 +1,419 @@
+[
+ {
+ "schedule": "regular",
+ "times": [{
+           "id": "p0",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 51,
+           "title": "Period 0"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 51,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "p1",
+           "sh": 7,
+           "sm": 57,
+           "eh": 8,
+           "em": 53,
+           "title": "Period 1"
+           },
+           {
+           "id": "pp2",
+           "sh": 8,
+           "sm": 53,
+           "eh": 8,
+           "em": 59,
+           "title": "Passing to Period 2"
+           },
+           {
+           "id": "p2",
+           "sh": 8,
+           "sm": 59,
+           "eh": 10,
+           "em": 9,
+           "title": "Period 2"
+           },
+           {
+           "id": "pn",
+           "sh": 10,
+           "sm": 9,
+           "eh": 10,
+           "em": 26,
+           "title": "Nutrition"
+           },
+           {
+           "id": "pp3",
+           "sh": 10,
+           "sm": 26,
+           "eh": 10,
+           "em": 32,
+           "title": "Passing to Period 3"
+           },
+           {
+           "id": "p3",
+           "sh": 10,
+           "sm": 32,
+           "eh": 11,
+           "em": 27,
+           "title": "Period 3"
+           },
+           {
+           "id": "pp4",
+           "sh": 11,
+           "sm": 27,
+           "eh": 11,
+           "em": 33,
+           "title": "Passing to Period 4"
+           },
+           {
+           "id": "p4",
+           "sh": 11,
+           "sm": 33,
+           "eh": 12,
+           "em": 28,
+           "title": "Period 4"
+           },
+           {
+           "id": "ph",
+           "sh": 12,
+           "sm": 28,
+           "eh": 13,
+           "em": 1,
+           "title": "Lunch"
+           },
+           {
+           "id": "pp5",
+           "sh": 13,
+           "sm": 1,
+           "eh": 13,
+           "em": 7,
+           "title": "Passing to Period 5"
+           },
+           {
+           "id": "p5",
+           "sh": 13,
+           "sm": 7,
+           "eh": 14,
+           "em": 2,
+           "title": "Period 5"
+           },
+           {
+           "id": "pp6",
+           "sh": 14,
+           "sm": 2,
+           "eh": 14,
+           "em": 8,
+           "title": "Passing to Period 6"
+           },
+           {
+           "id": "p6",
+           "sh": 14,
+           "sm": 8,
+           "eh": 15,
+           "em": 4,
+           "title": "Period 6"
+           },
+           {
+           "id": "pp7",
+           "sh": 15,
+           "sm": 4,
+           "eh": 15,
+           "em": 10,
+           "title": "Passing to Period 7"
+           },
+           {
+           "id": "p7",
+           "sh": 15,
+           "sm": 10,
+           "eh": 16,
+           "em": 30,
+           "title": "Period 7"
+           }]
+ },
+ {
+ "schedule": "professional",
+ "times": [{
+           "id": "p0",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 51,
+           "title": "Period 0"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 51,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "p1",
+           "sh": 7,
+           "sm": 57,
+           "eh": 8,
+           "em": 38,
+           "title": "Period 1"
+           },
+           {
+           "id": "pp2",
+           "sh": 8,
+           "sm": 38,
+           "eh": 8,
+           "em": 44,
+           "title": "Passing to Period 2"
+           },
+           {
+           "id": "p2",
+           "sh": 8,
+           "sm": 44,
+           "eh": 9,
+           "em": 39,
+           "title": "Period 2"
+           },
+           {
+           "id": "pn",
+           "sh": 9,
+           "sm": 39,
+           "eh": 9,
+           "em": 56,
+           "title": "Nutrition"
+           },
+           {
+           "id": "pp3",
+           "sh": 9,
+           "sm": 56,
+           "eh": 10,
+           "em": 2,
+           "title": "Passing to Period 3"
+           },
+           {
+           "id": "p3",
+           "sh": 10,
+           "sm": 2,
+           "eh": 10,
+           "em": 43,
+           "title": "Period 3"
+           },
+           {
+           "id": "pp4",
+           "sh": 10,
+           "sm": 43,
+           "eh": 10,
+           "em": 49,
+           "title": "Passing to Period 4"
+           },
+           {
+           "id": "p4",
+           "sh": 10,
+           "sm": 49,
+           "eh": 11,
+           "em": 29,
+           "title": "Period 4"
+           },
+           {
+           "id": "ph",
+           "sh": 11,
+           "sm": 29,
+           "eh": 12,
+           "em": 2,
+           "title": "Lunch"
+           },
+           {
+           "id": "pp5",
+           "sh": 12,
+           "sm": 2,
+           "eh": 12,
+           "em": 8,
+           "title": "Passing to Period 5"
+           },
+           {
+           "id": "p5",
+           "sh": 12,
+           "sm": 8,
+           "eh": 12,
+           "em": 48,
+           "title": "Period 5"
+           },
+           {
+           "id": "pp6",
+           "sh": 12,
+           "sm": 48,
+           "eh": 12,
+           "em": 54,
+           "title": "Passing to Period 6"
+           },
+           {
+           "id": "p6",
+           "sh": 12,
+           "sm": 54,
+           "eh": 13,
+           "em": 34,
+           "title": "Period 6"
+           }]
+ },
+ {
+ "schedule": "minimum",
+ "times": [{
+           "id": "p0",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 51,
+           "title": "Period 0"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 51,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "pp1",
+           "sh": 7,
+           "sm": 0,
+           "eh": 7,
+           "em": 57,
+           "title": "Passing to Period 1"
+           },
+           {
+           "id": "p1",
+           "sh": 7,
+           "sm": 57,
+           "eh": 8,
+           "em": 33,
+           "title": "Period 1"
+           },
+           {
+           "id": "pp2",
+           "sh": 8,
+           "sm": 33,
+           "eh": 8,
+           "em": 39,
+           "title": "Passing to Period 2"
+           },
+           {
+           "id": "p2",
+           "sh": 8,
+           "sm": 39,
+           "eh": 9,
+           "em": 29,
+           "title": "Period 2"
+           },
+           {
+           "id": "pp3",
+           "sh": 9,
+           "sm": 29,
+           "eh": 9,
+           "em": 35,
+           "title": "Passing to Period 3"
+           },
+           {
+           "id": "p3",
+           "sh": 9,
+           "sm": 35,
+           "eh": 10,
+           "em": 11,
+           "title": "Period 3"
+           },
+           {
+           "id": "pn",
+           "sh": 10,
+           "sm": 11,
+           "eh": 10,
+           "em": 28,
+           "title": "Nutrition"
+           },
+           {
+           "id": "pp4",
+           "sh": 10,
+           "sm": 28,
+           "eh": 10,
+           "em": 34,
+           "title": "Passing to Period 4"
+           },
+           {
+           "id": "p4",
+           "sh": 10,
+           "sm": 34,
+           "eh": 11,
+           "em": 10,
+           "title": "Period 4"
+           },
+           {
+           "id": "pp5",
+           "sh": 11,
+           "sm": 10,
+           "eh": 11,
+           "em": 16,
+           "title": "Passing to Period 5"
+           },
+           {
+           "id": "p5",
+           "sh": 11,
+           "sm": 16,
+           "eh": 11,
+           "em": 52,
+           "title": "Period 5"
+           },
+           {
+           "id": "pp6",
+           "sh": 11,
+           "sm": 52,
+           "eh": 11,
+           "em": 58,
+           "title": "Passing to Period 6"
+           },
+           {
+           "id": "p6",
+           "sh": 11,
+           "sm": 58,
+           "eh": 12,
+           "em": 34,
+           "title": "Period 6"
+           },
+           {
+           "id": "pp7",
+           "sh": 12,
+           "sm": 34,
+           "eh": 12,
+           "em": 41,
+           "title": "Passing to Period 7"
+           },
+           {
+           "id": "p7",
+           "sh": 12,
+           "sm": 41,
+           "eh": 13,
+           "em": 34,
+           "title": "Period 7"
+           }]
+ }]
+

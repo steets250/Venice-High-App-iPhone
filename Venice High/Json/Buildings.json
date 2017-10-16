@@ -1,0 +1,52 @@
+ [
+  {
+  "name": "East Building",
+  "latitude": 33.9979122267275,
+  "longitude": -118.443034711095
+  },
+  {
+  "name": "West Building",
+  "latitude": 33.9971428758579,
+  "longitude": -118.444602929949
+  },
+  {
+  "name": "Cunningham Building",
+  "latitude": 33.9976791862805,
+  "longitude": -118.444635116778
+  },
+  {
+  "name": "Far West Building",
+  "latitude": 33.9968506263033,
+  "longitude": -118.445136995011
+  },
+  {
+  "name": "Walgrove Building",
+  "latitude": 33.9960563234399,
+  "longitude": -118.444925697167
+  },
+  {
+  "name": "East Gym",
+  "latitude": 33.9974508043171,
+  "longitude": -118.442628396577
+  },
+  {
+  "name": "West Gym",
+  "latitude": 33.9955514384407,
+  "longitude": -118.44372755201
+  },
+  {
+  "name": "Shop Buildings",
+  "latitude": 33.9962847991464,
+  "longitude": -118.444300659193
+  },
+  {
+  "name": "Admin Building",
+  "latitude": 33.9975125877013,
+  "longitude": -118.443886242237
+  },
+  {
+  "name": "Pool",
+  "latitude": 33.9951966998583,
+  "longitude": -118.444352232183
+  }
+  ]

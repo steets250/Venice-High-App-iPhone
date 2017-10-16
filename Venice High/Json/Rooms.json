@@ -1,0 +1,578 @@
+ [
+  {
+  "number": "2",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "3",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "7",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "9",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "10",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "11",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "12",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "13",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "14",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "30",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "31",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "37",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "38",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "51",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "52",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "53",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "54",
+  "building": "",
+  "floor": "",
+  "altid": ""
+  },
+  {
+  "number": "103",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "104",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "104A",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "107",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "108",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "108",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "109",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "110",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "111",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "112",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "113",
+  "building": "East Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "118",
+  "building": "West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "120",
+  "building": "West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "122",
+  "building": "West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "124",
+  "building": "West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "125",
+  "building": "West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "130",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "131",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "132",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "133",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "134",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "135",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "136",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "137",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "138",
+  "building": "Cunningham Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "144",
+  "building": "Far West Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "151",
+  "building": "Walgrove Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "152",
+  "building": "Walgrove Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "153",
+  "building": "Walgrove Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "154",
+  "building": "Walgrove Building",
+  "floor": "1",
+  "altid": ""
+  },
+  {
+  "number": "203",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "204",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "207",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "208",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "212",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "213",
+  "building": "East Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "217",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "220",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "221",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "222",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "223",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "224",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "225",
+  "building": "West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "230",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "232",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "233",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "234",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "235",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "236",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "237",
+  "building": "Cunningham Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "240",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "241",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "243",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "244",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "245",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "246",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "247",
+  "building": "Far West Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "251",
+  "building": "Walgrove Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "252",
+  "building": "Walgrove Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "253",
+  "building": "Walgrove Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "254",
+  "building": "Walgrove Building",
+  "floor": "2",
+  "altid": ""
+  },
+  {
+  "number": "Dean",
+  "building": "Admin Building",
+  "floor": "1",
+  "altid": "Dean"
+  },
+  {
+  "number": "EGKK",
+  "building": "East Gym",
+  "floor": "",
+  "altid": "East Gym"
+  },
+  {
+  "number": "EGSS",
+  "building": "East Gym",
+  "floor": "",
+  "altid": "East Gym"
+  },
+  {
+  "number": "EGYM",
+  "building": "East Gym",
+  "floor": "",
+  "altid": "East Gym"
+  },
+  {
+  "number": "Library",
+  "building": "Admin Building",
+  "floor": "2",
+  "altid": "Library"
+  },
+  {
+  "number": "Magnet Office",
+  "building": "Admin Building",
+  "floor": "2",
+  "altid": "Magnet Office"
+  },
+  {
+  "number": "Main Office",
+  "building": "Admin Building",
+  "floor": "2",
+  "altid": "Main Office"
+  },
+  {
+  "number": "Pool",
+  "building": "Pool",
+  "floor": "",
+  "altid": "Pool"
+  },
+  {
+  "number": "Student Store",
+  "building": "West Building",
+  "floor": "1",
+  "altid": "Student Store"
+  },
+  {
+  "number": "S2",
+  "building": "Shop Buildings",
+  "floor": "",
+  "altid": "Shop 2"
+  },
+  {
+  "number": "S4",
+  "building": "Shop Buildings",
+  "floor": "",
+  "altid": "Shop 4"
+  },
+  {
+  "number": "S6",
+  "building": "Shop Buildings",
+  "floor": "",
+  "altid": "Shop 6"
+  },
+  {
+  "number": "S7",
+  "building": "Shop Buildings",
+  "floor": "",
+  "altid": "Shop 7"
+  },
+  {
+  "number": "S9",
+  "building": "Shop Buildings",
+  "floor": "",
+  "altid": "Shop 9"
+  },
+  {
+  "number": "WGAG",
+  "building": "West Gym",
+  "floor": "",
+  "altid": "West Gym"
+  },
+  {
+  "number": "WGAH",
+  "building": "West Gym",
+  "floor": "",
+  "altid": "West Gym"
+  },
+  {
+  "number": "WGDS",
+  "building": "West Gym",
+  "floor": "",
+  "altid": "West Gym"
+  },
+  {
+  "number": "WGRM",
+  "building": "West Gym",
+  "floor": "",
+  "altid": "West Gym"
+  }
+  ]
