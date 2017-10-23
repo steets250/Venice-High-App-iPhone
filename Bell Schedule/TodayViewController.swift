@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var period: UILabel!
     @IBOutlet weak var timeLeft: UILabel!
     @IBOutlet weak var currentSchedule: UILabel!
-    
+
     let defaults = UserDefaults.init(suiteName: "group.steets250.Venice-High.Bell-Schedule")!
     let sstah = 07; let sstam = 00; var eendh: Int!; var eendm: Int!
     var starting: Int!; var ending: Int!; var schedule: Int!; var generalTimer: Timer?
@@ -24,27 +24,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if UIDevice.current.systemVersion[UIDevice.current.systemVersion.startIndex] == "9" {
+            period.textColor = .white; timeLeft.textColor = .white; currentSchedule.textColor = .white
+        }
+
         if defaults.string(forKey: "dateData") != nil {
             dates = Mapper<YMD>().mapArray(JSONString: defaults.string(forKey: "dateData")!)!
         }
         if defaults.string(forKey: "timeData") != nil {
             schedules = Mapper<BellSchedule>().mapArray(JSONString: defaults.string(forKey: "timeData")!)!
         }
-        if dates.count == 0 || schedules.count == 0 {
+        if dates.isEmpty || schedules.isEmpty {
             noData()
         } else {
             initialSchedule()
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        initialSchedule()
-    }
-
     func initialSchedule() {
-        if UIDevice.current.systemVersion[UIDevice.current.systemVersion.startIndex] == "9" {
-            period.textColor = .white; timeLeft.textColor = .white; currentSchedule.textColor = .white
-        }
         let now = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: now)
@@ -74,11 +72,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     func noData() {
-        stackView.removeArrangedSubview(currentSchedule)
-        currentSchedule.textColor = .clear
         stackView.removeArrangedSubview(timeLeft)
         timeLeft.textColor = .clear
         period.text = "Error Loading Data"
+        currentSchedule.text = "Open App to Refresh"
     }
 
     func noSchool() {

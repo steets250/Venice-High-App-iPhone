@@ -13,29 +13,36 @@ import ReachabilitySwift
 
 extension AppDelegate /*App Data Loading*/ {
     func schoolData() {
-        if defaults.string(forKey: "buildingData") == nil {
-            loadFile(!Reachability()!.isReachable)
-        } else {
-            if Reachability()!.isReachable {
-                loadFile(false)
+        if let date = defaults.object(forKey: "refreshData") {
+            let dateRefreshed = date as! Date
+            let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+            let components = calendar.components([.day], from: dateRefreshed, to: Date(), options: [])
+            if components.day! > 0 {
+                if Reachability()!.isReachable {
+                    loadFile(false)
+                } else {
+                    loadData()
+                }
             } else {
                 loadData()
             }
+        } else {
+            loadFile(!Reachability()!.isReachable)
         }
     }
 
     func loadFile(_ manual: Bool = false) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let internet = !manual
+        internet = !manual
 
-        self.loadBuildings(internet: internet, completion: {
-            self.loadDates(internet: internet, completion: {
-                self.loadRoom(internet: internet, completion: {
-                    self.loadStaff(internet: internet, completion: {
-                        self.processStaff(internet: internet, completion: {
-                            self.loadTimes(internet: internet, completion: {
-                                self.saveBell(internet: internet, completion: {
-                                    self.loadEnding(internet: internet)
+        self.loadBuildings(next: {
+            self.loadDates(next: {
+                self.loadRoom(next: {
+                    self.loadStaff(next: {
+                        self.processStaff(next: {
+                            self.loadTimes(next: {
+                                self.saveBell(next: {
+                                    self.loadEnding()
                                 })
                             })
                         })
@@ -45,7 +52,7 @@ extension AppDelegate /*App Data Loading*/ {
         })
     }
 
-    func loadBuildings(internet: Bool, completion: (() -> Void)?) {
+    func loadBuildings(next: (() -> Void)?) {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Buildings.json")!
@@ -60,11 +67,11 @@ extension AppDelegate /*App Data Loading*/ {
                 print(error)
                 self.messedUp = true
             }
-            completion?()
+            next?()
         }
     }
 
-    func loadDates(internet: Bool, completion: (() -> Void)?) {
+    func loadDates(next: (() -> Void)?) {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Dates.json")!
@@ -79,11 +86,11 @@ extension AppDelegate /*App Data Loading*/ {
                 print(error)
                 self.messedUp = true
             }
-            completion?()
+            next?()
         }
     }
 
-    func loadRoom(internet: Bool, completion: (() -> Void)?) {
+    func loadRoom(next: (() -> Void)?) {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Rooms.json")!
@@ -98,11 +105,11 @@ extension AppDelegate /*App Data Loading*/ {
                 print(error)
                 self.messedUp = true
             }
-            completion?()
+            next?()
         }
     }
 
-    func loadStaff(internet: Bool, completion: (() -> Void)?) {
+    func loadStaff(next: (() -> Void)?) {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Staff.json")!
@@ -117,11 +124,11 @@ extension AppDelegate /*App Data Loading*/ {
                 print(error)
                 self.messedUp = true
             }
-            completion?()
+            next?()
         }
     }
 
-    func processStaff(internet: Bool, completion: (() -> Void)?) {
+    func processStaff(next: (() -> Void)?) {
         if self.staffData.count > 0 {
             for person in self.staffData {
                 if person.p0 != "" {
@@ -169,10 +176,10 @@ extension AppDelegate /*App Data Loading*/ {
                 self.roomData[i].teachers = self.roomData[i].teachers.sorted(by: {$0.period.getFirst() < $1.period.getFirst()})
             }
         }
-        completion?()
+        next?()
     }
 
-    func loadTimes(internet: Bool, completion: (() -> Void)?) {
+    func loadTimes(next: (() -> Void)?) {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Times.json")!
@@ -187,28 +194,29 @@ extension AppDelegate /*App Data Loading*/ {
                 print(error)
                 self.messedUp = true
             }
-            completion?()
+            next?()
         }
     }
 
-    func saveBell(internet: Bool, completion: (() -> Void)?) {
+    func saveBell(next: (() -> Void)?) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if messedUp == false {
             defaults2.set(Mapper().toJSONString(dateData), forKey: "dateData")
             defaults2.set(Mapper().toJSONString(timeData), forKey: "timeData")
         }
-        completion?()
+        next?()
     }
 
-    func loadEnding(internet: Bool) {
-        if messedUp || (internet && buildingData.count == 0) {
+    func loadEnding() {
+        if messedUp || (internet && (buildingData.isEmpty || dateData.isEmpty || roomData.isEmpty || staffData.isEmpty || timeData.isEmpty)) {
             loadFile(false)
-        } else if internet {
+        } else if internet && ((!buildingData.isEmpty || !dateData.isEmpty || !roomData.isEmpty || !staffData.isEmpty || !timeData.isEmpty)) {
             saveData()
         }
     }
 
     func saveData() {
+        defaults.set(Date(), forKey: "refreshData")
         defaults.set(Mapper().toJSONString(buildingData), forKey: "buildingData")
         defaults.set(Mapper().toJSONString(dateData), forKey: "dateData")
         defaults.set(Mapper().toJSONString(roomData), forKey: "roomData")

@@ -59,12 +59,6 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    func openSettings() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let settingsPage = storyboard.instantiateViewController(withIdentifier: "settingsPage")
-        self.navigationController?.pushViewController(settingsPage, animated: true)
-    }
-
     func initialLoad() {
         let test = defaults.array(forKey: "titleArray") ?? []
         if internet() {
@@ -92,13 +86,10 @@ class CalendarViewController: UIViewController {
     }
 
     func dateChecker() -> Bool {
-        if defaults.string(forKey: "Last Refreshed") != nil {
+        if let oldDate = defaults.object(forKey: "Last Refreshed") {
             let now = Date()
-            let dateString = defaults.string(forKey: "Last Refreshed")!
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yy"
-            let date = dateFormatter.date(from: dateString)!
-            return (daysBetweenDates(startDate: date, endDate: now) > 0)
+            let then = oldDate as! Date
+            return (daysBetweenDates(startDate: then, endDate: now) > 0)
         }
         return true
     }
@@ -121,11 +112,7 @@ class CalendarViewController: UIViewController {
                 self.processArray()
                 self.hud.dismiss(afterDelay: 0)
                 self.tableView.reloadData()
-                let now = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MM/dd/yy"
-                let dateString = formatter.string(from: now)
-                self.defaults.set(dateString, forKey: "Last Refreshed")
+                self.defaults.set(Date(), forKey: "Last Refreshed")
             }
         }
     }
@@ -501,7 +488,7 @@ extension CalendarViewController /*Calendar Saving Functions*/ {
         event.title = temp.title
         event.url = URL(string: temp.link)
 
-        if (temp.startTime == "none" && temp.endTime == "none") || (temp.startTime == "12:00 AM" && temp.endTime == "11:59 PM") {
+        if (temp.startTime == "none" && temp.endTime == "none") || (temp.startTime == "12:00 AM" && temp.endTime == "11:59 PM") || (temp.startTime == "12:00 AM" && temp.endTime == "11:55 PM") {
             event.isAllDay = true
             event.startDate = temp.startDate
             event.endDate = temp.endDate
@@ -512,13 +499,11 @@ extension CalendarViewController /*Calendar Saving Functions*/ {
         }
 
         if force == false {
-            if defaults.stringArray(forKey: "Saved Events") != nil {
-                let temp = defaults.stringArray(forKey: "Saved Events")
-                for save in temp! {
-                    if (save) == ("\(event.title) \(event.startDate)") {
-                        completion?(false, NSError(domain: "SavingEvent", code: 1, userInfo: nil))
-                        return
-                    }
+            let possibleDuplicates = eventStore.events(matching: eventStore.predicateForEvents(withStart: event.startDate, end: event.endDate, calendars: nil))
+            for i in possibleDuplicates {
+                if i.title == temp.title {
+                    completion?(false, NSError(domain: "SavingEvent", code: 1, userInfo: nil))
+                    return
                 }
             }
         }
@@ -539,15 +524,6 @@ extension CalendarViewController /*Calendar Saving Functions*/ {
                 } catch let e as NSError {
                     completion?(false, e)
                     return
-                }
-                if self.defaults.stringArray(forKey: "Saved Events") != nil {
-                    var temp = self.defaults.stringArray(forKey: "Saved Events")
-                    temp?.append("\(event.title) \(event.startDate)")
-                    self.defaults.set(temp, forKey: "Saved Events")
-                } else {
-                    var temp = [String]()
-                    temp.append("\(event.title) \(event.startDate)")
-                    self.defaults.set(temp, forKey: "Saved Events")
                 }
                 completion?(true, nil)
             } else {

@@ -49,10 +49,10 @@ class DetailViewController: UIViewController {
             mbSeperator.backgroundColor = .white
             textColor = .black
         }
-        
+
         pageTitle.adjustsFontSizeToFitWidth = true
         pageTitle.textColor = textColor
-        
+
         if type == "Staff" {
             staffDidLoad()
         } else if type == "Room" {
@@ -87,7 +87,7 @@ extension DetailViewController /*Shared Functions*/ {
     }
 
     func middleSectionCheck() {
-        if middleSection.arrangedSubviews.count == 0 {
+        if middleSection.arrangedSubviews.isEmpty {
             middleSection.removeFromSuperview(); middleSection.alpha = 0.0
             mbSeperator.removeFromSuperview(); mbSeperator.alpha = 0.0
         }
@@ -322,8 +322,7 @@ extension DetailViewController /*Action Functions*/ {
         var floor: String!
         if roomViaSegue.floor == "1" {
             floor = "1st Floor"
-        }
-        else if roomViaSegue.floor == "2" {
+        } else if roomViaSegue.floor == "2" {
             floor = "2nd Floor"
         }
         switch PermissionScope().statusLocationInUse() {

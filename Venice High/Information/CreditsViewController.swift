@@ -14,7 +14,7 @@ class CreditsViewController: UIViewController {
     @IBOutlet var tmLine: UIView!
     @IBOutlet var mbLine: UIView!
     @IBOutlet var emailMe: UIButton!
-    
+
     var textColor: UIColor!
     var seperatorColor: UIColor!
 

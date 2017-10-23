@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		498947FEE0174B753CD9306D /* Pods_Bell_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF5619E65112A5FEBD94503 /* Pods_Bell_Schedule.framework */; };
+		1A3D726297A246DCBBF541EB /* Pods_Venice_High.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF697945861A3FC9575DFF0C /* Pods_Venice_High.framework */; };
+		AA3B21A4A0C5740C52CCF2A6 /* Pods_Bell_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCD10F46C6DBFED046BEAE7 /* Pods_Bell_Schedule.framework */; };
 		BA09DCAC1EDF35ED004725C8 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09DCAB1EDF35ED004725C8 /* ButtonTableViewCell.swift */; };
 		BA10BA2A1ED4038900A1EC9A /* CalendarScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10BA291ED4038900A1EC9A /* CalendarScope.swift */; };
 		BA2842A51EBA756900AAB867 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2842A31EBA756900AAB867 /* MainInterface.storyboard */; };
@@ -43,7 +44,6 @@
 		BAEBE7571E8CCF24000F31B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBE7561E8CCF24000F31B5 /* Main.storyboard */; };
 		BAEF5A8B1F85C61100302708 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEF5A8A1F85C61100302708 /* SearchViewController.swift */; };
 		BAF8C0741E946CCB00DC80A7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8C0731E946CCB00DC80A7 /* AppData.swift */; };
-		EF7B52818522FF14EC27A243 /* Pods_Venice_High.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA191C7CF8780656F0E54497 /* Pods_Venice_High.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +71,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2EA1276C51DE06B0F3190859 /* Pods-Venice High.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.debug.xcconfig"; sourceTree = "<group>"; };
-		896CF9C4EEE6C4200B4A77AF /* Pods-Bell Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.release.xcconfig"; sourceTree = "<group>"; };
-		A9DDA8ABA95CF3C49948F262 /* Pods-Bell Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		285EF23C831DCCA9409ACE08 /* Pods-Venice High.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.release.xcconfig"; sourceTree = "<group>"; };
+		5CCD10F46C6DBFED046BEAE7 /* Pods_Bell_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ABFEF54E9831E099C0D3827 /* Pods-Bell Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		7BCA9D4C20FB3EA1EDDCA35A /* Pods-Venice High.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.debug.xcconfig"; sourceTree = "<group>"; };
 		BA09DCAB1EDF35ED004725C8 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		BA10BA291ED4038900A1EC9A /* CalendarScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScope.swift; sourceTree = "<group>"; };
 		BA2842A41EBA756900AAB867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -115,9 +116,8 @@
 		BAEBE7561E8CCF24000F31B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BAEF5A8A1F85C61100302708 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BAF8C0731E946CCB00DC80A7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		C56E6091F086575A501130CE /* Pods-Venice High.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.release.xcconfig"; sourceTree = "<group>"; };
-		CA191C7CF8780656F0E54497 /* Pods_Venice_High.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venice_High.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAF5619E65112A5FEBD94503 /* Pods_Bell_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6C78EBA5AF658D00E16F990 /* Pods-Bell Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		DF697945861A3FC9575DFF0C /* Pods_Venice_High.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venice_High.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF7B52818522FF14EC27A243 /* Pods_Venice_High.framework in Frameworks */,
+				1A3D726297A246DCBBF541EB /* Pods_Venice_High.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC1D6E61EABE60700993ECD /* NotificationCenter.framework in Frameworks */,
-				498947FEE0174B753CD9306D /* Pods_Bell_Schedule.framework in Frameworks */,
+				AA3B21A4A0C5740C52CCF2A6 /* Pods_Bell_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +169,7 @@
 				BAC1D6E71EABE60700993ECD /* Bell Schedule */,
 				FD1344986E944F4602A85EF3 /* Frameworks */,
 				BA412E071E498A39005A0AB5 /* Products */,
-				F6BAE0CD702E4880CF7FA083 /* Pods */,
+				FA2C1B24209ECB3DF6271E17 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,13 +276,13 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		F6BAE0CD702E4880CF7FA083 /* Pods */ = {
+		FA2C1B24209ECB3DF6271E17 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2EA1276C51DE06B0F3190859 /* Pods-Venice High.debug.xcconfig */,
-				C56E6091F086575A501130CE /* Pods-Venice High.release.xcconfig */,
-				A9DDA8ABA95CF3C49948F262 /* Pods-Bell Schedule.debug.xcconfig */,
-				896CF9C4EEE6C4200B4A77AF /* Pods-Bell Schedule.release.xcconfig */,
+				C6C78EBA5AF658D00E16F990 /* Pods-Bell Schedule.debug.xcconfig */,
+				7ABFEF54E9831E099C0D3827 /* Pods-Bell Schedule.release.xcconfig */,
+				7BCA9D4C20FB3EA1EDDCA35A /* Pods-Venice High.debug.xcconfig */,
+				285EF23C831DCCA9409ACE08 /* Pods-Venice High.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -292,8 +292,8 @@
 			children = (
 				BA5FE3011EB9C38700ED6C54 /* MapKit.framework */,
 				BAC1D6E51EABE60700993ECD /* NotificationCenter.framework */,
-				CA191C7CF8780656F0E54497 /* Pods_Venice_High.framework */,
-				CAF5619E65112A5FEBD94503 /* Pods_Bell_Schedule.framework */,
+				5CCD10F46C6DBFED046BEAE7 /* Pods_Bell_Schedule.framework */,
+				DF697945861A3FC9575DFF0C /* Pods_Venice_High.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -305,13 +305,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA412E301E498A39005A0AB5 /* Build configuration list for PBXNativeTarget "Venice High" */;
 			buildPhases = (
-				4B13F45BA50150DD6FF971DE /* [CP] Check Pods Manifest.lock */,
+				7735F8776B4953D68225BBB1 /* [CP] Check Pods Manifest.lock */,
 				BA412E021E498A39005A0AB5 /* Sources */,
 				BA412E031E498A39005A0AB5 /* Frameworks */,
 				BA412E041E498A39005A0AB5 /* Resources */,
 				BAC1D6F41EABE60700993ECD /* Embed App Extensions */,
-				B36908A1C85578886565FF2A /* [CP] Embed Pods Frameworks */,
-				2D84360AC3C30D789EB4C15E /* [CP] Copy Pods Resources */,
+				310F6B90865C5A642242F7A9 /* [CP] Embed Pods Frameworks */,
+				F6B985FEFEAA19092738CD4B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,11 +327,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAC1D6F31EABE60700993ECD /* Build configuration list for PBXNativeTarget "Bell Schedule" */;
 			buildPhases = (
-				D8F34D8E21FAB50903DD532F /* [CP] Check Pods Manifest.lock */,
+				E7B5B1590A32EB97120921C1 /* [CP] Check Pods Manifest.lock */,
 				BAC1D6E01EABE60700993ECD /* Sources */,
 				BAC1D6E11EABE60700993ECD /* Frameworks */,
 				BAC1D6E21EABE60700993ECD /* Resources */,
-				298463053354FDEDF7CDC107 /* [CP] Copy Pods Resources */,
+				7E3944FA94031507FE47844D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,55 +428,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		298463053354FDEDF7CDC107 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2D84360AC3C30D789EB4C15E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4B13F45BA50150DD6FF971DE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Venice High-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B36908A1C85578886565FF2A /* [CP] Embed Pods Frameworks */ = {
+		310F6B90865C5A642242F7A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -518,7 +470,40 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8F34D8E21FAB50903DD532F /* [CP] Check Pods Manifest.lock */ = {
+		7735F8776B4953D68225BBB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Venice High-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E3944FA94031507FE47844D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7B5B1590A32EB97120921C1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -534,6 +519,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B985FEFEAA19092738CD4B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -693,7 +693,7 @@
 		};
 		BA412E311E498A39005A0AB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EA1276C51DE06B0F3190859 /* Pods-Venice High.debug.xcconfig */;
+			baseConfigurationReference = 7BCA9D4C20FB3EA1EDDCA35A /* Pods-Venice High.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -714,7 +714,7 @@
 		};
 		BA412E321E498A39005A0AB5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C56E6091F086575A501130CE /* Pods-Venice High.release.xcconfig */;
+			baseConfigurationReference = 285EF23C831DCCA9409ACE08 /* Pods-Venice High.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -736,7 +736,7 @@
 		};
 		BAC1D6F11EABE60700993ECD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9DDA8ABA95CF3C49948F262 /* Pods-Bell Schedule.debug.xcconfig */;
+			baseConfigurationReference = C6C78EBA5AF658D00E16F990 /* Pods-Bell Schedule.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Bell Schedule/Bell Schedule.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -753,7 +753,7 @@
 		};
 		BAC1D6F21EABE60700993ECD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 896CF9C4EEE6C4200B4A77AF /* Pods-Bell Schedule.release.xcconfig */;
+			baseConfigurationReference = 7ABFEF54E9831E099C0D3827 /* Pods-Bell Schedule.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Bell Schedule/Bell Schedule.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
