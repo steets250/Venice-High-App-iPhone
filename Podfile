@@ -15,15 +15,29 @@ target 'Venice High' do
   pod 'MarqueeLabel'
   pod 'MWFeedParser'
   pod 'PermissionScope'
-  pod 'ReachabilitySwift', '< 4.0.0'
+  pod 'ReachabilitySwift'
   pod 'Spruce'
   pod 'SwiftWebVC'
-  pod 'SwipeCellKit', '~> 1.9.1'
-  pod 'MiniTabBar', :git => 'https://github.com/steets250/MiniTabBar.git'
+  pod 'SwipeCellKit'
   pod 'SwiftMapVC', :git => 'https://github.com/steets250/SwiftMapVC.git'
 end
 
 target 'Bell Schedule' do
   # Pods for Bell Schedule
   pod 'ObjectMapper'
+end
+
+# Workaround Cocoapods to mix Swift 3.2 and 4
+# Manually add to swift4Targets, otherwise assume target uses Swift 3.2
+swift4Targets = ['ReachabilitySwift', 'SwipeCellKit']
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if swift4Targets.include? target.name
+                config.build_settings['SWIFT_VERSION'] = '4'
+            else
+                config.build_settings['SWIFT_VERSION'] = '3.2'
+            end
+        end
+    end
 end

@@ -7,7 +7,6 @@ PODS:
   - MarqueeLabel (3.1.3):
     - MarqueeLabel/ObjC (= 3.1.3)
   - MarqueeLabel/ObjC (3.1.3)
-  - MiniTabBar (1.0.2)
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser (= 1.0.1)
     - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
@@ -17,39 +16,33 @@ PODS:
     - MWFeedParser/NSString+HTML
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
-  - ObjectMapper (3.0.0)
+  - ObjectMapper (3.1.0)
   - PermissionScope (1.1.1)
-  - ReachabilitySwift (3)
+  - ReachabilitySwift (4.1.0)
   - Spruce (1.0.0)
   - SwiftMapVC (1.0.0)
   - SwiftWebVC (0.4.1)
-  - SwipeCellKit (1.9.1)
+  - SwipeCellKit (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
   - JGProgressHUD
   - MarqueeLabel
-  - MiniTabBar (from `https://github.com/steets250/MiniTabBar.git`)
   - MWFeedParser
   - ObjectMapper
   - PermissionScope
-  - ReachabilitySwift (< 4.0.0)
+  - ReachabilitySwift
   - Spruce
   - SwiftMapVC (from `https://github.com/steets250/SwiftMapVC.git`)
   - SwiftWebVC
-  - SwipeCellKit (~> 1.9.1)
+  - SwipeCellKit
 
 EXTERNAL SOURCES:
-  MiniTabBar:
-    :git: https://github.com/steets250/MiniTabBar.git
   SwiftMapVC:
     :git: https://github.com/steets250/SwiftMapVC.git
 
 CHECKOUT OPTIONS:
-  MiniTabBar:
-    :commit: 8b0f335e97b9d3505b0c4477c064e66669b6ff4b
-    :git: https://github.com/steets250/MiniTabBar.git
   SwiftMapVC:
     :commit: 2f08f10f13cd4d1b225117cc20495327b39a7d64
     :git: https://github.com/steets250/SwiftMapVC.git
@@ -59,16 +52,15 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
-  MiniTabBar: 071f2a3b5396360244d63e4f02e291aa57bf8409
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
-  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Spruce: 07ffdb990923f500111fcbf13d102e16075b230e
   SwiftMapVC: 9fc5ca86c8317ecdfcbfae90de125cc8349749c5
   SwiftWebVC: 17ad75e1fac143d421e0498fb40d7e37532f26d1
-  SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
+  SwipeCellKit: 349c61ffde96ac3ae51c2691a03e421b5b29ee98
 
-PODFILE CHECKSUM: a9830ba8bcfd9b8af2aba05f3f6f64a61bac05f2
+PODFILE CHECKSUM: 43c3b75f600d523d779582ccbc13d1d0417335be
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.4.0.beta.2

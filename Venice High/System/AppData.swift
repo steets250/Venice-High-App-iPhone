@@ -9,7 +9,7 @@
 import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
-import ReachabilitySwift
+import Reachability
 
 extension AppDelegate /*App Data Loading*/ {
     func schoolData() {
@@ -18,7 +18,7 @@ extension AppDelegate /*App Data Loading*/ {
             let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
             let components = calendar.components([.day], from: dateRefreshed, to: Date(), options: [])
             if components.day! > 0 {
-                if Reachability()!.isReachable {
+                if Reachability()!.connection != .none {
                     loadFile(false)
                 } else {
                     loadData()
@@ -27,7 +27,7 @@ extension AppDelegate /*App Data Loading*/ {
                 loadData()
             }
         } else {
-            loadFile(!Reachability()!.isReachable)
+            loadFile(!(Reachability()!.connection != .none))
         }
     }
 

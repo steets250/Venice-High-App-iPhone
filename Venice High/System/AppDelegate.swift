@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         schoolStart = NSCalendar(identifier: NSCalendar.Identifier.gregorian)?.date(from: c as DateComponents)!
         c.year = 2017; c.month = 6; c.day = 9
         schoolEnd = NSCalendar(identifier: NSCalendar.Identifier.gregorian)?.date(from: c as DateComponents)!
-        UserDefaults.standard.register(defaults: ["Theme Alert": true, "Event Alert": true, "Initial Tab": 0, "Calendar Name": "", "Calendar Identifier": ""])
+        UserDefaults.standard.register(defaults: ["Theme Alert": true, "Event Alert": true, "Calendar Name": "", "Calendar Identifier": ""])
         updateLook()
         if UserDefaults.standard.bool(forKey: "Cleared Old") == false {
             UserDefaults.standard.removeObject(forKey: "Last Refreshed")
@@ -68,17 +68,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var quickActionHandled = false
         let type = shortcutItem.type.components(separatedBy: ".").last!
         if let shortcutType = Shortcut.init(rawValue: type) {
+            let tabBarController = self.window!.rootViewController as! UITabBarController
             switch shortcutType {
             case .openCalendar:
-                defaults.set(0, forKey: "Initial Tab")
+                tabBarController.selectedIndex = 0
             case .openBell:
-                defaults.set(1, forKey: "Initial Tab")
+                tabBarController.selectedIndex = 1
             case .openSearch:
-                defaults.set(2, forKey: "Initial Tab")
+                tabBarController.selectedIndex = 2
             case .openInfo:
-                defaults.set(3, forKey: "Initial Tab")
+                tabBarController.selectedIndex = 3
             case .openSettings:
-                defaults.set(4, forKey: "Initial Tab")
+                tabBarController.selectedIndex = 4
             }
             quickActionHandled = true
         }
@@ -87,26 +88,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let urlHost: String = url.host as String!
-
+        let tabBarController: UITabBarController = self.window!.rootViewController as! UITabBarController
         switch urlHost {
         case "calendar":
-            defaults.set(0, forKey: "Initial Tab")
+            tabBarController.selectedIndex = 0
         case "bell":
-            defaults.set(1, forKey: "Initial Tab")
+            tabBarController.selectedIndex = 1
         case "search":
-            defaults.set(2, forKey: "Initial Tab")
+            tabBarController.selectedIndex = 2
         case "info":
-            defaults.set(3, forKey: "Initial Tab")
+            tabBarController.selectedIndex = 3
         case "settings":
-            defaults.set(4, forKey: "Initial Tab")
+            tabBarController.selectedIndex = 4
         default:
-            defaults.set(0, forKey: "Initial Tab")
-        }
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootController = storyboard.instantiateViewController(withIdentifier: "Tab_Page") as! TabController
-        if let window = self.window {
-            window.rootViewController = rootController
+            tabBarController.selectedIndex = 0
         }
         return true
     }
@@ -115,18 +110,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RegularLabel.appearance().fontName = "HelveticaNeue-Light"
         RegularMarqueeLabel.appearance().fontName = "HelveticaNeue-Light"
         let font = UIFont(name: "HelveticaNeue-Light", size: 13.0)
+        let tabBarController: UITabBarController = self.window!.rootViewController as! UITabBarController
         UISegmentedControl.appearance().setTitleTextAttributes([NSFontAttributeName: font!],
                                                                for: .normal)
         var attributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 20)!, NSForegroundColorAttributeName: UIColor.black]
         if (defaults.bool(forKey: "Dark Theme")) {
             defaults.set(true, forKey: "Is Dark")
             themeBlue = UIColor(hex: "007BFF")
+            tabBarController.tabBar.tintColor = .lightGray
+            tabBarController.tabBar.barTintColor = .black
             UIApplication.shared.statusBarStyle = .lightContent
             UINavigationBar.appearance().barTintColor = .black
             attributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 20)!, NSForegroundColorAttributeName: UIColor.white]
         } else {
             defaults.set(false, forKey: "Is Dark")
             themeBlue = UIColor(hex: "007AFF")
+            tabBarController.tabBar.tintColor = .darkGray
+            tabBarController.tabBar.barTintColor = .white
         }
         UINavigationBar.appearance().titleTextAttributes = attributes
         UINavigationBar.appearance().tintColor = themeBlue

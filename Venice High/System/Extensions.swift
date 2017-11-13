@@ -6,7 +6,7 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
-import ReachabilitySwift
+import Reachability
 import UIKit
 
 extension UISearchBar {
@@ -36,7 +36,7 @@ extension UIViewController {
     }
 
     func internet() -> Bool {
-        if Reachability()!.isReachable {
+        if Reachability()!.connection != .none {
             return true
         } else {
             return false

@@ -32,7 +32,6 @@
 		BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A36F1F69F8FB00789DCD /* Structs.swift */; };
 		BAA3A3721F69F90300789DCD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3711F69F90300789DCD /* Extensions.swift */; };
 		BAA3A3741F69F90C00789DCD /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3731F69F90C00789DCD /* Classes.swift */; };
-		BAAB3CE71E981041000E5A53 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB3CE61E981041000E5A53 /* TabController.swift */; };
 		BAB1E6641ECD26080074F27F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB1E6621ECD26080074F27F /* LaunchScreen.storyboard */; };
 		BAB761DD1E52207700658D0B /* BellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761D81E52207700658D0B /* BellViewController.swift */; };
 		BAB761DF1E52207700658D0B /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761DA1E52207700658D0B /* StaffViewController.swift */; };
@@ -103,7 +102,6 @@
 		BAA3A36F1F69F8FB00789DCD /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		BAA3A3711F69F90300789DCD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAA3A3731F69F90C00789DCD /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		BAAB3CE61E981041000E5A53 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		BAB1E6631ECD26080074F27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAB761D81E52207700658D0B /* BellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BellViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAB761DA1E52207700658D0B /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StaffViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -207,7 +205,6 @@
 				BAA3A3711F69F90300789DCD /* Extensions.swift */,
 				BA412E171E498A39005A0AB5 /* Info.plist */,
 				BAA3A36F1F69F8FB00789DCD /* Structs.swift */,
-				BAAB3CE61E981041000E5A53 /* TabController.swift */,
 				BA3249021EC0E62A000F79F6 /* Venice High.entitlements */,
 			);
 			path = System;
@@ -440,10 +437,9 @@
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MWFeedParser/MWFeedParser.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/MiniTabBar/MiniTabBar.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMapVC/SwiftMapVC.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebVC/SwiftWebVC.framework",
@@ -456,10 +452,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWFeedParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiniTabBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMapVC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebVC.framework",
@@ -543,7 +538,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAB3CE71E981041000E5A53 /* TabController.swift in Sources */,
 				BA42837A1EC3ECF60060441E /* CalendarViewController.swift in Sources */,
 				BA2F9C031E7514F300B34EB7 /* DetailViewController.swift in Sources */,
 				BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */,

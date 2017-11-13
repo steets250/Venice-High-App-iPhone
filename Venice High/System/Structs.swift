@@ -8,7 +8,7 @@
 
 import AlamofireObjectMapper
 import ObjectMapper
-import ReachabilitySwift
+import Reachability
 
 struct Article {
     var title: String
