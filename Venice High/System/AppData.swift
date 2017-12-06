@@ -29,6 +29,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             loadFile(!(Reachability()!.connection != .none))
         }
+
     }
 
     func loadFile(_ manual: Bool = false) {
@@ -210,7 +211,7 @@ extension AppDelegate /*App Data Loading*/ {
     func loadEnding() {
         if messedUp || (internet && (buildingData.isEmpty || dateData.isEmpty || roomData.isEmpty || staffData.isEmpty || timeData.isEmpty)) {
             loadFile(false)
-        } else if internet && ((!buildingData.isEmpty || !dateData.isEmpty || !roomData.isEmpty || !staffData.isEmpty || !timeData.isEmpty)) {
+        } else if internet && !buildingData.isEmpty && !dateData.isEmpty && !roomData.isEmpty && !staffData.isEmpty && !timeData.isEmpty {
             saveData()
         }
     }
@@ -230,5 +231,6 @@ extension AppDelegate /*App Data Loading*/ {
         roomData = Mapper<Room>().mapArray(JSONString: defaults.string(forKey: "roomData")!)!
         staffData = Mapper<Staff>().mapArray(JSONString: defaults.string(forKey: "staffData")!)!
         timeData = Mapper<BellSchedule>().mapArray(JSONString: defaults.string(forKey: "timeData")!)!
+        processStaff(next: nil)
     }
 }

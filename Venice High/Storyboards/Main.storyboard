@@ -763,49 +763,8 @@ Steven Steiner</string>
                                             <constraint firstAttribute="height" constant="1" id="eYY-Wb-Q8X"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NAe-oo-7U8">
-                                        <rect key="frame" x="16" y="195.5" width="320" height="259.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons by The Noun Project:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-zd-8fe">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell - i cons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lr-mc-MnK">
-                                                <rect key="frame" x="0.0" y="43.5" width="320" height="43"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar - Kidiladon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qx-d3-sSf">
-                                                <rect key="frame" x="0.0" y="86.5" width="320" height="43.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info - Jürgen Bauer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wR-SC-6bu">
-                                                <rect key="frame" x="0.0" y="130" width="320" height="43"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search - i cons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ok-sg-vYW">
-                                                <rect key="frame" x="0.0" y="173" width="320" height="43.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings - Vladimir Belochkin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxc-xv-sou">
-                                                <rect key="frame" x="0.0" y="216.5" width="320" height="43"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c65-es-DoT">
-                                        <rect key="frame" x="0.0" y="137.5" width="320" height="57"/>
+                                        <rect key="frame" x="0.0" y="137" width="320" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Feedback:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBa-kh-Ovx">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="57"/>
@@ -830,26 +789,79 @@ Steven Steiner</string>
                                             <constraint firstAttribute="height" constant="1" id="ngq-Zx-3FV"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-cA-SzU">
+                                        <rect key="frame" x="0.0" y="196" width="320" height="259"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NAe-oo-7U8">
+                                                <rect key="frame" x="20" y="32.5" width="320" height="194"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons by The Noun Project:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-zd-8fe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="32.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell - i cons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lr-mc-MnK">
+                                                        <rect key="frame" x="0.0" y="32.5" width="320" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar - Kidiladon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qx-d3-sSf">
+                                                        <rect key="frame" x="0.0" y="64.5" width="320" height="32.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info - Jürgen Bauer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wR-SC-6bu">
+                                                        <rect key="frame" x="0.0" y="97" width="320" height="32.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search - i cons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ok-sg-vYW">
+                                                        <rect key="frame" x="0.0" y="129.5" width="320" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings - Vladimir Belochkin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxc-xv-sou">
+                                                        <rect key="frame" x="0.0" y="161.5" width="320" height="32.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="NAe-oo-7U8" secondAttribute="trailing" constant="20" symbolic="YES" id="KaW-lv-VgF"/>
+                                            <constraint firstItem="NAe-oo-7U8" firstAttribute="height" secondItem="3Mx-cA-SzU" secondAttribute="height" multiplier="0.75" id="ODy-Q4-SZO"/>
+                                            <constraint firstItem="NAe-oo-7U8" firstAttribute="centerY" secondItem="3Mx-cA-SzU" secondAttribute="centerY" id="kAf-0D-8T0"/>
+                                            <constraint firstItem="NAe-oo-7U8" firstAttribute="leading" secondItem="3Mx-cA-SzU" secondAttribute="leading" constant="20" symbolic="YES" id="kQq-QS-hN1"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="awC-3A-VYi" secondAttribute="trailing" id="0Td-81-BET"/>
-                                    <constraint firstItem="NAe-oo-7U8" firstAttribute="top" secondItem="yZ3-v1-YcO" secondAttribute="bottom" id="2QS-Iu-BDw"/>
                                     <constraint firstItem="c65-es-DoT" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leading" id="8zm-Lx-9y5"/>
                                     <constraint firstItem="zeD-0f-isR" firstAttribute="top" secondItem="CxJ-QQ-Br2" secondAttribute="top" id="9p4-A8-Ql8"/>
                                     <constraint firstItem="c65-es-DoT" firstAttribute="height" secondItem="CxJ-QQ-Br2" secondAttribute="height" multiplier="0.125" id="9uw-9j-HRc"/>
+                                    <constraint firstItem="3Mx-cA-SzU" firstAttribute="top" secondItem="yZ3-v1-YcO" secondAttribute="bottom" id="BHz-r1-cE8"/>
                                     <constraint firstItem="yZ3-v1-YcO" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leading" id="ChI-fr-YTN"/>
-                                    <constraint firstAttribute="bottom" secondItem="NAe-oo-7U8" secondAttribute="bottom" id="G9D-cB-8ws"/>
                                     <constraint firstItem="awC-3A-VYi" firstAttribute="top" secondItem="zeD-0f-isR" secondAttribute="bottom" id="Haj-8B-YwA"/>
                                     <constraint firstAttribute="trailing" secondItem="yZ3-v1-YcO" secondAttribute="trailing" id="OCY-4l-xnc"/>
-                                    <constraint firstItem="NAe-oo-7U8" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leading" constant="16" id="Q8R-U5-WDu"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="zeD-0f-isR" secondAttribute="trailing" constant="8" id="Rib-bU-e2j"/>
                                     <constraint firstItem="yZ3-v1-YcO" firstAttribute="top" secondItem="c65-es-DoT" secondAttribute="bottom" id="SfW-yR-Xi9"/>
-                                    <constraint firstAttribute="trailing" secondItem="NAe-oo-7U8" secondAttribute="trailing" constant="16" id="cDd-xC-zPR"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Mx-cA-SzU" secondAttribute="bottom" id="c1u-Er-4Wi"/>
                                     <constraint firstItem="awC-3A-VYi" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leading" id="dw4-yy-l7G"/>
                                     <constraint firstItem="c65-es-DoT" firstAttribute="top" secondItem="awC-3A-VYi" secondAttribute="bottom" id="iAf-U4-abL"/>
                                     <constraint firstItem="zeD-0f-isR" firstAttribute="height" secondItem="CxJ-QQ-Br2" secondAttribute="height" multiplier="0.3" id="kjd-SZ-78y"/>
                                     <constraint firstAttribute="trailing" secondItem="c65-es-DoT" secondAttribute="trailing" id="lxe-1G-35F"/>
+                                    <constraint firstItem="3Mx-cA-SzU" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leading" id="rXC-AN-uOF"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Mx-cA-SzU" secondAttribute="trailing" id="vrD-Wu-O42"/>
                                     <constraint firstItem="zeD-0f-isR" firstAttribute="leading" secondItem="CxJ-QQ-Br2" secondAttribute="leadingMargin" constant="8" id="xAA-lA-h89"/>
                                 </constraints>
                             </view>
@@ -869,13 +881,13 @@ Steven Steiner</string>
                         <outlet property="mbLine" destination="yZ3-v1-YcO" id="7Kb-Z5-gWy"/>
                         <outlet property="tmLine" destination="awC-3A-VYi" id="B2z-Fy-k3b"/>
                         <outletCollection property="collectionOfLabels" destination="kBa-kh-Ovx" collectionClass="NSMutableArray" id="R7b-Bh-qi2"/>
-                        <outletCollection property="collectionOfLabels" destination="3Ok-sg-vYW" collectionClass="NSMutableArray" id="P7Z-XU-sXB"/>
+                        <outletCollection property="collectionOfLabels" destination="P0O-wb-n40" collectionClass="NSMutableArray" id="tBr-08-cAU"/>
+                        <outletCollection property="collectionOfLabels" destination="1Qx-d3-sSf" collectionClass="NSMutableArray" id="7nM-xi-vV2"/>
                         <outletCollection property="collectionOfLabels" destination="0Lr-mc-MnK" collectionClass="NSMutableArray" id="PtI-4a-Ipe"/>
+                        <outletCollection property="collectionOfLabels" destination="3Ok-sg-vYW" collectionClass="NSMutableArray" id="P7Z-XU-sXB"/>
+                        <outletCollection property="collectionOfLabels" destination="6wR-SC-6bu" collectionClass="NSMutableArray" id="Hhh-ev-HOv"/>
                         <outletCollection property="collectionOfLabels" destination="dhI-zd-8fe" collectionClass="NSMutableArray" id="H2G-Oa-VSU"/>
                         <outletCollection property="collectionOfLabels" destination="Pxc-xv-sou" collectionClass="NSMutableArray" id="ns2-ZH-bH2"/>
-                        <outletCollection property="collectionOfLabels" destination="6wR-SC-6bu" collectionClass="NSMutableArray" id="Hhh-ev-HOv"/>
-                        <outletCollection property="collectionOfLabels" destination="1Qx-d3-sSf" collectionClass="NSMutableArray" id="7nM-xi-vV2"/>
-                        <outletCollection property="collectionOfLabels" destination="P0O-wb-n40" collectionClass="NSMutableArray" id="tBr-08-cAU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2F-9t-5FX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1239,7 +1251,7 @@ Steven Steiner</string>
                                                                 <rect key="frame" x="0.0" y="0.5" width="240" height="35.5"/>
                                                                 <subviews>
                                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-Vd-1nD">
-                                                                        <rect key="frame" x="73" y="3.5" width="94" height="29"/>
+                                                                        <rect key="frame" x="73" y="4" width="94" height="29"/>
                                                                         <connections>
                                                                             <action selector="periodEndStepped:" destination="S7z-Oz-LSw" eventType="valueChanged" id="UC1-0e-MAV"/>
                                                                         </connections>

@@ -25,6 +25,9 @@ class SearchViewController: UIViewController {
         roomSearch.alpha = 0.0
         staffSearch.isUserInteractionEnabled = true
         roomSearch.isUserInteractionEnabled = false
+        if appDelegate.staffData.isEmpty || appDelegate.roomData.isEmpty {
+            appDelegate.loadFile(true)
+        }
     }
 
     func switchPage(index: Int) {

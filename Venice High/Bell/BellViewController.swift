@@ -192,56 +192,56 @@ class BellViewController: UIViewController {
         if defaults.bool(forKey: "School Year") && todaySchedule == 0 {
             if defaults.bool(forKey: "Show Period 0") {
                 scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 51), label: period0, label2: period0t)
-                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             } else {
-                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             }
             scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 57), pce: now.dateAt(hours: 08, minutes: 53), label: period1, label2: period1t)
-            passing(pcs: now.dateAt(hours: 08, minutes: 53), pce: now.dateAt(hours: 08, minutes: 59))
+            passing(pcs: now.dateAt(hours: 08, minutes: 53), pce: now.dateAt(hours: 08, minutes: 59), period: "Period 2")
             scheduleCheck(pcs: now.dateAt(hours: 08, minutes: 59), pce: now.dateAt(hours: 10, minutes: 09), label: period2, label2: period2t)
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 09), pce: now.dateAt(hours: 10, minutes: 26), label: nutrition, label2: nutritiont)
-            passing(pcs: now.dateAt(hours: 10, minutes: 26), pce: now.dateAt(hours: 10, minutes: 32))
+            passing(pcs: now.dateAt(hours: 10, minutes: 26), pce: now.dateAt(hours: 10, minutes: 32), period: "Period 3")
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 32), pce: now.dateAt(hours: 11, minutes: 27), label: period3, label2: period3t)
-            passing(pcs: now.dateAt(hours: 11, minutes: 27), pce: now.dateAt(hours: 11, minutes: 33))
+            passing(pcs: now.dateAt(hours: 11, minutes: 27), pce: now.dateAt(hours: 11, minutes: 33), period: "Period 4")
             scheduleCheck(pcs: now.dateAt(hours: 11, minutes: 33), pce: now.dateAt(hours: 12, minutes: 28), label: period4, label2: period4t)
             scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 28), pce: now.dateAt(hours: 13, minutes: 01), label: lunch, label2: luncht)
-            passing(pcs: now.dateAt(hours: 13, minutes: 01), pce: now.dateAt(hours: 13, minutes: 07))
+            passing(pcs: now.dateAt(hours: 13, minutes: 01), pce: now.dateAt(hours: 13, minutes: 07), period: "Period 5")
             scheduleCheck(pcs: now.dateAt(hours: 13, minutes: 07), pce: now.dateAt(hours: 14, minutes: 02), label: period5, label2: period5t)
-            passing(pcs: now.dateAt(hours: 14, minutes: 02), pce: now.dateAt(hours: 14, minutes: 08))
+            passing(pcs: now.dateAt(hours: 14, minutes: 02), pce: now.dateAt(hours: 14, minutes: 08), period: "Period 6")
             scheduleCheck(pcs: now.dateAt(hours: 14, minutes: 08), pce: now.dateAt(hours: 15, minutes: 04), label: period6, label2: period6t)
             if defaults.bool(forKey: "Show Period 7") {
-                passing(pcs: now.dateAt(hours: 15, minutes: 04), pce: now.dateAt(hours: 15, minutes: 10))
+                passing(pcs: now.dateAt(hours: 15, minutes: 04), pce: now.dateAt(hours: 15, minutes: 10), period: "Period 7")
                 scheduleCheck(pcs: now.dateAt(hours: 15, minutes: 10), pce: now.dateAt(hours: 16, minutes: 30), label: period7, label2: period7t)
             }
         }
     }
-
+    
     func professionalSchedule() {
         let now = Date()
         notSchool(stah: sstah, stam: sstam, endh: 13, endm: 34)
         if defaults.bool(forKey: "School Year") && todaySchedule == 1 {
             if defaults.bool(forKey: "Show Period 0") {
                 scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 51), label: period0, label2: period0t)
-                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             } else {
-                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             }
             scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 57), pce: now.dateAt(hours: 08, minutes: 38), label: period1, label2: period1t)
-            passing(pcs: now.dateAt(hours: 08, minutes: 38), pce: now.dateAt(hours: 08, minutes: 44))
+            passing(pcs: now.dateAt(hours: 08, minutes: 38), pce: now.dateAt(hours: 08, minutes: 44), period: "Period 2")
             scheduleCheck(pcs: now.dateAt(hours: 08, minutes: 44), pce: now.dateAt(hours: 09, minutes: 39), label: period2, label2: period2t)
             scheduleCheck(pcs: now.dateAt(hours: 09, minutes: 39), pce: now.dateAt(hours: 09, minutes: 56), label: nutrition, label2: nutritiont)
-            passing(pcs: now.dateAt(hours: 09, minutes: 56), pce: now.dateAt(hours: 10, minutes: 02))
+            passing(pcs: now.dateAt(hours: 09, minutes: 56), pce: now.dateAt(hours: 10, minutes: 02), period: "Period 3")
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 02), pce: now.dateAt(hours: 10, minutes: 43), label: period3, label2: period3t)
-            passing(pcs: now.dateAt(hours: 10, minutes: 43), pce: now.dateAt(hours: 10, minutes: 49))
+            passing(pcs: now.dateAt(hours: 10, minutes: 43), pce: now.dateAt(hours: 10, minutes: 49), period: "Period 4")
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 49), pce: now.dateAt(hours: 11, minutes: 29), label: period4, label2: period4t)
             scheduleCheck(pcs: now.dateAt(hours: 11, minutes: 29), pce: now.dateAt(hours: 12, minutes: 02), label: lunch, label2: luncht)
-            passing(pcs: now.dateAt(hours: 12, minutes: 02), pce: now.dateAt(hours: 12, minutes: 24))
-            scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 24), pce: now.dateAt(hours: 13, minutes: 09), label: period5, label2: period5t)
-            passing(pcs: now.dateAt(hours: 13, minutes: 09), pce: now.dateAt(hours: 12, minutes: 54))
+            passing(pcs: now.dateAt(hours: 12, minutes: 02), pce: now.dateAt(hours: 12, minutes: 08), period: "Period 5")
+            scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 08), pce: now.dateAt(hours: 12, minutes: 48), label: period5, label2: period5t)
+            passing(pcs: now.dateAt(hours: 12, minutes: 48), pce: now.dateAt(hours: 12, minutes: 54), period: "Period 6")
             scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 54), pce: now.dateAt(hours: 13, minutes: 34), label: period6, label2: period6t)
         }
     }
-
+    
     func minimumSchedule() {
         let now = Date()
         if defaults.bool(forKey: "Show Period 7") {eendh = 13; eendm = 04} else {eendh = 12; eendm = 34}
@@ -249,24 +249,24 @@ class BellViewController: UIViewController {
         if defaults.bool(forKey: "School Year") && todaySchedule == 2 {
             if defaults.bool(forKey: "Show Period 0") {
                 scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 51), label: period0, label2: period0t)
-                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 51), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             } else {
-                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57))
+                passing(pcs: now.dateAt(hours: 07, minutes: 00), pce: now.dateAt(hours: 07, minutes: 57), period: "Period 1")
             }
             scheduleCheck(pcs: now.dateAt(hours: 07, minutes: 57), pce: now.dateAt(hours: 08, minutes: 33), label: period1, label2: period1t)
-            passing(pcs: now.dateAt(hours: 08, minutes: 33), pce: now.dateAt(hours: 08, minutes: 39))
+            passing(pcs: now.dateAt(hours: 08, minutes: 33), pce: now.dateAt(hours: 08, minutes: 39), period: "Period 2")
             scheduleCheck(pcs: now.dateAt(hours: 08, minutes: 39), pce: now.dateAt(hours: 09, minutes: 29), label: period2, label2: period2t)
-            passing(pcs: now.dateAt(hours: 09, minutes: 29), pce: now.dateAt(hours: 09, minutes: 35))
+            passing(pcs: now.dateAt(hours: 09, minutes: 29), pce: now.dateAt(hours: 09, minutes: 35), period: "Period 3")
             scheduleCheck(pcs: now.dateAt(hours: 09, minutes: 35), pce: now.dateAt(hours: 10, minutes: 11), label: nutrition, label2: nutritiont)
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 11), pce: now.dateAt(hours: 10, minutes: 28), label: period3, label2: period3t)
-            passing(pcs: now.dateAt(hours: 10, minutes: 28), pce: now.dateAt(hours: 10, minutes: 34))
+            passing(pcs: now.dateAt(hours: 10, minutes: 28), pce: now.dateAt(hours: 10, minutes: 34), period: "Period 4")
             scheduleCheck(pcs: now.dateAt(hours: 10, minutes: 34), pce: now.dateAt(hours: 11, minutes: 10), label: period4, label2: period4t)
-            passing(pcs: now.dateAt(hours: 11, minutes: 10), pce: now.dateAt(hours: 11, minutes: 16))
+            passing(pcs: now.dateAt(hours: 11, minutes: 10), pce: now.dateAt(hours: 11, minutes: 16), period: "Period 5")
             scheduleCheck(pcs: now.dateAt(hours: 11, minutes: 16), pce: now.dateAt(hours: 11, minutes: 52), label: lunch, label2: luncht)
-            passing(pcs: now.dateAt(hours: 11, minutes: 52), pce: now.dateAt(hours: 11, minutes: 58))
+            passing(pcs: now.dateAt(hours: 11, minutes: 52), pce: now.dateAt(hours: 11, minutes: 58), period: "Period 6")
             scheduleCheck(pcs: now.dateAt(hours: 11, minutes: 58), pce: now.dateAt(hours: 12, minutes: 34), label: period5, label2: period5t)
             if defaults.bool(forKey: "Show Period 7") {
-                passing(pcs: now.dateAt(hours: 12, minutes: 34), pce: now.dateAt(hours: 12, minutes: 41))
+                passing(pcs: now.dateAt(hours: 12, minutes: 34), pce: now.dateAt(hours: 12, minutes: 41), period: "Period 7")
                 scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 41), pce: now.dateAt(hours: 13, minutes: 04), label: period6, label2: period6t)
             } else {
                 period7.text = ""; period7t.text = ""
@@ -288,12 +288,12 @@ class BellViewController: UIViewController {
         }
     }
 
-    func passing(pcs: Date, pce: Date) {
+    func passing(pcs: Date, pce: Date, period: String) {
         let now = Date()
         if now >= pcs && now <= pce {
             let minutes = now.minutes(from: pce)*(0-1)
             let seconds = now.seconds(from: pce)*(0-1) - minutes*60
-            timeLeft.text = "Passing Period: " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
+            timeLeft.text = "Passing to \(period): " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
         }
     }
 

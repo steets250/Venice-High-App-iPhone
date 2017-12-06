@@ -31,6 +31,7 @@ class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.sectionIndexColor = appDelegate.themeBlue
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = .black
@@ -189,9 +190,9 @@ extension CalendarViewController /*Data Processing*/ {
 
     func removeOld(_ input: [Article]) -> [Article] {
         var articles = [Article]()
-        let now = Date()
+        let cutOff = Calendar.current.startOfDay(for: Date())
         for i in 0 ..< input.count {
-            if input[i].endDate >= now {
+            if input[i].endDate >= cutOff {
                 articles.append(input[i])
             }
         }
@@ -406,7 +407,7 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CalendarViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
+        guard orientation == .left else { return nil }
 
         let calendarAction = SwipeAction(style: .default, title: nil) { _, indexPath in
             self.articleToSave(indexPath)
@@ -419,6 +420,7 @@ extension CalendarViewController: SwipeTableViewCellDelegate {
 
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
+        options.expansionStyle = .selection
         options.transitionStyle = .drag
         return options
     }
@@ -476,6 +478,16 @@ extension CalendarViewController /*Calendar Saving Functions*/ {
                         self.defaults.set(false, forKey: "Event Alert")
                     }))
                     self.present(alertController, animated: true, completion: nil)
+                } else {
+                    DispatchQueue.main.async {
+                        let popup = JGProgressHUD(style: self.style)
+                        popup.indicatorView = JGProgressHUDSuccessIndicatorView()
+                        popup.textLabel.text = "Success"
+                        popup.parallaxMode = .device
+                        popup.interactionType = .blockTouchesOnHUDView
+                        popup.show(in: self.parent!.view)
+                        popup.dismiss(afterDelay: 1.0)
+                    }
                 }
             }
         })
