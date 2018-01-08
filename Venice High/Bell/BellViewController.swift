@@ -6,9 +6,10 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
+import SAConfettiView
 import UIKit
 
-class BellViewController: UIViewController {
+class BellViewController: ConfettiViewController {
     @IBOutlet weak var leftStack: UIStackView!; @IBOutlet weak var rightStack: UIStackView!
     @IBOutlet weak var inLeftStack: UIStackView!; @IBOutlet weak var inRightStack: UIStackView!
     @IBOutlet weak var period0: UILabel!; @IBOutlet weak var period0t: UILabel!
@@ -42,6 +43,7 @@ class BellViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        iconType = "Bell"
         sstah = 07; sstam = 00
         segmentedControl.tintColor = appDelegate.themeBlue
         let calendar = Calendar.current
@@ -215,7 +217,7 @@ class BellViewController: UIViewController {
             }
         }
     }
-    
+
     func professionalSchedule() {
         let now = Date()
         notSchool(stah: sstah, stam: sstam, endh: 13, endm: 34)
@@ -241,7 +243,7 @@ class BellViewController: UIViewController {
             scheduleCheck(pcs: now.dateAt(hours: 12, minutes: 54), pce: now.dateAt(hours: 13, minutes: 34), label: period6, label2: period6t)
         }
     }
-    
+
     func minimumSchedule() {
         let now = Date()
         if defaults.bool(forKey: "Show Period 7") {eendh = 13; eendm = 04} else {eendh = 12; eendm = 34}

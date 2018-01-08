@@ -1,5 +1,5 @@
 //
-//  CalendarViewController.swift
+//  ListViewController.swift
 //  Venice High
 //
 //  Created by Steven Steiner on 5/10/17.
@@ -11,27 +11,33 @@ import JGProgressHUD
 import MarqueeLabel
 import MWFeedParser
 import PermissionScope
+import SAConfettiView
 import Spruce
 import SwipeCellKit
 
-class CalendarViewController: UIViewController {
+class ListViewController: ConfettiViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
     var loaded = false
     var firstRun = true
     var error = false
     var articleCount: Int!
     var articlesTemp = [Article]()
     var articlesSorted = [ArticleGroup]()
+    var articlesVisible = [ArticleGroup]()
     var countTemp = [MWFeedItem]()
     var style: JGProgressHUDStyle!
     var hud: JGProgressHUD!
+    var currentText: String = ""
+    var searching: Bool = false
     var current: Date!
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var lastReturned = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        iconType = "Calendar"
+        darkTheme()
         tableView.sectionIndexColor = appDelegate.themeBlue
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = .black
@@ -50,7 +56,36 @@ class CalendarViewController: UIViewController {
         hud.interactionType = .blockAllTouches
         hud.indicatorView = JGProgressHUDRingIndicatorView()
         hud.progress = 0.0
-        hud.show(in: self.parent!.view)
+        hud.show(in: self.view)
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: #imageLiteral(resourceName: "Calendar"), style: .plain, target: self, action: #selector(openVisual)), animated: true)
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+    }
+
+    func openVisual() {
+        let visualView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "visualView") as! VisualViewController
+        visualView.eventList = articlesTemp
+        self.navigationController?.pushViewController(visualView, animated: true)
+    }
+
+    func darkTheme() {
+        if defaults.bool(forKey: "Is Dark") {
+            searchBar.backgroundColor = .black
+            searchBar.backgroundImage = UIImage()
+            searchBar.isTranslucent = true
+            searchBar.keyboardAppearance = UIKeyboardAppearance.dark
+            searchBar.textColor = .white
+            for subView in searchBar.subviews {
+                for subViewOne in subView.subviews {
+                    if let textField = subViewOne as? UITextField {
+                        subViewOne.backgroundColor = .darkGray
+                        let textFieldInsideUISearchBarLabel = textField.value(forKey: "placeholderLabel") as? UILabel
+                        textFieldInsideUISearchBarLabel?.textColor = .lightGray
+                    }
+                }
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +102,7 @@ class CalendarViewController: UIViewController {
                 articlesTemp = loadArticles()
                 processArray()
                 hud.dismiss(afterDelay: 0)
+                tableView.reloadData()
                 if dateChecker() {
                     loadCount()
                 }
@@ -78,7 +114,9 @@ class CalendarViewController: UIViewController {
             if test.count != 0 {
                 articlesTemp = loadArticles()
                 processArray()
+                tableView.reloadData()
             } else {
+                searchBar.isUserInteractionEnabled = false
                 let alertController = UIAlertController(title: "No Network", message: "Please connect your phone to a wifi or cellular network.", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
@@ -119,7 +157,7 @@ class CalendarViewController: UIViewController {
     }
 }
 
-extension CalendarViewController: MWFeedParserDelegate {
+extension ListViewController: MWFeedParserDelegate {
     func request() {
         let URL = Foundation.URL(string: "https://venicehs-lausd-ca.schoolloop.com/cms/rss?d=x&group_id=1442645854073&types=_assignment__event_&return_url=1494562389332")
         let feedParser = MWFeedParser(feedURL: URL)!
@@ -142,7 +180,6 @@ extension CalendarViewController: MWFeedParserDelegate {
                 firstRun = false
             } else {
                 saveArticles(articlesTemp)
-                processArray()
             }
         }
     }
@@ -180,12 +217,13 @@ extension CalendarViewController: MWFeedParserDelegate {
     }
 }
 
-extension CalendarViewController /*Data Processing*/ {
+extension ListViewController /*Data Processing*/ {
     func processArray() {
         articlesTemp = articlesTemp.sorted(by: { $0.startDate.compare($1.startDate) == .orderedAscending })
         articlesTemp = removeOld(articlesTemp)
         articlesTemp = mergeDuplicates(articlesTemp)
         articlesSorted = processArticles(articlesTemp)
+        articlesVisible = articlesSorted
     }
 
     func removeOld(_ input: [Article]) -> [Article] {
@@ -291,29 +329,29 @@ extension CalendarViewController /*Data Processing*/ {
     }
 }
 
-extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
+extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return months[articlesSorted[section].month-1]
+        return months[articlesVisible[section].month-1]
     }
 
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         var temp = [String]()
-        articlesSorted = articlesSorted.sorted(by: { $0.month < $1.month })
-        articlesSorted = articlesSorted.sorted(by: { $0.year < $1.year })
-        for i in articlesSorted {
+        articlesVisible = articlesVisible.sorted(by: { $0.month < $1.month })
+        articlesVisible = articlesVisible.sorted(by: { $0.year < $1.year })
+        for i in articlesVisible {
             temp.append(months[i.month-1].getFirst(3))
             temp.append(" ")
-            if articlesSorted.count < 12 {
+            if articlesVisible.count < 12 {
                 temp.append(" ")
             }
         }
-        if articlesSorted.count > 0 {
+        if articlesVisible.count > 0 {
             temp.remove(at: temp.count-1)
-            if articlesSorted.count < 12 {
+            if articlesVisible.count < 12 {
                 temp.remove(at: temp.count-1)
             }
         }
@@ -340,15 +378,15 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return articlesSorted.count
+        return articlesVisible.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articlesSorted[section].articles.count
+        return articlesVisible[section].articles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let article = articlesSorted[indexPath.section].articles[indexPath.row]
+        let article = articlesVisible[indexPath.section].articles[indexPath.row]
         if (article.startTime == "none" && article.endTime == "none")
         || (article.startTime == "12:00 AM" && article.endTime == "11:55 PM")
         || (article.startTime == "12:00 AM" && article.endTime == "11:59 PM") {
@@ -405,7 +443,50 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension CalendarViewController: SwipeTableViewCellDelegate {
+extension ListViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        searching = true
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        currentText = ""
+        searching = false
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.endEditing(true)
+        refreshData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        currentText = searchText
+        refreshData()
+    }
+
+    func refreshData() {
+        articlesVisible = articlesSorted
+        var tempResults = [Article]()
+        if searching && currentText != "" {
+            for group in articlesSorted {
+                if group.articles.isEmpty == false {
+                    for article in group.articles {
+                        if article.title.lowercased().contains(currentText.lowercased()) {
+                            tempResults.append(article)
+                        }
+                    }
+                }
+            }
+            articlesVisible = processArticles(tempResults)
+        }
+        tableView.reloadData()
+    }
+}
+
+extension ListViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .left else { return nil }
 
@@ -429,7 +510,7 @@ extension CalendarViewController: SwipeTableViewCellDelegate {
         let pscope = PermissionScope()
         pscope.addPermission(EventsPermission(), message: "Lets us add events\r\nto your calendar.")
         pscope.show({ _, _ in
-            let temp = self.articlesSorted[indexPath.section].articles[indexPath.row]
+            let temp = self.articlesVisible[indexPath.section].articles[indexPath.row]
             if self.defaults.string(forKey: "Calendar Name") == "" {
                 let cscope = CalendarScope()
                 cscope.showAlert(finished: {done in
@@ -444,7 +525,7 @@ extension CalendarViewController: SwipeTableViewCellDelegate {
     }
 }
 
-extension CalendarViewController /*Calendar Saving Functions*/ {
+extension ListViewController /*Calendar Saving Functions*/ {
     func saveToCalendarOne(temp: Article, force: Bool = false) {
         saveToCalendarTwo(temp, force, completion: {status, error in
             if status == false {

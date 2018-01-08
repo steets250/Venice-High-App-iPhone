@@ -6,9 +6,11 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
+import RFAboutView_Swift
+import SAConfettiView
 import SwiftWebVC
 
-class InformationViewController: UIViewController {
+class InformationViewController: ConfettiViewController {
     @IBOutlet weak var schoolTitle: UILabel!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var backgroundView: UIView!
@@ -18,6 +20,7 @@ class InformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        iconType = "Info"
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = .black
             schoolTitle.textColor = .white
@@ -67,5 +70,30 @@ class InformationViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+
+    @IBAction func information(_ sender: Any) {
+        let aboutView = RFAboutViewController(copyrightHolderName: "Steven Steiner", contactEmail: "venicehighapp@gmail.com", contactEmailTitle: "App Feedback", websiteURL: URL(string: "http://venicehigh.steets250.com"), websiteURLTitle: "App Website")
+        aboutView.buttonTintColor = appDelegate.themeBlue
+
+        if defaults.bool(forKey: "Is Dark") {
+            aboutView.blurAlpha = 0.75
+            aboutView.tintColor = .white
+            aboutView.buttonTintColor = .white
+            aboutView.backgroundColor = UIColor(red:0.06, green:0.06, blue:0.06, alpha:1)
+            aboutView.headerTextColor = .white
+            aboutView.headerBorderColor = .darkGray
+            aboutView.headerBackgroundColor = .black
+            aboutView.acknowledgementsHeaderColor = .white
+            aboutView.tableViewBackgroundColor = .black
+            aboutView.tableViewTextColor = .white
+            aboutView.blurColor = .black
+            aboutView.tableViewSeparatorColor = UIColor.white.withAlphaComponent(0.5)
+            aboutView.tableViewSelectionColor = .darkGray
+        }
+
+        aboutView.headerBackgroundImage = UIImage(named: "about_header_bg.jpg")
+
+        self.navigationController?.pushViewController(aboutView, animated: true)
     }
 }
