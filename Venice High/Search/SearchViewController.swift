@@ -6,15 +6,14 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
-import SAConfettiView
+import UIKit
 
-class SearchViewController: ConfettiViewController {
+class SearchViewController: UIViewController {
     @IBOutlet weak var staffSearch: UIView!
     @IBOutlet weak var roomSearch: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iconType = "Search"
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         } else {
@@ -23,7 +22,12 @@ class SearchViewController: ConfettiViewController {
         if appDelegate.staffData.isEmpty || appDelegate.roomData.isEmpty {
             appDelegate.loadFile(true)
         }
-        openStaff()
+        if defaults.bool(forKey: "Room Start") {
+            openRooms()
+            defaults.set(false, forKey: "Room Start")
+        } else {
+            openStaff()
+        }
     }
 
     func openStaff() {
@@ -34,7 +38,6 @@ class SearchViewController: ConfettiViewController {
             self.staffSearch.isUserInteractionEnabled = true
             self.roomSearch.isUserInteractionEnabled = false
         })
-        self.navigationItem.setLeftBarButton(nil, animated: true)
         let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Room"), style: .plain, target: self, action: #selector(openRooms))
         self.navigationItem.setRightBarButton(rightButtonItem, animated: true)
     }
@@ -47,8 +50,7 @@ class SearchViewController: ConfettiViewController {
             self.staffSearch.isUserInteractionEnabled = false
             self.roomSearch.isUserInteractionEnabled = true
         })
-        self.navigationItem.setRightBarButton(nil, animated: true)
-        let leftButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Staff"), style: .plain, target: self, action: #selector(openStaff))
-        self.navigationItem.leftBarButtonItem = leftButtonItem
+        let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Staff"), style: .plain, target: self, action: #selector(openStaff))
+        self.navigationItem.rightBarButtonItem = rightButtonItem
     }
 }

@@ -7,10 +7,9 @@
 //
 
 import RFAboutView_Swift
-import SAConfettiView
 import SwiftWebVC
 
-class InformationViewController: ConfettiViewController {
+class InformationViewController: UIViewController {
     @IBOutlet weak var schoolTitle: UILabel!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var backgroundView: UIView!
@@ -20,7 +19,6 @@ class InformationViewController: ConfettiViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iconType = "Info"
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = .black
             schoolTitle.textColor = .white
@@ -92,7 +90,7 @@ class InformationViewController: ConfettiViewController {
             aboutView.tableViewSelectionColor = .darkGray
         }
 
-        aboutView.headerBackgroundImage = UIImage(named: "about_header_bg.jpg")
+        aboutView.headerBackgroundImage = #imageLiteral(resourceName: "Acknowledgements")
 
         self.navigationController?.pushViewController(aboutView, animated: true)
     }

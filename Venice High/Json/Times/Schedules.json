@@ -1,0 +1,17 @@
+[
+ {
+   "id": 1,
+   "file": "Regular",
+   "title": "Regular"
+ },
+ {
+   "id": 2,
+   "file": "Professional",
+   "title": "Professional"
+ },
+ {
+   "id": 3,
+   "file": "Minimum",
+   "title": "Minimum"
+ }
+]

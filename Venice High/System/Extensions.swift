@@ -27,6 +27,15 @@ extension UISearchBar {
     }
 }
 
+extension UISegmentedControl {
+    func replaceSegments(segments: Array<String>) {
+        self.removeAllSegments()
+        for segment in segments {
+            self.insertSegment(withTitle: segment, at: self.numberOfSegments, animated: false)
+        }
+    }
+}
+
 extension UIViewController {
     var defaults: UserDefaults {
         return UserDefaults.standard
@@ -72,27 +81,8 @@ extension UIColor {
     }
 }
 
-extension UIView {
-    func layerGradient(colors: [CGColor]) {
-        let layer: CAGradientLayer = CAGradientLayer()
-        layer.frame.size = self.frame.size
-        layer.frame.origin = CGPoint.zero
-        layer.colors = colors
-        self.layer.insertSublayer(layer, at: 0)
-    }
-
-    func fadeTransition(_ duration: CFTimeInterval) {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFade
-        animation.duration = duration
-        layer.add(animation, forKey: kCATransitionFade)
-    }
-}
-
 extension Date {
-    func isBetweeen(date date1: Date, andDate date2: Date) -> Bool {
+    func isBetween(date date1: Date, andDate date2: Date) -> Bool {
         return date1.compare(self).rawValue * self.compare(date2).rawValue >= 0}
 
     func minutes(from date: Date) -> Int {
@@ -160,17 +150,5 @@ extension String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound)
         return self[Range(start ..< end)]
-    }
-}
-
-extension UIImage {
-    class func imageWithColor(color: UIColor) -> UIImage {
-        let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
-        color.setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
     }
 }

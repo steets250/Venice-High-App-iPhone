@@ -6,7 +6,6 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
-import AlamofireObjectMapper
 import ObjectMapper
 import Reachability
 
@@ -40,6 +39,23 @@ struct Building: Mappable {
     }
 }
 
+struct Endpoint: Mappable {
+    var name: String = ""
+    var year: Int = 0
+    var month: Int = 0
+    var day: Int = 0
+
+    init?(map: Map) {
+    }
+
+    mutating func mapping(map: Map) {
+        name  <- map["name"]
+        year  <- map["yy"]
+        month <- map["mm"]
+        day   <- map["dd"]
+    }
+}
+
 struct Room: Mappable {
     var number: String = ""
     var building: String = ""
@@ -64,7 +80,7 @@ struct Staff: Mappable {
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
-    var link: String = ""
+    var link: Int = 0
     var mata: Bool = false
     var sma: Bool = false
     var wlgs: Bool = false
@@ -109,12 +125,32 @@ struct BellSchedule: Mappable {
     var schedule: String = ""
     var times: [Time] = []
 
+    init(schedule: String, times: [Time]) {
+        self.schedule = schedule
+        self.times = times
+    }
+
     init?(map: Map) {
     }
 
     mutating func mapping(map: Map) {
         schedule <- map["schedule"]
         times    <- map["times"]
+    }
+}
+
+struct Schedule: Mappable {
+    var id: Int = 0
+    var file: String = ""
+    var title: String = ""
+
+    init?(map: Map) {
+    }
+
+    mutating func mapping(map: Map) {
+        id    <- map["id"]
+        file  <- map["file"]
+        title <- map["title"]
     }
 }
 

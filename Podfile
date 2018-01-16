@@ -7,11 +7,13 @@ use_frameworks!
 # Uncomment the next line to silence all warnings from pods in your project
 inhibit_all_warnings!
 
+# Use use whole module optimization for Swift files when compiling in release mode.
+plugin 'cocoapods-wholemodule'
+
 target 'Venice High' do
   # Pods for Venice High
   pod 'Alamofire'
-  pod 'AlamofireObjectMapper'
-  pod 'SAConfettiView', :git => 'https://github.com/steets250/SAConfettiView.git'
+  pod 'Alamofire-Synchronous'
   pod 'FSCalendar'
   pod 'JGProgressHUD'
   pod 'MarqueeLabel'

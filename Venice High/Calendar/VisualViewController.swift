@@ -43,14 +43,38 @@ class VisualViewController: UIViewController {
         }
         calendarView.appearance.headerTitleColor = appDelegate.themeBlue
         calendarView.appearance.weekdayTextColor = appDelegate.themeBlue
+
+        eventList = loadArticles()
         calendarView.select(Date())
+        dateChange(date: calendarView.selectedDate!)
 
         let rightBarItem = UIBarButtonItem(title: "Today", style: .plain, target: self, action: #selector(openToday))
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
 
+    func loadArticles() -> [Article] {
+        var titleArray: [String]!
+        var linkArray: [String]!
+        var startDateArray: [Date]!
+        var endDateArray: [Date]!
+        var startTimeArray: [String]!
+        var endTimeArray: [String]!
+        var temp = [Article]()
+        titleArray = defaults.array(forKey: "titleArray") as! [String]
+        linkArray = defaults.array(forKey: "linkArray") as! [String]
+        startDateArray = defaults.array(forKey: "startDateArray") as! [Date]
+        endDateArray = defaults.array(forKey: "endDateArray") as! [Date]
+        startTimeArray = defaults.array(forKey: "startTimeArray") as! [String]
+        endTimeArray = defaults.array(forKey: "endTimeArray") as! [String]
+        for i in 0 ..< titleArray.count {
+            temp.append(Article(title: titleArray[i], link: linkArray[i], startDate: startDateArray[i], endDate: endDateArray[i], startTime: startTimeArray[i], endTime: endTimeArray[i]))
+        }
+        return temp
+    }
+
     func openToday() {
         calendarView.select(Date())
+        dateChange(date: calendarView.selectedDate!)
     }
 }
 
@@ -58,7 +82,7 @@ extension VisualViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         var dots = 0
         for event in eventList {
-                if date.isBetweeen(date: event.startDate, andDate: event.endDate) {
+                if date.isBetween(date: event.startDate, andDate: event.endDate) {
                     dots += 1
                 }
             }
@@ -84,9 +108,13 @@ extension VisualViewController: FSCalendarDataSource {
 
 extension VisualViewController: FSCalendarDelegate, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        dateChange(date: date)
+    }
+
+    func dateChange(date: Date) {
         dayEvents.removeAll()
         for event in eventList {
-            if date.isBetweeen(date: event.startDate, andDate: event.endDate) {
+            if date.isBetween(date: event.startDate, andDate: event.endDate) {
                 dayEvents.append(event)
             }
         }
@@ -95,29 +123,43 @@ extension VisualViewController: FSCalendarDelegate, FSCalendarDelegateAppearance
     }
 
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-        if date.weekday > 1 && date.weekday < 7 {
-            let calendar = Calendar.current
+        let calendar = Calendar.current
+        if date.weekday > 1 && date.weekday < 7 && calendar.isDateInToday(date) == false {
             let year = calendar.component(.year, from: date)
             let month = calendar.component(.month, from: date)
             let day = calendar.component(.day, from: date)
 
             for date in appDelegate.dateData {
                 if (year == date.year && month == date.month && day == date.day) {
-                    if date.schedule == 1 {
+                    if date.schedule == 2 {
                         if defaults.bool(forKey: "Is Dark") {
                             return UIColor.green.withAlphaComponent(0.5)
                         } else {
                             return UIColor.green
                         }
                     }
-                    if date.schedule == 2 {
+                    if date.schedule == 3 {
                         if defaults.bool(forKey: "Is Dark") {
                             return UIColor.yellow.withAlphaComponent(0.5)
                         } else {
                             return UIColor.yellow
                         }
                     }
-                    if date.schedule == 3 {
+                    if date.schedule == 4 {
+                        if defaults.bool(forKey: "Is Dark") {
+                            return UIColor.purple.withAlphaComponent(0.5)
+                        } else {
+                            return UIColor.purple
+                        }
+                    }
+                    if date.schedule == 5 {
+                        if defaults.bool(forKey: "Is Dark") {
+                            return UIColor.orange.withAlphaComponent(0.5)
+                        } else {
+                            return UIColor.orange
+                        }
+                    }
+                    if date.schedule == 0 {
                         if defaults.bool(forKey: "Is Dark") {
                             return UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 0.5)
                         } else {

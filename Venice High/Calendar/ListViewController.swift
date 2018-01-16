@@ -11,11 +11,9 @@ import JGProgressHUD
 import MarqueeLabel
 import MWFeedParser
 import PermissionScope
-import SAConfettiView
-import Spruce
 import SwipeCellKit
 
-class ListViewController: ConfettiViewController {
+class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     var loaded = false
@@ -36,7 +34,6 @@ class ListViewController: ConfettiViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iconType = "Calendar"
         darkTheme()
         tableView.sectionIndexColor = appDelegate.themeBlue
         if defaults.bool(forKey: "Is Dark") {
@@ -57,16 +54,14 @@ class ListViewController: ConfettiViewController {
         hud.indicatorView = JGProgressHUDRingIndicatorView()
         hud.progress = 0.0
         hud.show(in: self.view)
-        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: #imageLiteral(resourceName: "Calendar"), style: .plain, target: self, action: #selector(openVisual)), animated: true)
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(image: #imageLiteral(resourceName: "Calendar"), style: .plain, target: self, action: #selector(openVisual)), animated: true)
     }
 
     func openVisual() {
-        let visualView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "visualView") as! VisualViewController
-        visualView.eventList = articlesTemp
-        self.navigationController?.pushViewController(visualView, animated: true)
+        let test = defaults.array(forKey: "titleArray") ?? []
+        if test.isEmpty == false {
+            self.performSegue(withIdentifier: "showVisual", sender: nil)
+        }
     }
 
     func darkTheme() {
@@ -98,7 +93,7 @@ class ListViewController: ConfettiViewController {
     func initialLoad() {
         let test = defaults.array(forKey: "titleArray") ?? []
         if internet() {
-            if test.count != 0 {
+            if test.isEmpty == false {
                 articlesTemp = loadArticles()
                 processArray()
                 hud.dismiss(afterDelay: 0)
@@ -111,7 +106,7 @@ class ListViewController: ConfettiViewController {
             }
         } else {
             hud.dismiss(afterDelay: 0)
-            if test.count != 0 {
+            if test.isEmpty == false {
                 articlesTemp = loadArticles()
                 processArray()
                 tableView.reloadData()

@@ -100,7 +100,7 @@ extension DetailViewController /*Staff View*/ {
         if staffViaSegue.email != "" {
             addButton(title: "Email", action: #selector(emailAction))
         }
-        if staffViaSegue.link != "" {
+        if staffViaSegue.link != 0 {
             addButton(title: "Website", action: #selector(websiteAction))
         }
         middleSectionCheck()
@@ -261,10 +261,6 @@ extension DetailViewController /*Room View*/ {
 
 extension DetailViewController /*Action Functions*/ {
     func openRoom(sender: UIButton!) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
-
         let roomLabel = sender.titleLabel!.text!
         let room = roomList.filter({$0.number == roomLabel}).first!
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
@@ -275,17 +271,11 @@ extension DetailViewController /*Action Functions*/ {
         popOverVC.view.frame = view.frame
         view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        switch roomLabel {
-        case "EGKK", "EGKK", "EGSS", "EGYM", "LIB", "POOL", "S2", "S4", "S6", "S7", "S9", "WGAH", "WGDM", "WGDS", "WGRM":
-            parent!.title = "\(room.altid)"
-        default:
-            parent!.title = "\(room.number)"
-        }
     }
 
     func websiteAction(sender: UIButton!) {
         if internet() {
-            let url = "https://venicehs-lausd-ca.schoolloop.com/cms/user?d=x&group_id=" + staffViaSegue.link
+            let url = "https://venicehs-lausd-ca.schoolloop.com/cms/user?d=x&group_id=" + String(staffViaSegue.link)
             if defaults.bool(forKey: "Is Dark") {
                 let webVC = SwiftModalWebVC(urlString: url, theme: .dark, dismissButtonStyle: .arrow)
                 present(webVC, animated: true, completion: nil)
@@ -365,9 +355,6 @@ extension DetailViewController /*Action Functions*/ {
     }
 
     func openStaff(sender: UIButton!) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
         let staffLabel = sender.titleLabel!.text!
         let staff = staffList.filter({$0.prefix + " " + $0.lastName == staffLabel}).first!
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
@@ -378,7 +365,6 @@ extension DetailViewController /*Action Functions*/ {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        parent!.title = "\(staff.firstName) \(staff.lastName)"
     }
 }
 
@@ -395,45 +381,26 @@ extension DetailViewController: UIGestureRecognizerDelegate {
     }
 
     func showAnimate() {
-        if allowButtonsViaSegue {
-            backgroundView.backgroundColor = .clear
-            mainView.transform = CGAffineTransform(translationX: 0, y: self.view.frame.size.height)
-            UIView.animate(withDuration: 0.375, animations: {
-                self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-                self.mainView.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
-        } else {
-            backgroundView.backgroundColor = .clear
-            mainView.transform = CGAffineTransform(translationX: self.view.frame.size.width, y: 0)
-            UIView.animate(withDuration: 0.375, animations: {
-                self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0)
-                self.mainView.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
-        }
+        backgroundView.backgroundColor = .clear
+        mainView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+        mainView.alpha = 0.0
+        UIView.animate(withDuration: 0.375, animations: {
+            self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+            self.mainView.alpha = 1.0
+            self.mainView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
     }
 
     func removeAnimate() {
-        if allowButtonsViaSegue {
-            UIView.animate(withDuration: 0.375, animations: {
-                self.mainView.transform = CGAffineTransform(translationX: 0, y: self.view.frame.size.height)
-                self.backgroundView.backgroundColor = .clear
-            }, completion: {(finished: Bool)  in
-                if (finished) {
-                    self.parent!.title = "Staff"
-                    self.view.removeFromSuperview()
-                }
-            })
-        } else {
-            UIView.animate(withDuration: 0.375, animations: {
-                self.mainView.transform = CGAffineTransform(translationX: self.view.frame.size.width, y: 0)
-                self.backgroundView.backgroundColor = .clear
-            }, completion: {(finished: Bool)  in
-                if (finished) {
-                    self.parent!.parent!.title = self.parentNameViaSegue
-                    self.view.removeFromSuperview()
-                }
-            })
-        }
+        UIView.animate(withDuration: 0.375, animations: {
+            self.mainView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            self.mainView.alpha = 0.0
+            self.backgroundView.backgroundColor = .clear
+        }, completion: {(finished: Bool)  in
+            if (finished) {
+                self.view.removeFromSuperview()
+            }
+        })
     }
 }
 

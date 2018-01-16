@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let defaults = UserDefaults.standard
     let defaults2 = UserDefaults.init(suiteName: "group.steets250.Venice-High.Bell-Schedule")!
 
-    let baseURL = "https://raw.githubusercontent.com/steets250/Venice-High-App-Data/master/"
+    let baseURL = "https://raw.githubusercontent.com/steets250/Venice-High-App-Database/master/"
     var messedUp = false
     var internet: Bool!
 
@@ -31,11 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var timeData = [BellSchedule]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let c = NSDateComponents()
-        c.year = 2017; c.month = 8; c.day = 15
-        schoolStart = NSCalendar(identifier: NSCalendar.Identifier.gregorian)?.date(from: c as DateComponents)!
-        c.year = 2017; c.month = 6; c.day = 9
-        schoolEnd = NSCalendar(identifier: NSCalendar.Identifier.gregorian)?.date(from: c as DateComponents)!
         UserDefaults.standard.register(defaults: ["Theme Alert": true, "Event Alert": true, "Calendar Name": "", "Calendar Identifier": ""])
         updateLook()
         if UserDefaults.standard.bool(forKey: "Cleared Old") == false {
@@ -57,11 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     enum Shortcut: String {
-        case openCalendar = "openCalendar"
         case openBell = "openBell"
-        case openSearch = "openSearch"
-        case openInfo = "openInfo"
-        case openSettings = "openSettings"
+        case openStaff = "openStaff"
+        case openRooms = "openRooms"
     }
 
     func handleQuickAction(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
@@ -70,16 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let shortcutType = Shortcut.init(rawValue: type) {
             let tabBarController = self.window!.rootViewController as! UITabBarController
             switch shortcutType {
-            case .openCalendar:
-                tabBarController.selectedIndex = 0
             case .openBell:
                 tabBarController.selectedIndex = 1
-            case .openSearch:
+            case .openStaff:
                 tabBarController.selectedIndex = 2
-            case .openInfo:
-                tabBarController.selectedIndex = 3
-            case .openSettings:
-                tabBarController.selectedIndex = 4
+                defaults.set(false, forKey: "Room Start")
+            case .openRooms:
+                tabBarController.selectedIndex = 2
+                defaults.set(true, forKey: "Room Start")
             }
             quickActionHandled = true
         }

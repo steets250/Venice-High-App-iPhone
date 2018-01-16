@@ -56,7 +56,7 @@ struct YMD: Mappable {
 }
 
 extension Date {
-    func isBetweeen(date date1: Date, andDate date2: Date) -> Bool {
+    func isBetween(date date1: Date, andDate date2: Date) -> Bool {
         return date1.compare(self).rawValue * self.compare(date2).rawValue >= 0}
 
     func minutes(from date: Date) -> Int {

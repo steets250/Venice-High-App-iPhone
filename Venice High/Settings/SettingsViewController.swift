@@ -7,10 +7,9 @@
 //
 
 import PermissionScope
-import SAConfettiView
 import UserNotifications
 
-class SettingsViewController: ConfettiViewController {
+class SettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var items = ["Dark Theme", "Show Period 0", "Show Period 7"]
     var buttons = ["Change Calendar"]
@@ -18,7 +17,6 @@ class SettingsViewController: ConfettiViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        iconType = "Settings"
         self.tableView.isScrollEnabled = false
         self.tableView.isOpaque = false
         self.tableView.backgroundView = nil

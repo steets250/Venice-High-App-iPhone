@@ -1,8 +1,7 @@
 PODS:
   - Alamofire (4.6.0)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+  - Alamofire-Synchronous (4.0.0):
+    - Alamofire (~> 4.0)
   - FSCalendar (2.7.9)
   - JGProgressHUD (2.0)
   - MarqueeLabel (3.1.4):
@@ -21,7 +20,6 @@ PODS:
   - PermissionScope (1.1.1)
   - ReachabilitySwift (4.1.0)
   - RFAboutView-Swift (2.0.1)
-  - SAConfettiView (0.1.8)
   - Spruce (2.0.0)
   - SwiftMapVC (1.0.0)
   - SwiftWebVC (0.4.1)
@@ -29,7 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireObjectMapper
+  - Alamofire-Synchronous
   - FSCalendar
   - JGProgressHUD
   - MarqueeLabel
@@ -38,29 +36,23 @@ DEPENDENCIES:
   - PermissionScope
   - ReachabilitySwift
   - RFAboutView-Swift
-  - SAConfettiView (from `https://github.com/steets250/SAConfettiView.git`)
   - Spruce
   - SwiftMapVC (from `https://github.com/steets250/SwiftMapVC.git`)
   - SwiftWebVC
   - SwipeCellKit
 
 EXTERNAL SOURCES:
-  SAConfettiView:
-    :git: https://github.com/steets250/SAConfettiView.git
   SwiftMapVC:
     :git: https://github.com/steets250/SwiftMapVC.git
 
 CHECKOUT OPTIONS:
-  SAConfettiView:
-    :commit: b3e412fad8799a783373f39e315abd0b8f54dba9
-    :git: https://github.com/steets250/SAConfettiView.git
   SwiftMapVC:
-    :commit: 50c9bbb4eb56417ee096c91a5f57713f277643ae
+    :commit: 0b0d76185158c25827bc6359f963e7458a7404bf
     :git: https://github.com/steets250/SwiftMapVC.git
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  Alamofire-Synchronous: eedf1e6e961c3795a63c74990b3f7d9fbfac7e50
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
@@ -69,12 +61,11 @@ SPEC CHECKSUMS:
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   RFAboutView-Swift: dc31db0e7bc890ab6c9e1ca8f50e8f97bdba9622
-  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   Spruce: 0932495938ccc0b75add674a99bc46c9d0e39111
   SwiftMapVC: 9fc5ca86c8317ecdfcbfae90de125cc8349749c5
   SwiftWebVC: 17ad75e1fac143d421e0498fb40d7e37532f26d1
   SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
 
-PODFILE CHECKSUM: bc7a0028c2b68d1b325f5d8c8de9e188c3f1462c
+PODFILE CHECKSUM: 0aa917cde3249aafaf8e874c588195829b869702
 
 COCOAPODS: 1.4.0.rc.1

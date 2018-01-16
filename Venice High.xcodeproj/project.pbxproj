@@ -17,19 +17,22 @@
 		BA2F9C031E7514F300B34EB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F9C021E7514F300B34EB7 /* DetailViewController.swift */; };
 		BA2F9C051E75156600B34EB7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F9C041E75156600B34EB7 /* SearchTableViewCell.swift */; };
 		BA306B211E8F8F5200AD1B38 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */; };
-		BA3AB64F1F4FFD2A00AA5A4D /* Dates.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3AB64A1F4FFD2900AA5A4D /* Dates.json */; };
-		BA3AB6501F4FFD2A00AA5A4D /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3AB64B1F4FFD2900AA5A4D /* Buildings.json */; };
-		BA3AB6511F4FFD2A00AA5A4D /* Times.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3AB64C1F4FFD2900AA5A4D /* Times.json */; };
-		BA3AB6521F4FFD2A00AA5A4D /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3AB64D1F4FFD2900AA5A4D /* Rooms.json */; };
-		BA3AB6531F4FFD2A00AA5A4D /* Staff.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3AB64E1F4FFD2A00AA5A4D /* Staff.json */; };
 		BA412E0A1E498A39005A0AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA412E091E498A39005A0AB5 /* AppDelegate.swift */; };
 		BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA412E121E498A39005A0AB5 /* Assets.xcassets */; };
 		BA42837A1EC3ECF60060441E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4283791EC3ECF60060441E /* ListViewController.swift */; };
+		BA4880032007E34300FE434C /* Professional.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880002007E34300FE434C /* Professional.json */; };
+		BA4880042007E34300FE434C /* Regular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880012007E34300FE434C /* Regular.json */; };
+		BA4880052007E34300FE434C /* Minimum.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880022007E34300FE434C /* Minimum.json */; };
+		BA4A8E892006F4D400F6CBD0 /* Year.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4A8E882006F4D400F6CBD0 /* Year.json */; };
 		BA4ED0461F7E079000CF37ED /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4ED0451F7E079000CF37ED /* Extension.swift */; };
-		BA5084812001D77D0080CB11 /* ConfettiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5084802001D77D0080CB11 /* ConfettiViewController.swift */; };
 		BA5084832001E34F0080CB11 /* VisualViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5084822001E34E0080CB11 /* VisualViewCell.swift */; };
 		BA5A92781EC781E200CD85DC /* NoTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */; };
 		BA5EA5531EC5A012008A24D2 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5EA5521EC5A012008A24D2 /* TimeTableViewCell.swift */; };
+		BA780BBB2006EF880064CBB4 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB12006EF880064CBB4 /* Buildings.json */; };
+		BA780BBC2006EF880064CBB4 /* Dates.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB22006EF880064CBB4 /* Dates.json */; };
+		BA780BBE2006EF880064CBB4 /* Staff.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB42006EF880064CBB4 /* Staff.json */; };
+		BA780BC02006EF880064CBB4 /* Schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB72006EF880064CBB4 /* Schedules.json */; };
+		BA780BC32006EF880064CBB4 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BBA2006EF880064CBB4 /* Rooms.json */; };
 		BA879FFE1E69447D0012BC41 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA879FFD1E69447D0012BC41 /* InformationViewController.swift */; };
 		BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A36F1F69F8FB00789DCD /* Structs.swift */; };
 		BAA3A3721F69F90300789DCD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3711F69F90300789DCD /* Extensions.swift */; };
@@ -43,7 +46,6 @@
 		BAE0FDA51E9083C300BCFF06 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE0FDA41E9083C300BCFF06 /* SettingsViewController.swift */; };
 		BAE0FDA71E90856900BCFF06 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE0FDA61E90856900BCFF06 /* SwitchTableViewCell.swift */; };
 		BAE480A42000622A005B891F /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE480A32000622A005B891F /* Acknowledgements.plist */; };
-		BAE480A620006476005B891F /* about_header_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAE480A520006476005B891F /* about_header_bg.jpg */; };
 		BAEBE7571E8CCF24000F31B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBE7561E8CCF24000F31B5 /* Main.storyboard */; };
 		BAF8C0741E946CCB00DC80A7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8C0731E946CCB00DC80A7 /* AppData.swift */; };
 /* End PBXBuildFile section */
@@ -88,22 +90,25 @@
 		BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RoomViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BA3249021EC0E62A000F79F6 /* Venice High.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Venice High.entitlements"; sourceTree = "<group>"; };
 		BA3249031EC0E637000F79F6 /* Bell Schedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bell Schedule.entitlements"; sourceTree = "<group>"; };
-		BA3AB64A1F4FFD2900AA5A4D /* Dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Dates.json; path = "Venice High/Json/Dates.json"; sourceTree = SOURCE_ROOT; };
-		BA3AB64B1F4FFD2900AA5A4D /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Buildings.json; path = "Venice High/Json/Buildings.json"; sourceTree = SOURCE_ROOT; };
-		BA3AB64C1F4FFD2900AA5A4D /* Times.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Times.json; path = "Venice High/Json/Times.json"; sourceTree = SOURCE_ROOT; };
-		BA3AB64D1F4FFD2900AA5A4D /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Rooms.json; path = "Venice High/Json/Rooms.json"; sourceTree = SOURCE_ROOT; };
-		BA3AB64E1F4FFD2A00AA5A4D /* Staff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Staff.json; path = "Venice High/Json/Staff.json"; sourceTree = SOURCE_ROOT; };
 		BA412E061E498A39005A0AB5 /* Venice High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Venice High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA412E091E498A39005A0AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA412E121E498A39005A0AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA412E171E498A39005A0AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA4283791EC3ECF60060441E /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BA4880002007E34300FE434C /* Professional.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Professional.json; sourceTree = "<group>"; };
+		BA4880012007E34300FE434C /* Regular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Regular.json; sourceTree = "<group>"; };
+		BA4880022007E34300FE434C /* Minimum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Minimum.json; sourceTree = "<group>"; };
+		BA4A8E882006F4D400F6CBD0 /* Year.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Year.json; sourceTree = "<group>"; };
 		BA4ED0451F7E079000CF37ED /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		BA5084802001D77D0080CB11 /* ConfettiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiViewController.swift; sourceTree = "<group>"; };
 		BA5084822001E34E0080CB11 /* VisualViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualViewCell.swift; sourceTree = "<group>"; };
 		BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeTableViewCell.swift; sourceTree = "<group>"; };
 		BA5EA5521EC5A012008A24D2 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		BA5FE3011EB9C38700ED6C54 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BA780BB12006EF880064CBB4 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
+		BA780BB22006EF880064CBB4 /* Dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dates.json; sourceTree = "<group>"; };
+		BA780BB42006EF880064CBB4 /* Staff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Staff.json; sourceTree = "<group>"; };
+		BA780BB72006EF880064CBB4 /* Schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Schedules.json; sourceTree = "<group>"; };
+		BA780BBA2006EF880064CBB4 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		BA879FFD1E69447D0012BC41 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InformationViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAA3A36F1F69F8FB00789DCD /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		BAA3A3711F69F90300789DCD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -118,7 +123,6 @@
 		BAE0FDA41E9083C300BCFF06 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAE0FDA61E90856900BCFF06 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		BAE480A32000622A005B891F /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
-		BAE480A520006476005B891F /* about_header_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about_header_bg.jpg; sourceTree = "<group>"; };
 		BAEBE7561E8CCF24000F31B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BAF8C0731E946CCB00DC80A7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		F35BB94F3ECB2C9ADB72B450 /* Pods-Bell Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,18 +158,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		BA3AB6491F4FFD0E00AA5A4D /* Json */ = {
-			isa = PBXGroup;
-			children = (
-				BA3AB64B1F4FFD2900AA5A4D /* Buildings.json */,
-				BA3AB64A1F4FFD2900AA5A4D /* Dates.json */,
-				BA3AB64D1F4FFD2900AA5A4D /* Rooms.json */,
-				BA3AB64E1F4FFD2A00AA5A4D /* Staff.json */,
-				BA3AB64C1F4FFD2900AA5A4D /* Times.json */,
-			);
-			path = Json;
-			sourceTree = "<group>";
-		};
 		BA412DFD1E498A39005A0AB5 = {
 			isa = PBXGroup;
 			children = (
@@ -192,7 +184,7 @@
 				BAA7653B1E63BBBF007EAA80 /* Bell */,
 				BA42837C1EC3ED3F0060441E /* Calendar */,
 				BACD52D11E6A4FEF00E6B5B0 /* Information */,
-				BA3AB6491F4FFD0E00AA5A4D /* Json */,
+				BA780BB02006EF880064CBB4 /* Json */,
 				BAEF5A891F85C5F700302708 /* Search */,
 				BAE0FDA31E90838300BCFF06 /* Settings */,
 				BA2842A91EBA75B900AAB867 /* Storyboards */,
@@ -204,13 +196,11 @@
 		BA42837B1EC3ED110060441E /* System */ = {
 			isa = PBXGroup;
 			children = (
-				BAE480A520006476005B891F /* about_header_bg.jpg */,
 				BAE480A32000622A005B891F /* Acknowledgements.plist */,
 				BAF8C0731E946CCB00DC80A7 /* AppData.swift */,
 				BA412E091E498A39005A0AB5 /* AppDelegate.swift */,
 				BA412E121E498A39005A0AB5 /* Assets.xcassets */,
 				BAA3A3731F69F90C00789DCD /* Classes.swift */,
-				BA5084802001D77D0080CB11 /* ConfettiViewController.swift */,
 				BAA3A3711F69F90300789DCD /* Extensions.swift */,
 				BA412E171E498A39005A0AB5 /* Info.plist */,
 				BAA3A36F1F69F8FB00789DCD /* Structs.swift */,
@@ -230,6 +220,30 @@
 				BA10BA291ED4038900A1EC9A /* CalendarScope.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		BA780BB02006EF880064CBB4 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				BA780BB12006EF880064CBB4 /* Buildings.json */,
+				BA780BB22006EF880064CBB4 /* Dates.json */,
+				BA780BBA2006EF880064CBB4 /* Rooms.json */,
+				BA780BB42006EF880064CBB4 /* Staff.json */,
+				BA780BB52006EF880064CBB4 /* Times */,
+				BA4A8E882006F4D400F6CBD0 /* Year.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		BA780BB52006EF880064CBB4 /* Times */ = {
+			isa = PBXGroup;
+			children = (
+				BA4880022007E34300FE434C /* Minimum.json */,
+				BA4880002007E34300FE434C /* Professional.json */,
+				BA4880012007E34300FE434C /* Regular.json */,
+				BA780BB72006EF880064CBB4 /* Schedules.json */,
+			);
+			path = Times;
 			sourceTree = "<group>";
 		};
 		BAA7653B1E63BBBF007EAA80 /* Bell */ = {
@@ -273,11 +287,11 @@
 		BAEF5A891F85C5F700302708 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BA1CF27C2001861F003771CD /* SearchViewController.swift */,
 				BAB761DA1E52207700658D0B /* StaffViewController.swift */,
 				BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */,
 				BA2F9C041E75156600B34EB7 /* SearchTableViewCell.swift */,
 				BA2F9C021E7514F300B34EB7 /* DetailViewController.swift */,
-				BA1CF27C2001861F003771CD /* SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -413,15 +427,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB1E6641ECD26080074F27F /* LaunchScreen.storyboard in Resources */,
-				BA3AB64F1F4FFD2A00AA5A4D /* Dates.json in Resources */,
-				BA3AB6521F4FFD2A00AA5A4D /* Rooms.json in Resources */,
-				BA3AB6511F4FFD2A00AA5A4D /* Times.json in Resources */,
 				BAEBE7571E8CCF24000F31B5 /* Main.storyboard in Resources */,
-				BA3AB6531F4FFD2A00AA5A4D /* Staff.json in Resources */,
+				BA4880032007E34300FE434C /* Professional.json in Resources */,
+				BA780BC32006EF880064CBB4 /* Rooms.json in Resources */,
+				BA4880042007E34300FE434C /* Regular.json in Resources */,
+				BA4A8E892006F4D400F6CBD0 /* Year.json in Resources */,
+				BA780BBC2006EF880064CBB4 /* Dates.json in Resources */,
 				BAE480A42000622A005B891F /* Acknowledgements.plist in Resources */,
-				BAE480A620006476005B891F /* about_header_bg.jpg in Resources */,
+				BA780BBE2006EF880064CBB4 /* Staff.json in Resources */,
+				BA780BC02006EF880064CBB4 /* Schedules.json in Resources */,
 				BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */,
-				BA3AB6501F4FFD2A00AA5A4D /* Buildings.json in Resources */,
+				BA4880052007E34300FE434C /* Minimum.json in Resources */,
+				BA780BBB2006EF880064CBB4 /* Buildings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,38 +527,36 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MWFeedParser/MWFeedParser.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RFAboutView-Swift/RFAboutView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
 				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMapVC/SwiftMapVC.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftWebVC/SwiftWebVC.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWFeedParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFAboutView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMapVC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebVC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -565,7 +580,6 @@
 				BA879FFE1E69447D0012BC41 /* InformationViewController.swift in Sources */,
 				BAE0FDA51E9083C300BCFF06 /* SettingsViewController.swift in Sources */,
 				BA10BA2A1ED4038900A1EC9A /* CalendarScope.swift in Sources */,
-				BA5084812001D77D0080CB11 /* ConfettiViewController.swift in Sources */,
 				BA1CF27D2001861F003771CD /* SearchViewController.swift in Sources */,
 				BAB761DD1E52207700658D0B /* BellViewController.swift in Sources */,
 				BAE0FDA71E90856900BCFF06 /* SwitchTableViewCell.swift in Sources */,

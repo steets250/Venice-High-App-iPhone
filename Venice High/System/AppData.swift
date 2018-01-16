@@ -8,128 +8,139 @@
 
 import ObjectMapper
 import Alamofire
-import AlamofireObjectMapper
+import Alamofire_Synchronous
 import Reachability
 
 extension AppDelegate /*App Data Loading*/ {
     func schoolData() {
-        if let date = defaults.object(forKey: "refreshData") {
-            let dateRefreshed = date as! Date
-            let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
-            let components = calendar.components([.day], from: dateRefreshed, to: Date(), options: [])
-            if components.day! > 0 {
-                if Reachability()!.connection != .none {
-                    loadFile(false)
-                } else {
-                    loadData()
-                }
+        if defaults.object(forKey: "refreshData") != nil {
+            if Reachability()!.connection != .none {
+                loadFile(false)
             } else {
                 loadData()
             }
         } else {
             loadFile(!(Reachability()!.connection != .none))
         }
-
     }
 
     func loadFile(_ manual: Bool = false) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         internet = !manual
 
-        self.loadBuildings(next: {
-            self.loadDates(next: {
-                self.loadRoom(next: {
-                    self.loadStaff(next: {
-                        self.processStaff(next: {
-                            self.loadTimes(next: {
-                                self.saveBell(next: {
-                                    self.loadEnding()
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
+        loadYear()
+        loadBuildings()
+        loadDates()
+        loadRoom()
+        loadStaff()
+        processStaff()
+        loadTimes()
+        saveBell()
+        loadEnding()
     }
 
-    func loadBuildings(next: (() -> Void)?) {
+    func loadYear() {
+        var apiURL: URL!
+        if internet {
+            apiURL = URL(string: baseURL + "Year.json")!
+        } else {
+            apiURL = Bundle.main.url(forResource: "Year", withExtension: "json")!
+        }
+
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            let points = Mapper<Endpoint>().mapArray(JSONString: response.value ?? "") ?? []
+            if points.isEmpty == false {
+                var c = DateComponents()
+                c.year = points[0].year
+                c.month = points[0].month
+                c.day = points[0].day
+                self.schoolStart = Calendar.current.date(from: c)
+                c.year = points[1].year
+                c.month = points[1].month
+                c.day = points[1].day
+                self.schoolEnd = Calendar.current.date(from: c)
+            } else {
+                self.messedUp = true
+            }
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
+        }
+    }
+
+    func loadBuildings() {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Buildings.json")!
         } else {
             apiURL = Bundle.main.url(forResource: "Buildings", withExtension: "json")!
         }
-        Alamofire.request(apiURL).validate().responseArray { (response: DataResponse<[Building]>) in
-            switch response.result {
-            case .success:
-                self.buildingData = response.result.value ?? []
-            case .failure(let error):
-                print(error)
-                self.messedUp = true
-            }
-            next?()
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            self.buildingData = Mapper<Building>().mapArray(JSONString: response.value ?? "") ?? []
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
         }
     }
 
-    func loadDates(next: (() -> Void)?) {
+    func loadDates() {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Dates.json")!
         } else {
             apiURL = Bundle.main.url(forResource: "Dates", withExtension: "json")!
         }
-        Alamofire.request(apiURL).validate().responseArray { (response: DataResponse<[YMD]>) in
-            switch response.result {
-            case .success:
-                self.dateData = response.result.value ?? []
-            case .failure(let error):
-                print(error)
-                self.messedUp = true
-            }
-            next?()
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            self.dateData = Mapper<YMD>().mapArray(JSONString: response.value ?? "") ?? []
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
         }
     }
 
-    func loadRoom(next: (() -> Void)?) {
+    func loadRoom() {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Rooms.json")!
         } else {
             apiURL = Bundle.main.url(forResource: "Rooms", withExtension: "json")!
         }
-        Alamofire.request(apiURL).validate().responseArray { (response: DataResponse<[Room]>) in
-            switch response.result {
-            case .success:
-                self.roomData = response.result.value ?? []
-            case .failure(let error):
-                print(error)
-                self.messedUp = true
-            }
-            next?()
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            self.roomData = Mapper<Room>().mapArray(JSONString: response.value ?? "") ?? []
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
         }
     }
 
-    func loadStaff(next: (() -> Void)?) {
+    func loadStaff() {
         var apiURL: URL!
         if internet {
             apiURL = URL(string: baseURL + "Staff.json")!
         } else {
             apiURL = Bundle.main.url(forResource: "Staff", withExtension: "json")!
         }
-        Alamofire.request(apiURL).validate().responseArray { (response: DataResponse<[Staff]>) in
-            switch response.result {
-            case .success:
-                self.staffData = response.result.value?.sorted(by: {$0.lastName < $1.lastName}) ?? []
-            case .failure(let error):
-                print(error)
-                self.messedUp = true
-            }
-            next?()
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            self.staffData = Mapper<Staff>().mapArray(JSONString: response.value ?? "") ?? []
+            self.staffData = self.staffData.sorted(by: {$0.firstName < $1.firstName})
+            self.staffData = self.staffData.sorted(by: {$0.lastName < $1.lastName})
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
         }
     }
 
-    func processStaff(next: (() -> Void)?) {
+    func processStaff() {
         if self.staffData.count > 0 {
             for person in self.staffData {
                 if person.p0 != "" {
@@ -177,35 +188,58 @@ extension AppDelegate /*App Data Loading*/ {
                 self.roomData[i].teachers = self.roomData[i].teachers.sorted(by: {$0.period.getFirst() < $1.period.getFirst()})
             }
         }
-        next?()
     }
 
-    func loadTimes(next: (() -> Void)?) {
+    func loadTimes() {
         var apiURL: URL!
         if internet {
-            apiURL = URL(string: baseURL + "Times.json")!
+            apiURL = URL(string: baseURL + "Times/Schedules.json")!
         } else {
-            apiURL = Bundle.main.url(forResource: "Times", withExtension: "json")!
+            apiURL = Bundle.main.url(forResource: "Schedules", withExtension: "json")!
         }
-        Alamofire.request(apiURL).validate().responseArray { (response: DataResponse<[BellSchedule]>) in
-            switch response.result {
-            case .success:
-                self.timeData = response.result.value ?? []
-            case .failure(let error):
-                print(error)
-                self.messedUp = true
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            let schedules = Mapper<Schedule>().mapArray(JSONString: response.value ?? "") ?? []
+            for schedule in schedules {
+                loadSchedule(schedule: schedule)
             }
-            next?()
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
         }
     }
 
-    func saveBell(next: (() -> Void)?) {
+    func loadSchedule(schedule: Schedule) {
+        var apiURL: URL!
+        if internet {
+            apiURL = URL(string: baseURL + "Times/\(schedule.file).json")!
+        } else {
+            apiURL = Bundle.main.url(forResource: schedule.file, withExtension: "json")!
+        }
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            let times = Mapper<Time>().mapArray(JSONString: response.value ?? "") ?? []
+            if times.isEmpty == false {
+                self.timeData.append(BellSchedule(schedule: schedule.title, times: times))
+            } else {
+                self.messedUp = true
+            }
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
+        }
+    }
+
+    func saveBell() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if messedUp == false {
             defaults2.set(Mapper().toJSONString(dateData), forKey: "dateData")
             defaults2.set(Mapper().toJSONString(timeData), forKey: "timeData")
+            defaults2.set(schoolStart, forKey: "schoolStart")
+            defaults2.set(schoolEnd, forKey: "schoolEnd")
         }
-        next?()
     }
 
     func loadEnding() {
@@ -231,6 +265,6 @@ extension AppDelegate /*App Data Loading*/ {
         roomData = Mapper<Room>().mapArray(JSONString: defaults.string(forKey: "roomData")!)!
         staffData = Mapper<Staff>().mapArray(JSONString: defaults.string(forKey: "staffData")!)!
         timeData = Mapper<BellSchedule>().mapArray(JSONString: defaults.string(forKey: "timeData")!)!
-        processStaff(next: nil)
+        processStaff()
     }
 }
