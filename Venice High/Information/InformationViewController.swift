@@ -73,6 +73,8 @@ class InformationViewController: UIViewController {
     @IBAction func information(_ sender: Any) {
         let aboutView = RFAboutViewController(copyrightHolderName: "Steven Steiner", contactEmail: "venicehighapp@gmail.com", contactEmailTitle: "App Feedback", websiteURL: URL(string: "http://venicehigh.steets250.com"), websiteURLTitle: "App Website")
         aboutView.buttonTintColor = appDelegate.themeBlue
+        aboutView.contactEmailColor = appDelegate.themeBlue
+        aboutView.websiteURLColor = appDelegate.themeBlue
 
         if defaults.bool(forKey: "Is Dark") {
             aboutView.blurAlpha = 0.75

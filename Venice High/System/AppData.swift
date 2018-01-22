@@ -13,24 +13,24 @@ import Reachability
 
 extension AppDelegate /*App Data Loading*/ {
     func schoolData() {
-        if defaults.object(forKey: "refreshData") != nil {
-            if Reachability()!.connection != .none {
-                loadFile(false)
-            } else {
+        if defaults.object(forKey: "schoolStart") != nil {
+            if Reachability()!.connection == .none {
                 loadData()
+            } else {
+                loadFile(false)
             }
         } else {
-            loadFile(!(Reachability()!.connection != .none))
+            loadFile(Reachability()!.connection == .none)
         }
     }
 
     func loadFile(_ manual: Bool = false) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         internet = !manual
-
         loadYear()
         loadBuildings()
         loadDates()
+        loadEvents()
         loadRoom()
         loadStaff()
         processStaff()
@@ -98,6 +98,23 @@ extension AppDelegate /*App Data Loading*/ {
         switch response.result {
         case .success:
             self.dateData = Mapper<YMD>().mapArray(JSONString: response.value ?? "") ?? []
+        case .failure(let error):
+            print(error)
+            self.messedUp = true
+        }
+    }
+
+    func loadEvents() {
+        var apiURL: URL!
+        if internet {
+            apiURL = URL(string: baseURL + "Events.json")!
+        } else {
+            apiURL = Bundle.main.url(forResource: "Events", withExtension: "json")!
+        }
+        let response = Alamofire.request(apiURL).responseString()
+        switch response.result {
+        case .success:
+            self.eventData = Mapper<Event>().mapArray(JSONString: response.value ?? "") ?? []
         case .failure(let error):
             print(error)
             self.messedUp = true
@@ -251,7 +268,8 @@ extension AppDelegate /*App Data Loading*/ {
     }
 
     func saveData() {
-        defaults.set(Date(), forKey: "refreshData")
+        defaults.set(schoolStart, forKey: "schoolStart")
+        defaults.set(schoolEnd, forKey: "schoolEnd")
         defaults.set(Mapper().toJSONString(buildingData), forKey: "buildingData")
         defaults.set(Mapper().toJSONString(dateData), forKey: "dateData")
         defaults.set(Mapper().toJSONString(roomData), forKey: "roomData")
@@ -260,6 +278,8 @@ extension AppDelegate /*App Data Loading*/ {
     }
 
     func loadData() {
+        schoolStart = defaults.object(forKey: "schoolStart") as! Date
+        schoolEnd = defaults.object(forKey: "schoolEnd") as! Date
         buildingData = Mapper<Building>().mapArray(JSONString: defaults.string(forKey: "buildingData")!)!
         dateData = Mapper<YMD>().mapArray(JSONString: defaults.string(forKey: "dateData")!)!
         roomData = Mapper<Room>().mapArray(JSONString: defaults.string(forKey: "roomData")!)!

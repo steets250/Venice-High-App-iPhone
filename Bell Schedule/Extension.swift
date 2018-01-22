@@ -82,3 +82,9 @@ extension Date {
         return Calendar(identifier: .iso8601).dateComponents([.weekday], from: self).weekday!
     }
 }
+
+extension String {
+    func getLast(_ count: Int = 1) -> String {
+        return substring(from: index(endIndex, offsetBy: -count))
+    }
+}

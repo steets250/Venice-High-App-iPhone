@@ -21,6 +21,7 @@ class VisualViewController: UIViewController {
     var eventList = [Article]()
     var selectedDate = Date()
     var style: JGProgressHUDStyle!
+    var extras = [Event]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,9 @@ class VisualViewController: UIViewController {
         calendarView.appearance.headerTitleColor = appDelegate.themeBlue
         calendarView.appearance.weekdayTextColor = appDelegate.themeBlue
 
+        extras = appDelegate.eventData
         eventList = loadArticles()
+        eventList = importManual(eventList)
         calendarView.select(Date())
         dateChange(date: calendarView.selectedDate!)
 
@@ -70,6 +73,22 @@ class VisualViewController: UIViewController {
             temp.append(Article(title: titleArray[i], link: linkArray[i], startDate: startDateArray[i], endDate: endDateArray[i], startTime: startTimeArray[i], endTime: endTimeArray[i]))
         }
         return temp
+    }
+
+    func stringToDate(_ input: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        return formatter.date(from: input)!
+    }
+
+    func importManual(_ input: [Article]) -> [Article] {
+        var articles = input
+        if extras.isEmpty == false {
+            for event in extras {
+                articles.append(Article(title: event.title, link: event.link, startDate: stringToDate(event.startDate), endDate: stringToDate(event.endDate), startTime: event.startTime, endTime: event.endTime))
+            }
+        }
+        return articles
     }
 
     func openToday() {
@@ -329,7 +348,10 @@ extension VisualViewController /*Calendar Saving Functions*/ {
         let event = EKEvent(eventStore: eventStore)
 
         event.title = temp.title
-        event.url = URL(string: temp.link)
+        if temp.link != "" {
+            event.url = URL(string: temp.link)
+        }
+        event.notes = "Added by the Venice High App"
 
         if (temp.startTime == "none" && temp.endTime == "none") || (temp.startTime == "12:00 AM" && temp.endTime == "11:59 PM") || (temp.startTime == "12:00 AM" && temp.endTime == "11:55 PM") {
             event.isAllDay = true

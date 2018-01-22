@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  CalendarViewController.swift
 //  Venice High
 //
 //  Created by Steven Steiner on 5/10/17.
@@ -11,9 +11,10 @@ import JGProgressHUD
 import MarqueeLabel
 import MWFeedParser
 import PermissionScope
+import SwiftWebVC
 import SwipeCellKit
 
-class ListViewController: UIViewController {
+class CalendarViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     var loaded = false
@@ -31,11 +32,13 @@ class ListViewController: UIViewController {
     var current: Date!
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var lastReturned = 0
+    var extras = [Event]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         darkTheme()
         tableView.sectionIndexColor = appDelegate.themeBlue
+        extras = appDelegate.eventData
         if defaults.bool(forKey: "Is Dark") {
             self.view.backgroundColor = .black
             style = .light
@@ -152,7 +155,7 @@ class ListViewController: UIViewController {
     }
 }
 
-extension ListViewController: MWFeedParserDelegate {
+extension CalendarViewController: MWFeedParserDelegate {
     func request() {
         let URL = Foundation.URL(string: "https://venicehs-lausd-ca.schoolloop.com/cms/rss?d=x&group_id=1442645854073&types=_assignment__event_&return_url=1494562389332")
         let feedParser = MWFeedParser(feedURL: URL)!
@@ -205,20 +208,38 @@ extension ListViewController: MWFeedParserDelegate {
         let myURL = URL(string: myURLString)!
         do {
             html = try String(contentsOf: myURL, encoding: .ascii)
+            return (html.slice(from: "<div class=\"date\">", to: "</div>") ?? "error", html.slice(from: "<b>Start Time:</b> ", to: "</td>") ?? "none", html.slice(from: "<b>End Time:</b> ", to: "</td>") ?? "none")
         } catch let error {
             print("Error: \(error)")
+            return ("error", "error", "error")
         }
-        return (html.slice(from: "<div class=\"date\">", to: "</div>") ?? "error", html.slice(from: "<b>Start Time:</b> ", to: "</td>") ?? "none", html.slice(from: "<b>End Time:</b> ", to: "</td>") ?? "none")
     }
 }
 
-extension ListViewController /*Data Processing*/ {
+extension CalendarViewController /*Data Processing*/ {
     func processArray() {
+        articlesTemp = importManual(articlesTemp)
         articlesTemp = articlesTemp.sorted(by: { $0.startDate.compare($1.startDate) == .orderedAscending })
         articlesTemp = removeOld(articlesTemp)
         articlesTemp = mergeDuplicates(articlesTemp)
         articlesSorted = processArticles(articlesTemp)
         articlesVisible = articlesSorted
+    }
+
+    func stringToDate(_ input: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        return formatter.date(from: input)!
+    }
+
+    func importManual(_ input: [Article]) -> [Article] {
+        var articles = input
+        if extras.isEmpty == false {
+            for event in extras {
+                articles.append(Article(title: event.title, link: event.link, startDate: stringToDate(event.startDate), endDate: stringToDate(event.endDate), startTime: event.startTime, endTime: event.endTime))
+            }
+        }
+        return articles
     }
 
     func removeOld(_ input: [Article]) -> [Article] {
@@ -307,7 +328,7 @@ extension ListViewController /*Data Processing*/ {
         var endDateArray = [Date]()
         var startTimeArray = [String]()
         var endTimeArray = [String]()
-        for i in 0..<array.count {
+        for i in 0 ..< array.count {
             titleArray.append(array[i].title)
             linkArray.append(array[i].link)
             startDateArray.append(array[i].startDate)
@@ -324,9 +345,19 @@ extension ListViewController /*Data Processing*/ {
     }
 }
 
-extension ListViewController: UITableViewDataSource, UITableViewDelegate {
+extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let article = articlesVisible[indexPath.section].articles[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        if article.link != "" {
+            if defaults.bool(forKey: "Is Dark") {
+                let webVC = SwiftModalWebVC(urlString: article.link, theme: .dark, dismissButtonStyle: .arrow)
+                present(webVC, animated: true, completion: nil)
+            } else {
+                let webVC = SwiftModalWebVC(urlString: article.link)
+                present(webVC, animated: true, completion: nil)
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -391,6 +422,9 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             aCell.titleLabel.rate = 75.0
             aCell.titleLabel.trailingBuffer = 50.0
             aCell.titleLabel.font = UIFont(name: "HelveticaNeue-Light", size: aCell.titleLabel.font.pointSize)
+            if article.link == "" {
+                aCell.selectionStyle = .none
+            }
             if defaults.bool(forKey: "Is Dark") {
                 aCell.titleLabel.textColor = .white
             } else {
@@ -415,6 +449,9 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             aCell.titleLabel.rate = 75.0
             aCell.titleLabel.trailingBuffer = 50.0
             aCell.titleLabel.font = UIFont(name: "HelveticaNeue-Light", size: aCell.titleLabel.font.pointSize)
+            if article.link == "" {
+                aCell.selectionStyle = .none
+            }
             if defaults.bool(forKey: "Is Dark") {
                 aCell.titleLabel.textColor = .white
                 aCell.timeLabel.textColor = .white
@@ -424,8 +461,14 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             }
             let formatter = DateFormatter()
             formatter.dateFormat = "MM/dd/yy"
-            let dateString = formatter.string(from: article.startDate)
-            aCell.titleLabel.text = dateString.dropLast(3) + ": " + article.title
+            if article.startDate == article.endDate {
+                let dateString = formatter.string(from: article.startDate)
+                aCell.titleLabel.text = dateString.dropLast(3) + ": " + article.title
+            } else {
+                let startString = formatter.string(from: article.startDate)
+                let endString = formatter.string(from: article.endDate)
+                aCell.titleLabel.text = startString.dropLast(3) + "-" + endString.dropLast(3) + ": " + article.title
+            }
             aCell.delegate = self
             aCell.timeLabel.text = article.startTime + " to " + article.endTime
             return aCell
@@ -438,7 +481,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension ListViewController: UISearchBarDelegate {
+extension CalendarViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
         searching = true
@@ -481,7 +524,7 @@ extension ListViewController: UISearchBarDelegate {
     }
 }
 
-extension ListViewController: SwipeTableViewCellDelegate {
+extension CalendarViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .left else { return nil }
 
@@ -520,7 +563,7 @@ extension ListViewController: SwipeTableViewCellDelegate {
     }
 }
 
-extension ListViewController /*Calendar Saving Functions*/ {
+extension CalendarViewController /*Calendar Saving Functions*/ {
     func saveToCalendarOne(temp: Article, force: Bool = false) {
         saveToCalendarTwo(temp, force, completion: {status, error in
             if status == false {
@@ -574,7 +617,10 @@ extension ListViewController /*Calendar Saving Functions*/ {
         let event = EKEvent(eventStore: eventStore)
 
         event.title = temp.title
-        event.url = URL(string: temp.link)
+        if temp.link != "" {
+            event.url = URL(string: temp.link)
+        }
+        event.notes = "Added by the Venice High App"
 
         if (temp.startTime == "none" && temp.endTime == "none") || (temp.startTime == "12:00 AM" && temp.endTime == "11:59 PM") || (temp.startTime == "12:00 AM" && temp.endTime == "11:55 PM") {
             event.isAllDay = true

@@ -26,19 +26,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var buildingData = [Building]()
     var dateData = [YMD]()
+    var eventData = [Event]()
     var roomData = [Room]()
     var staffData = [Staff]()
     var timeData = [BellSchedule]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserDefaults.standard.register(defaults: ["Theme Alert": true, "Event Alert": true, "Calendar Name": "", "Calendar Identifier": ""])
-        updateLook()
-        if UserDefaults.standard.bool(forKey: "Cleared Old") == false {
-            UserDefaults.standard.removeObject(forKey: "Last Refreshed")
-            UserDefaults.standard.removeObject(forKey: "refreshData")
-            UserDefaults.standard.set(true, forKey: "Cleared Old")
-        }
         schoolData()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = UITabBarController()
+        let calendarViewController = storyboard.instantiateViewController(withIdentifier: "calendarViewController")
+        calendarViewController.tabBarItem = UITabBarItem(title: "Calendar", image: #imageLiteral(resourceName: "Calendar"), tag: 0)
+        let bellViewController = storyboard.instantiateViewController(withIdentifier: "bellViewController")
+        bellViewController.tabBarItem = UITabBarItem(title: "Bell", image: #imageLiteral(resourceName: "Bells"), tag: 1)
+        let searchViewController = storyboard.instantiateViewController(withIdentifier: "searchViewController")
+        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "Search"), tag: 2)
+        let infoViewController = storyboard.instantiateViewController(withIdentifier: "infoViewController")
+        infoViewController.tabBarItem = UITabBarItem(title: "Info", image: #imageLiteral(resourceName: "Information"), tag: 3)
+        let settingsViewController = storyboard.instantiateViewController(withIdentifier: "settingsViewController")
+        settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "Settings"), tag: 4)
+        tabBarController.viewControllers = [calendarViewController, bellViewController, searchViewController, infoViewController, settingsViewController].map { UINavigationController(rootViewController: $0) }
+        window!.rootViewController = tabBarController
+        window!.makeKeyAndVisible()
+        updateLook()
         var isLaunchedFromQuickAction = false
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             isLaunchedFromQuickAction = true

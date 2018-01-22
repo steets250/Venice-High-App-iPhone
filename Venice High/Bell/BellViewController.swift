@@ -176,7 +176,7 @@ class BellViewController: UIViewController {
                         rightLabel.font = UIFont(name: "HelveticaNeue-Bold", size: rightLabel.font.pointSize)
                         let minutes = now.minutes(from: end)*(0-1)
                         let seconds = now.seconds(from: end)*(0-1) - minutes*60
-                        timeLeft.text = "Time Left: " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
+                        timeLeft.text = "Time Left - " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
                     }
                 }
 
@@ -197,7 +197,7 @@ class BellViewController: UIViewController {
                     if now >= start && now <= end {
                         let minutes = now.minutes(from: end)*(0-1)
                         let seconds = now.seconds(from: end)*(0-1) - minutes*60
-                        timeLeft.text = "\(time.title): " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
+                        timeLeft.text = "\(time.title) - " + String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
                     }
                 }
             }
@@ -251,15 +251,14 @@ class BellViewController: UIViewController {
 
     func timeBetween(_ input: [Time]) -> Bool {
         var times = [Time]()
-
         for time in input {
-            if time.id.getLast() == "0" && defaults.bool(forKey: "Show Period 0") {
-                times.append(time)
-            } else if time.id.getLast() == "7" && defaults.bool(forKey: "Show Period 7") {
-                times.append(time)
-            } else {
-                times.append(time)
+            if time.id.getLast() == "0" && defaults.bool(forKey: "Show Period 0") == false {
+                continue
             }
+            if time.id.getLast() == "7" && defaults.bool(forKey: "Show Period 7") == false {
+                continue
+            }
+            times.append(time)
         }
 
         let calendar = Calendar.current

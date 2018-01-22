@@ -67,7 +67,7 @@ class StaffViewController: UIViewController {
 extension StaffViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         popOverVC.type = "Staff"
         popOverVC.staffViaSegue = self.visibleArray[indexPath.row]
         popOverVC.allowButtonsViaSegue = true

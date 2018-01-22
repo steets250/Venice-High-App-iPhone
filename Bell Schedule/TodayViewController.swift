@@ -19,25 +19,61 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var schedule: Int!; var generalTimer: Timer?
     var dates = [YMD]()
     var schedules = [BellSchedule]()
+    var error = false
+    var schoolStart: Date!
+    var schoolEnd: Date!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if UIDevice.current.systemVersion[UIDevice.current.systemVersion.startIndex] == "9" {
             period.textColor = .white; timeLeft.textColor = .white; currentSchedule.textColor = .white
         }
+        setup()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if error {
+            error = false
+            setup()
+        }
+    }
+
+    func setup() {
         if defaults.string(forKey: "dateData") != nil {
             dates = Mapper<YMD>().mapArray(JSONString: defaults.string(forKey: "dateData")!)!
+        } else {
+            error = true
         }
         if defaults.string(forKey: "timeData") != nil {
             schedules = Mapper<BellSchedule>().mapArray(JSONString: defaults.string(forKey: "timeData")!)!
+        } else {
+            error = true
+        }
+        if defaults.object(forKey: "schoolStart") != nil {
+            schoolStart = defaults.object(forKey: "schoolStart") as! Date
+        } else {
+            error = true
+        }
+        if defaults.object(forKey: "schoolEnd") != nil {
+            schoolEnd = defaults.object(forKey: "schoolEnd") as! Date
+        } else {
+            error = true
         }
         if dates.isEmpty || schedules.isEmpty {
+            error = true
+        }
+        if error {
             noData()
         } else {
             initialSchedule()
         }
+    }
+
+    func noData() {
+        stackView.removeArrangedSubview(timeLeft)
+        timeLeft.textColor = .clear
+        period.text = "Error Loading Data"
+        currentSchedule.text = "Open App to Refresh"
     }
 
     func initialSchedule() {
@@ -45,9 +81,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: now)
         let year =  components.year; let month = components.month; let day = components.day
-
-        let schoolStart = defaults.object(forKey: "schoolStart") as! Date
-        let schoolEnd = defaults.object(forKey: "schoolEnd") as! Date
 
         if now.weekday > 1 && now.weekday < 7 && now.isBetween(date: schoolStart, andDate: schoolEnd) {
             var match = false
@@ -68,13 +101,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
 
-    func noData() {
-        stackView.removeArrangedSubview(timeLeft)
-        timeLeft.textColor = .clear
-        period.text = "Error Loading Data"
-        currentSchedule.text = "Open App to Refresh"
-    }
-
     func noSchool() {
         stackView.removeArrangedSubview(currentSchedule)
         currentSchedule.textColor = .clear
@@ -87,6 +113,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let currentTimes = schedules[schedule].times
         notSchool(currentTimes.first!.sh, currentTimes.first!.sm, currentTimes.last!.eh, currentTimes.last!.em)
         for i in 0 ..< currentTimes.count {
+            if currentTimes[i].id.getLast() == "0" && defaults.bool(forKey: "Show Period 0") == false {
+                continue
+            }
+            if currentTimes[i].id.getLast() == "7" && defaults.bool(forKey: "Show Period 7") == false {
+                continue
+            }
             getSchedule(schedule, i)
         }
     }

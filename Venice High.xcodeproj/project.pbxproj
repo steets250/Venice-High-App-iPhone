@@ -19,7 +19,7 @@
 		BA306B211E8F8F5200AD1B38 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */; };
 		BA412E0A1E498A39005A0AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA412E091E498A39005A0AB5 /* AppDelegate.swift */; };
 		BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA412E121E498A39005A0AB5 /* Assets.xcassets */; };
-		BA42837A1EC3ECF60060441E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4283791EC3ECF60060441E /* ListViewController.swift */; };
+		BA42837A1EC3ECF60060441E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4283791EC3ECF60060441E /* CalendarViewController.swift */; };
 		BA4880032007E34300FE434C /* Professional.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880002007E34300FE434C /* Professional.json */; };
 		BA4880042007E34300FE434C /* Regular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880012007E34300FE434C /* Regular.json */; };
 		BA4880052007E34300FE434C /* Minimum.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880022007E34300FE434C /* Minimum.json */; };
@@ -38,6 +38,7 @@
 		BAA3A3721F69F90300789DCD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3711F69F90300789DCD /* Extensions.swift */; };
 		BAA3A3741F69F90C00789DCD /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3731F69F90C00789DCD /* Classes.swift */; };
 		BAB1E6641ECD26080074F27F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB1E6621ECD26080074F27F /* LaunchScreen.storyboard */; };
+		BAB6310C200F231F00F9E6DF /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB6310B200F231F00F9E6DF /* Events.json */; };
 		BAB761DD1E52207700658D0B /* BellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761D81E52207700658D0B /* BellViewController.swift */; };
 		BAB761DF1E52207700658D0B /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761DA1E52207700658D0B /* StaffViewController.swift */; };
 		BAC1D6E61EABE60700993ECD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1D6E51EABE60700993ECD /* NotificationCenter.framework */; };
@@ -94,7 +95,7 @@
 		BA412E091E498A39005A0AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA412E121E498A39005A0AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA412E171E498A39005A0AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA4283791EC3ECF60060441E /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BA4283791EC3ECF60060441E /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CalendarViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BA4880002007E34300FE434C /* Professional.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Professional.json; sourceTree = "<group>"; };
 		BA4880012007E34300FE434C /* Regular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Regular.json; sourceTree = "<group>"; };
 		BA4880022007E34300FE434C /* Minimum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Minimum.json; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		BAA3A3711F69F90300789DCD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAA3A3731F69F90C00789DCD /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		BAB1E6631ECD26080074F27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAB6310B200F231F00F9E6DF /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
 		BAB761D81E52207700658D0B /* BellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BellViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAB761DA1E52207700658D0B /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StaffViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAC1D6E41EABE60700993ECD /* Bell Schedule.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bell Schedule.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,7 +214,7 @@
 		BA42837C1EC3ED3F0060441E /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				BA4283791EC3ECF60060441E /* ListViewController.swift */,
+				BA4283791EC3ECF60060441E /* CalendarViewController.swift */,
 				BA0EC1352000A1420044A324 /* VisualViewController.swift */,
 				BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */,
 				BA5084822001E34E0080CB11 /* VisualViewCell.swift */,
@@ -227,6 +229,7 @@
 			children = (
 				BA780BB12006EF880064CBB4 /* Buildings.json */,
 				BA780BB22006EF880064CBB4 /* Dates.json */,
+				BAB6310B200F231F00F9E6DF /* Events.json */,
 				BA780BBA2006EF880064CBB4 /* Rooms.json */,
 				BA780BB42006EF880064CBB4 /* Staff.json */,
 				BA780BB52006EF880064CBB4 /* Times */,
@@ -438,6 +441,7 @@
 				BA780BC02006EF880064CBB4 /* Schedules.json in Resources */,
 				BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */,
 				BA4880052007E34300FE434C /* Minimum.json in Resources */,
+				BAB6310C200F231F00F9E6DF /* Events.json in Resources */,
 				BA780BBB2006EF880064CBB4 /* Buildings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA42837A1EC3ECF60060441E /* ListViewController.swift in Sources */,
+				BA42837A1EC3ECF60060441E /* CalendarViewController.swift in Sources */,
 				BA2F9C031E7514F300B34EB7 /* DetailViewController.swift in Sources */,
 				BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */,
 				BA0EC1362000A1420044A324 /* VisualViewController.swift in Sources */,

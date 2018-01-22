@@ -263,7 +263,7 @@ extension DetailViewController /*Action Functions*/ {
     func openRoom(sender: UIButton!) {
         let roomLabel = sender.titleLabel!.text!
         let room = roomList.filter({$0.number == roomLabel}).first!
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         popOverVC.type = "Room"
         popOverVC.roomViaSegue = room
         popOverVC.allowButtonsViaSegue = false
@@ -357,7 +357,7 @@ extension DetailViewController /*Action Functions*/ {
     func openStaff(sender: UIButton!) {
         let staffLabel = sender.titleLabel!.text!
         let staff = staffList.filter({$0.prefix + " " + $0.lastName == staffLabel}).first!
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         popOverVC.type = "Staff"
         popOverVC.staffViaSegue = staff
         popOverVC.allowButtonsViaSegue = false

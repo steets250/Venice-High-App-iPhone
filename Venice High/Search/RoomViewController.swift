@@ -62,7 +62,7 @@ class RoomViewController: UIViewController {
 extension RoomViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
         popOverVC.type = "Room"
         popOverVC.roomViaSegue = self.currentArray[indexPath.row]
         popOverVC.allowButtonsViaSegue = true
