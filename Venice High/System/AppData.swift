@@ -12,6 +12,19 @@ import Alamofire_Synchronous
 import Reachability
 
 extension AppDelegate /*App Data Loading*/ {
+    private static var Manager : Alamofire.SessionManager = {
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+            "raw.githubusercontent.com": .disableEvaluation
+        ]
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+        let man = Alamofire.SessionManager(
+            configuration: URLSessionConfiguration.default,
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+        )
+        return man
+    }()
+
     func schoolData() {
         if defaults.object(forKey: "schoolStart") != nil {
             if Reachability()!.connection == .none {
@@ -47,7 +60,7 @@ extension AppDelegate /*App Data Loading*/ {
             apiURL = Bundle.main.url(forResource: "Year", withExtension: "json")!
         }
 
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             let points = Mapper<Endpoint>().mapArray(JSONString: response.value ?? "") ?? []
@@ -77,7 +90,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Buildings", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             self.buildingData = Mapper<Building>().mapArray(JSONString: response.value ?? "") ?? []
@@ -94,7 +107,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Dates", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             self.dateData = Mapper<YMD>().mapArray(JSONString: response.value ?? "") ?? []
@@ -111,7 +124,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Events", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             self.eventData = Mapper<Event>().mapArray(JSONString: response.value ?? "") ?? []
@@ -128,7 +141,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Rooms", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             self.roomData = Mapper<Room>().mapArray(JSONString: response.value ?? "") ?? []
@@ -145,7 +158,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Staff", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             self.staffData = Mapper<Staff>().mapArray(JSONString: response.value ?? "") ?? []
@@ -214,7 +227,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: "Schedules", withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             let schedules = Mapper<Schedule>().mapArray(JSONString: response.value ?? "") ?? []
@@ -234,7 +247,7 @@ extension AppDelegate /*App Data Loading*/ {
         } else {
             apiURL = Bundle.main.url(forResource: schedule.file, withExtension: "json")!
         }
-        let response = Alamofire.request(apiURL).responseString()
+        let response = AppDelegate.Manager.request(apiURL).responseString()
         switch response.result {
         case .success:
             let times = Mapper<Time>().mapArray(JSONString: response.value ?? "") ?? []
@@ -261,8 +274,9 @@ extension AppDelegate /*App Data Loading*/ {
 
     func loadEnding() {
         if messedUp || (internet && (buildingData.isEmpty || dateData.isEmpty || roomData.isEmpty || staffData.isEmpty || timeData.isEmpty)) {
-            loadFile(false)
-        } else if internet && !buildingData.isEmpty && !dateData.isEmpty && !roomData.isEmpty && !staffData.isEmpty && !timeData.isEmpty {
+            loadFile(true)
+        }
+        else if internet && !buildingData.isEmpty && !dateData.isEmpty && !roomData.isEmpty && !staffData.isEmpty && !timeData.isEmpty {
             saveData()
         }
     }

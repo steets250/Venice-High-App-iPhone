@@ -46,6 +46,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         if defaults.string(forKey: "timeData") != nil {
             schedules = Mapper<BellSchedule>().mapArray(JSONString: defaults.string(forKey: "timeData")!)!
+            var new = [BellSchedule]()
+            for schedule in schedules {
+                new.append(BellSchedule(schedule: schedule.schedule, times: extrasCheck(input: schedule.times)))
+            }
+            schedules = new
         } else {
             error = true
         }
@@ -67,6 +72,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         } else {
             initialSchedule()
         }
+    }
+    
+    func extrasCheck(input: [Time]) -> [Time] {
+        var times = [Time]()
+        for time in input {
+            if time.id.getLast() == "0" && defaults.bool(forKey: "Show Period 0") == false {
+                continue
+            }
+            if time.id.getLast() == "7" && defaults.bool(forKey: "Show Period 7") == false {
+                continue
+            }
+            times.append(time)
+        }
+        if defaults.bool(forKey: "Show Period 0") == false {
+            let number = times[0].id.getLast()
+            times.insert(Time(id: "pp\(number)", sh: 7, sm: 0, eh: 7, em: 57, title: "Passing to Period \(number)"), at: 0)
+        }
+        return times
     }
 
     func noData() {

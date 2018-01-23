@@ -14,6 +14,11 @@ struct BellSchedule: Mappable {
 
     init?(map: Map) {
     }
+    
+    init(schedule: String, times: [Time]) {
+        self.schedule = schedule
+        self.times = times
+    }
 
     mutating func mapping(map: Map) {
         schedule <- map["schedule"]
@@ -30,6 +35,15 @@ struct Time: Mappable {
     var title: String = ""
 
     init?(map: Map) {
+    }
+    
+    init(id: String, sh: Int, sm: Int, eh: Int, em: Int, title: String) {
+        self.id = id
+        self.sh = sh
+        self.sm = sm
+        self.eh = eh
+        self.em = em
+        self.title = title
     }
 
     mutating func mapping(map: Map) {
