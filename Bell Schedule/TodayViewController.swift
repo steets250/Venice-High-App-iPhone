@@ -16,7 +16,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var currentSchedule: UILabel!
 
     let defaults = UserDefaults.init(suiteName: "group.steets250.Venice-High.Bell-Schedule")!
-    var schedule: Int!; var generalTimer: Timer?
+    var schedule = 1
+    var generalTimer: Timer?
     var dates = [YMD]()
     var schedules = [BellSchedule]()
     var error = false
@@ -28,17 +29,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if UIDevice.current.systemVersion[UIDevice.current.systemVersion.startIndex] == "9" {
             period.textColor = .white; timeLeft.textColor = .white; currentSchedule.textColor = .white
         }
-        setup()
+        pageSetup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         if error {
             error = false
-            setup()
+            pageSetup()
         }
     }
 
-    func setup() {
+    func pageSetup() {
         if defaults.string(forKey: "dateData") != nil {
             dates = Mapper<YMD>().mapArray(JSONString: defaults.string(forKey: "dateData")!)!
         } else {
@@ -73,7 +74,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             initialSchedule()
         }
     }
-    
+
     func extrasCheck(input: [Time]) -> [Time] {
         var times = [Time]()
         for time in input {
@@ -106,15 +107,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let year =  components.year; let month = components.month; let day = components.day
 
         if now.weekday > 1 && now.weekday < 7 && now.isBetween(date: schoolStart, andDate: schoolEnd) {
-            var match = false
             for i in dates {
-                if (year == i.year && month == i.month && day == i.day) {schedule = i.schedule; match = true}
+                if (year == i.year && month == i.month && day == i.day) {schedule = i.schedule}
             }
-            if match == false {schedule = 1}
             if schedule == 0 {
                 noSchool()
             } else {
-                schedule = schedule - 1
+                schedule -= 1
                 currentSchedule.text = "\(schedules[schedule].schedule) Schedule"
                 generalSchedule()
                 generalTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.generalSchedule), userInfo: nil, repeats: true)
@@ -132,7 +131,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         period.text = "No School Today"
     }
 
-    func generalSchedule() {
+    @objc func generalSchedule() {
         let currentTimes = schedules[schedule].times
         notSchool(currentTimes.first!.sh, currentTimes.first!.sm, currentTimes.last!.eh, currentTimes.last!.em)
         for i in 0 ..< currentTimes.count {

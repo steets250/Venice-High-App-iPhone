@@ -14,7 +14,7 @@ struct BellSchedule: Mappable {
 
     init?(map: Map) {
     }
-    
+
     init(schedule: String, times: [Time]) {
         self.schedule = schedule
         self.times = times
@@ -36,7 +36,7 @@ struct Time: Mappable {
 
     init?(map: Map) {
     }
-    
+
     init(id: String, sh: Int, sm: Int, eh: Int, em: Int, title: String) {
         self.id = id
         self.sh = sh
@@ -99,6 +99,6 @@ extension Date {
 
 extension String {
     func getLast(_ count: Int = 1) -> String {
-        return substring(from: index(endIndex, offsetBy: -count))
+        return String(describing: self[index(endIndex, offsetBy: -count)...])
     }
 }

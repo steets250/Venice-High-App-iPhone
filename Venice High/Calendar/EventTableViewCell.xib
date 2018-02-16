@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a8h-IS-Pzw" customClass="EventTableViewCell" customModule="Venice_High" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a8h-IS-Pzw" id="8qY-gT-UKJ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6j-dP-NcX" userLabel="Container View">
+                        <rect key="frame" x="32" y="0.0" width="327" height="99.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfM-WF-4yf">
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="100"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BfM-WF-4yf" firstAttribute="top" secondItem="d6j-dP-NcX" secondAttribute="top" id="JjB-8e-RBv"/>
+                            <constraint firstItem="BfM-WF-4yf" firstAttribute="leading" secondItem="d6j-dP-NcX" secondAttribute="leading" id="l08-Xp-3J8"/>
+                            <constraint firstAttribute="trailing" secondItem="BfM-WF-4yf" secondAttribute="trailing" id="nO9-za-m92"/>
+                            <constraint firstAttribute="bottom" secondItem="BfM-WF-4yf" secondAttribute="bottom" id="yz7-hz-sgr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="d6j-dP-NcX" firstAttribute="top" secondItem="8qY-gT-UKJ" secondAttribute="top" id="Txm-e4-gAY"/>
+                    <constraint firstAttribute="bottom" secondItem="d6j-dP-NcX" secondAttribute="bottom" id="ZJz-tZ-EKx"/>
+                    <constraint firstAttribute="trailing" secondItem="d6j-dP-NcX" secondAttribute="trailing" constant="16" id="kg3-hG-zLd"/>
+                    <constraint firstItem="d6j-dP-NcX" firstAttribute="leading" secondItem="8qY-gT-UKJ" secondAttribute="leading" constant="32" id="sBW-Ln-21x"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="BfM-WF-4yf" id="lby-vB-3qr"/>
+            </connections>
+            <point key="canvasLocation" x="-6.5" y="-27"/>
+        </tableViewCell>
+    </objects>
+</document>

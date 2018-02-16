@@ -3,72 +3,88 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0534FFF2C4A0DD181D831207 /* Pods_Venice_High.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666F750A9C09DE88EC46F9FF /* Pods_Venice_High.framework */; };
-		B7D5CE74F9948B99F449CCC6 /* Pods_Bell_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929C8ADB87C647F6B78AB3DD /* Pods_Bell_Schedule.framework */; };
-		BA09DCAC1EDF35ED004725C8 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09DCAB1EDF35ED004725C8 /* ButtonTableViewCell.swift */; };
-		BA0EC1362000A1420044A324 /* VisualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0EC1352000A1420044A324 /* VisualViewController.swift */; };
-		BA10BA2A1ED4038900A1EC9A /* CalendarScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10BA291ED4038900A1EC9A /* CalendarScope.swift */; };
-		BA1CF27D2001861F003771CD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1CF27C2001861F003771CD /* SearchViewController.swift */; };
-		BA2842A51EBA756900AAB867 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2842A31EBA756900AAB867 /* MainInterface.storyboard */; };
-		BA2F9C031E7514F300B34EB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F9C021E7514F300B34EB7 /* DetailViewController.swift */; };
-		BA2F9C051E75156600B34EB7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F9C041E75156600B34EB7 /* SearchTableViewCell.swift */; };
-		BA306B211E8F8F5200AD1B38 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */; };
-		BA412E0A1E498A39005A0AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA412E091E498A39005A0AB5 /* AppDelegate.swift */; };
-		BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA412E121E498A39005A0AB5 /* Assets.xcassets */; };
-		BA42837A1EC3ECF60060441E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4283791EC3ECF60060441E /* CalendarViewController.swift */; };
-		BA4880032007E34300FE434C /* Professional.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880002007E34300FE434C /* Professional.json */; };
-		BA4880042007E34300FE434C /* Regular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880012007E34300FE434C /* Regular.json */; };
-		BA4880052007E34300FE434C /* Minimum.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4880022007E34300FE434C /* Minimum.json */; };
-		BA4A8E892006F4D400F6CBD0 /* Year.json in Resources */ = {isa = PBXBuildFile; fileRef = BA4A8E882006F4D400F6CBD0 /* Year.json */; };
-		BA4ED0461F7E079000CF37ED /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4ED0451F7E079000CF37ED /* Extension.swift */; };
-		BA5084832001E34F0080CB11 /* VisualViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5084822001E34E0080CB11 /* VisualViewCell.swift */; };
-		BA5A92781EC781E200CD85DC /* NoTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */; };
-		BA5EA5531EC5A012008A24D2 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5EA5521EC5A012008A24D2 /* TimeTableViewCell.swift */; };
-		BA780BBB2006EF880064CBB4 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB12006EF880064CBB4 /* Buildings.json */; };
-		BA780BBC2006EF880064CBB4 /* Dates.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB22006EF880064CBB4 /* Dates.json */; };
-		BA780BBE2006EF880064CBB4 /* Staff.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB42006EF880064CBB4 /* Staff.json */; };
-		BA780BC02006EF880064CBB4 /* Schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BB72006EF880064CBB4 /* Schedules.json */; };
-		BA780BC32006EF880064CBB4 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = BA780BBA2006EF880064CBB4 /* Rooms.json */; };
-		BA879FFE1E69447D0012BC41 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA879FFD1E69447D0012BC41 /* InformationViewController.swift */; };
-		BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A36F1F69F8FB00789DCD /* Structs.swift */; };
-		BAA3A3721F69F90300789DCD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3711F69F90300789DCD /* Extensions.swift */; };
-		BAA3A3741F69F90C00789DCD /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3A3731F69F90C00789DCD /* Classes.swift */; };
-		BAB1E6641ECD26080074F27F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB1E6621ECD26080074F27F /* LaunchScreen.storyboard */; };
-		BAB6310C200F231F00F9E6DF /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB6310B200F231F00F9E6DF /* Events.json */; };
-		BAB761DD1E52207700658D0B /* BellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761D81E52207700658D0B /* BellViewController.swift */; };
-		BAB761DF1E52207700658D0B /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB761DA1E52207700658D0B /* StaffViewController.swift */; };
-		BAC1D6E61EABE60700993ECD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1D6E51EABE60700993ECD /* NotificationCenter.framework */; };
-		BAC1D6E91EABE60700993ECD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC1D6E81EABE60700993ECD /* TodayViewController.swift */; };
-		BAC1D6F01EABE60700993ECD /* Bell Schedule.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAC1D6E41EABE60700993ECD /* Bell Schedule.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BAE0FDA51E9083C300BCFF06 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE0FDA41E9083C300BCFF06 /* SettingsViewController.swift */; };
-		BAE0FDA71E90856900BCFF06 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE0FDA61E90856900BCFF06 /* SwitchTableViewCell.swift */; };
-		BAE480A42000622A005B891F /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE480A32000622A005B891F /* Acknowledgements.plist */; };
-		BAEBE7571E8CCF24000F31B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBE7561E8CCF24000F31B5 /* Main.storyboard */; };
-		BAF8C0741E946CCB00DC80A7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8C0731E946CCB00DC80A7 /* AppData.swift */; };
+		0B3E4D4CF2812F216B74BCDB /* Pods_Bell_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0FEE87A97FF58F0856B973 /* Pods_Bell_Schedule.framework */; };
+		49CE60D50A74DAD49EC93F64 /* Pods_Venice_High.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4277AD5042704888C149FAC7 /* Pods_Venice_High.framework */; };
+		BA269FCA20366B9B00259266 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F8820366B9A00259266 /* SearchViewController.swift */; };
+		BA269FCB20366B9B00259266 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F8920366B9A00259266 /* DetailViewController.swift */; };
+		BA269FCC20366B9B00259266 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F8A20366B9A00259266 /* ResultsViewController.swift */; };
+		BA269FCD20366B9B00259266 /* ThemePermissionScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F8C20366B9A00259266 /* ThemePermissionScope.swift */; };
+		BA269FCE20366B9B00259266 /* Dark.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA269F8D20366B9A00259266 /* Dark.plist */; };
+		BA269FCF20366B9B00259266 /* Light.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA269F8E20366B9A00259266 /* Light.plist */; };
+		BA269FD020366B9B00259266 /* ThemeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F8F20366B9A00259266 /* ThemeNavigationController.swift */; };
+		BA269FD120366B9B00259266 /* ThemeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9020366B9A00259266 /* ThemeTabBarController.swift */; };
+		BA269FD220366B9B00259266 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9220366B9A00259266 /* Building.swift */; };
+		BA269FD320366B9B00259266 /* ArticleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9320366B9A00259266 /* ArticleGroup.swift */; };
+		BA269FD420366B9B00259266 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9420366B9A00259266 /* Event.swift */; };
+		BA269FD520366B9B00259266 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9520366B9A00259266 /* Time.swift */; };
+		BA269FD620366B9B00259266 /* YMD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9620366B9A00259266 /* YMD.swift */; };
+		BA269FD720366B9B00259266 /* BellSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9720366B9A00259266 /* BellSchedule.swift */; };
+		BA269FD820366B9B00259266 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9820366B9A00259266 /* Staff.swift */; };
+		BA269FD920366B9B00259266 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9920366B9A00259266 /* Room.swift */; };
+		BA269FDA20366B9B00259266 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9A20366B9A00259266 /* Schedule.swift */; };
+		BA269FDB20366B9B00259266 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9B20366B9A00259266 /* Article.swift */; };
+		BA269FDC20366B9B00259266 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9C20366B9A00259266 /* Endpoint.swift */; };
+		BA269FDD20366B9B00259266 /* CalendarScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269F9E20366B9A00259266 /* CalendarScope.swift */; };
+		BA269FE020366B9B00259266 /* MD5Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FA120366B9A00259266 /* MD5Digest.swift */; };
+		BA269FE120366B9B00259266 /* AlertScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FA220366B9A00259266 /* AlertScope.swift */; };
+		BA269FE320366B9B00259266 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FA520366B9A00259266 /* AppData.swift */; };
+		BA269FE420366B9B00259266 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA269FA620366B9A00259266 /* Settings.bundle */; };
+		BA269FE520366B9B00259266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA269FA720366B9A00259266 /* Assets.xcassets */; };
+		BA269FE620366B9B00259266 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FA820366B9A00259266 /* Extensions.swift */; };
+		BA269FE720366B9B00259266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FAA20366B9A00259266 /* AppDelegate.swift */; };
+		BA269FE920366B9B00259266 /* SegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA269FAD20366B9A00259266 /* SegmentTableViewCell.xib */; };
+		BA269FEA20366B9B00259266 /* SegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FAE20366B9A00259266 /* SegmentTableViewCell.swift */; };
+		BA269FEB20366B9B00259266 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FAF20366B9A00259266 /* InfoViewController.swift */; };
+		BA269FEC20366B9B00259266 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA269FB020366B9A00259266 /* Acknowledgements.plist */; };
+		BA269FED20366B9B00259266 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA269FB120366B9A00259266 /* SwitchTableViewCell.xib */; };
+		BA269FEE20366B9B00259266 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FB220366B9A00259266 /* SwitchTableViewCell.swift */; };
+		BA269FF020366B9B00259266 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FB720366B9A00259266 /* EventViewController.swift */; };
+		BA269FF120366B9B00259266 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA269FB820366B9A00259266 /* EventTableViewCell.xib */; };
+		BA269FF220366B9B00259266 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FB920366B9A00259266 /* EventTableViewCell.swift */; };
+		BA269FF320366B9B00259266 /* SwipeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FBA20366B9A00259266 /* SwipeFunctions.swift */; };
+		BA269FF420366B9B00259266 /* VisualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FBB20366B9A00259266 /* VisualViewController.swift */; };
+		BA269FF520366B9B00259266 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FBD20366B9A00259266 /* Buildings.json */; };
+		BA269FF620366B9B00259266 /* Dates.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FBE20366B9A00259266 /* Dates.json */; };
+		BA269FF720366B9B00259266 /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FBF20366B9A00259266 /* Events.json */; };
+		BA269FF820366B9B00259266 /* Staff.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC020366B9A00259266 /* Staff.json */; };
+		BA269FF920366B9B00259266 /* Minimum.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC220366B9A00259266 /* Minimum.json */; };
+		BA269FFA20366B9B00259266 /* Schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC320366B9A00259266 /* Schedules.json */; };
+		BA269FFB20366B9B00259266 /* Regular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC420366B9A00259266 /* Regular.json */; };
+		BA269FFC20366B9B00259266 /* Professional.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC520366B9A00259266 /* Professional.json */; };
+		BA269FFD20366B9B00259266 /* Year.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC620366B9A00259266 /* Year.json */; };
+		BA269FFE20366B9B00259266 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = BA269FC720366B9A00259266 /* Rooms.json */; };
+		BA269FFF20366B9B00259266 /* BellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA269FC920366B9B00259266 /* BellViewController.swift */; };
+		BA26A00320366BD400259266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA26A00120366BD400259266 /* LaunchScreen.storyboard */; };
+		BA722E09202309FF00248A03 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA722E08202309FF00248A03 /* NotificationCenter.framework */; };
+		BA722E13202309FF00248A03 /* Bell Schedule.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BA722E06202309FF00248A03 /* Bell Schedule.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BA722E1E20230A2200248A03 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA722E1920230A2200248A03 /* TodayViewController.swift */; };
+		BA722E2020230A2200248A03 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA722E1D20230A2200248A03 /* Extension.swift */; };
+		BA85B98520367720008CFA4E /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85B98420367720008CFA4E /* Setup.swift */; };
+		BAEACFF320230B5E00553241 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEACFF120230B5E00553241 /* MainInterface.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BAC1D6EE1EABE60700993ECD /* PBXContainerItemProxy */ = {
+		BA722E11202309FF00248A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA412DFE1E498A39005A0AB5 /* Project object */;
+			containerPortal = BA722D9D2023092800248A03 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BAC1D6E31EABE60700993ECD;
-			remoteInfo = "VHS Bell Schedule";
+			remoteGlobalIDString = BA722E05202309FF00248A03;
+			remoteInfo = "Bell Schedule";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BAC1D6F41EABE60700993ECD /* Embed App Extensions */ = {
+		BA722E17202309FF00248A03 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BAC1D6F01EABE60700993ECD /* Bell Schedule.appex in Embed App Extensions */,
+				BA722E13202309FF00248A03 /* Bell Schedule.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,327 +92,355 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26D814772511DEDFC940600D /* Pods-Bell Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.release.xcconfig"; sourceTree = "<group>"; };
-		3492FC8C65EBEE2184704D1D /* Pods-Venice High.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.debug.xcconfig"; sourceTree = "<group>"; };
-		56BB91E3D13E1C6D1891B27C /* Pods-Venice High.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.release.xcconfig"; sourceTree = "<group>"; };
-		666F750A9C09DE88EC46F9FF /* Pods_Venice_High.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venice_High.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		929C8ADB87C647F6B78AB3DD /* Pods_Bell_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA09DCAB1EDF35ED004725C8 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		BA0EC1352000A1420044A324 /* VisualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualViewController.swift; sourceTree = "<group>"; };
-		BA10BA291ED4038900A1EC9A /* CalendarScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScope.swift; sourceTree = "<group>"; };
-		BA1CF27C2001861F003771CD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		BA2842A41EBA756900AAB867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		BA2F9C021E7514F300B34EB7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		BA2F9C041E75156600B34EB7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RoomViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BA3249021EC0E62A000F79F6 /* Venice High.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Venice High.entitlements"; sourceTree = "<group>"; };
-		BA3249031EC0E637000F79F6 /* Bell Schedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bell Schedule.entitlements"; sourceTree = "<group>"; };
-		BA412E061E498A39005A0AB5 /* Venice High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Venice High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA412E091E498A39005A0AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA412E121E498A39005A0AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BA412E171E498A39005A0AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA4283791EC3ECF60060441E /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CalendarViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BA4880002007E34300FE434C /* Professional.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Professional.json; sourceTree = "<group>"; };
-		BA4880012007E34300FE434C /* Regular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Regular.json; sourceTree = "<group>"; };
-		BA4880022007E34300FE434C /* Minimum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Minimum.json; sourceTree = "<group>"; };
-		BA4A8E882006F4D400F6CBD0 /* Year.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Year.json; sourceTree = "<group>"; };
-		BA4ED0451F7E079000CF37ED /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		BA5084822001E34E0080CB11 /* VisualViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualViewCell.swift; sourceTree = "<group>"; };
-		BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTimeTableViewCell.swift; sourceTree = "<group>"; };
-		BA5EA5521EC5A012008A24D2 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
-		BA5FE3011EB9C38700ED6C54 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		BA780BB12006EF880064CBB4 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
-		BA780BB22006EF880064CBB4 /* Dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dates.json; sourceTree = "<group>"; };
-		BA780BB42006EF880064CBB4 /* Staff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Staff.json; sourceTree = "<group>"; };
-		BA780BB72006EF880064CBB4 /* Schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Schedules.json; sourceTree = "<group>"; };
-		BA780BBA2006EF880064CBB4 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
-		BA879FFD1E69447D0012BC41 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InformationViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BAA3A36F1F69F8FB00789DCD /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		BAA3A3711F69F90300789DCD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		BAA3A3731F69F90C00789DCD /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		BAB1E6631ECD26080074F27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BAB6310B200F231F00F9E6DF /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
-		BAB761D81E52207700658D0B /* BellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BellViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BAB761DA1E52207700658D0B /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StaffViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BAC1D6E41EABE60700993ECD /* Bell Schedule.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bell Schedule.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAC1D6E51EABE60700993ECD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		BAC1D6E81EABE60700993ECD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		BAC1D6ED1EABE60700993ECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAE0FDA41E9083C300BCFF06 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BAE0FDA61E90856900BCFF06 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		BAE480A32000622A005B891F /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
-		BAEBE7561E8CCF24000F31B5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BAF8C0731E946CCB00DC80A7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		F35BB94F3ECB2C9ADB72B450 /* Pods-Bell Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		340DF73BA7754C1543299921 /* Pods-Bell Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		35F6A02A66E9798C31A6AC74 /* Pods-Venice High.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.release.xcconfig"; sourceTree = "<group>"; };
+		3DEB4BA7918BFCEEDC7A51C8 /* Pods-Venice High.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venice High.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venice High/Pods-Venice High.debug.xcconfig"; sourceTree = "<group>"; };
+		4277AD5042704888C149FAC7 /* Pods_Venice_High.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venice_High.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6608DD949264FA95ECB5019 /* Pods-Bell Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bell Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		BA269F8820366B9A00259266 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BA269F8920366B9A00259266 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BA269F8A20366B9A00259266 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		BA269F8C20366B9A00259266 /* ThemePermissionScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemePermissionScope.swift; sourceTree = "<group>"; };
+		BA269F8D20366B9A00259266 /* Dark.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dark.plist; sourceTree = "<group>"; };
+		BA269F8E20366B9A00259266 /* Light.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Light.plist; sourceTree = "<group>"; };
+		BA269F8F20366B9A00259266 /* ThemeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeNavigationController.swift; sourceTree = "<group>"; };
+		BA269F9020366B9A00259266 /* ThemeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTabBarController.swift; sourceTree = "<group>"; };
+		BA269F9220366B9A00259266 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		BA269F9320366B9A00259266 /* ArticleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleGroup.swift; sourceTree = "<group>"; };
+		BA269F9420366B9A00259266 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		BA269F9520366B9A00259266 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		BA269F9620366B9A00259266 /* YMD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMD.swift; sourceTree = "<group>"; };
+		BA269F9720366B9A00259266 /* BellSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BellSchedule.swift; sourceTree = "<group>"; };
+		BA269F9820366B9A00259266 /* Staff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
+		BA269F9920366B9A00259266 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		BA269F9A20366B9A00259266 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		BA269F9B20366B9A00259266 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		BA269F9C20366B9A00259266 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		BA269F9E20366B9A00259266 /* CalendarScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScope.swift; sourceTree = "<group>"; };
+		BA269FA120366B9A00259266 /* MD5Digest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5Digest.swift; sourceTree = "<group>"; };
+		BA269FA220366B9A00259266 /* AlertScope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertScope.swift; sourceTree = "<group>"; };
+		BA269FA520366B9A00259266 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		BA269FA620366B9A00259266 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BA269FA720366B9A00259266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA269FA820366B9A00259266 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BA269FA920366B9A00259266 /* Venice High.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Venice High.entitlements"; sourceTree = "<group>"; };
+		BA269FAA20366B9A00259266 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA269FAB20366B9A00259266 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA269FAD20366B9A00259266 /* SegmentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentTableViewCell.xib; sourceTree = "<group>"; };
+		BA269FAE20366B9A00259266 /* SegmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentTableViewCell.swift; sourceTree = "<group>"; };
+		BA269FAF20366B9A00259266 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		BA269FB020366B9A00259266 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
+		BA269FB120366B9A00259266 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		BA269FB220366B9A00259266 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		BA269FB720366B9A00259266 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		BA269FB820366B9A00259266 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		BA269FB920366B9A00259266 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		BA269FBA20366B9A00259266 /* SwipeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeFunctions.swift; sourceTree = "<group>"; };
+		BA269FBB20366B9A00259266 /* VisualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualViewController.swift; sourceTree = "<group>"; };
+		BA269FBD20366B9A00259266 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
+		BA269FBE20366B9A00259266 /* Dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dates.json; sourceTree = "<group>"; };
+		BA269FBF20366B9A00259266 /* Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
+		BA269FC020366B9A00259266 /* Staff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Staff.json; sourceTree = "<group>"; };
+		BA269FC220366B9A00259266 /* Minimum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Minimum.json; sourceTree = "<group>"; };
+		BA269FC320366B9A00259266 /* Schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Schedules.json; sourceTree = "<group>"; };
+		BA269FC420366B9A00259266 /* Regular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Regular.json; sourceTree = "<group>"; };
+		BA269FC520366B9A00259266 /* Professional.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Professional.json; sourceTree = "<group>"; };
+		BA269FC620366B9A00259266 /* Year.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Year.json; sourceTree = "<group>"; };
+		BA269FC720366B9A00259266 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
+		BA269FC920366B9B00259266 /* BellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BellViewController.swift; sourceTree = "<group>"; };
+		BA26A00220366BD400259266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA722DA52023092800248A03 /* Venice High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Venice High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA722E06202309FF00248A03 /* Bell Schedule.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bell Schedule.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA722E08202309FF00248A03 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		BA722E10202309FF00248A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA722E1820230A2200248A03 /* Bell Schedule.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Bell Schedule.entitlements"; sourceTree = "<group>"; };
+		BA722E1920230A2200248A03 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		BA722E1D20230A2200248A03 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BA85B98420367720008CFA4E /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
+		BAEACFF220230B5E00553241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		FD0FEE87A97FF58F0856B973 /* Pods_Bell_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA412E031E498A39005A0AB5 /* Frameworks */ = {
+		BA722DA22023092800248A03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0534FFF2C4A0DD181D831207 /* Pods_Venice_High.framework in Frameworks */,
+				49CE60D50A74DAD49EC93F64 /* Pods_Venice_High.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAC1D6E11EABE60700993ECD /* Frameworks */ = {
+		BA722E03202309FF00248A03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC1D6E61EABE60700993ECD /* NotificationCenter.framework in Frameworks */,
-				B7D5CE74F9948B99F449CCC6 /* Pods_Bell_Schedule.framework in Frameworks */,
+				BA722E09202309FF00248A03 /* NotificationCenter.framework in Frameworks */,
+				0B3E4D4CF2812F216B74BCDB /* Pods_Bell_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA2842A91EBA75B900AAB867 /* Storyboards */ = {
+		56813EA34D79C0A37F1C1B27 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BAB1E6621ECD26080074F27F /* LaunchScreen.storyboard */,
-				BAEBE7561E8CCF24000F31B5 /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		BA412DFD1E498A39005A0AB5 = {
-			isa = PBXGroup;
-			children = (
-				BA412E081E498A39005A0AB5 /* Venice High */,
-				BAC1D6E71EABE60700993ECD /* Bell Schedule */,
-				FD1344986E944F4602A85EF3 /* Frameworks */,
-				BA412E071E498A39005A0AB5 /* Products */,
-				DE0918E0FF9A7941CD0C8ABC /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		BA412E071E498A39005A0AB5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BA412E061E498A39005A0AB5 /* Venice High.app */,
-				BAC1D6E41EABE60700993ECD /* Bell Schedule.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BA412E081E498A39005A0AB5 /* Venice High */ = {
-			isa = PBXGroup;
-			children = (
-				BAA7653B1E63BBBF007EAA80 /* Bell */,
-				BA42837C1EC3ED3F0060441E /* Calendar */,
-				BACD52D11E6A4FEF00E6B5B0 /* Information */,
-				BA780BB02006EF880064CBB4 /* Json */,
-				BAEF5A891F85C5F700302708 /* Search */,
-				BAE0FDA31E90838300BCFF06 /* Settings */,
-				BA2842A91EBA75B900AAB867 /* Storyboards */,
-				BA42837B1EC3ED110060441E /* System */,
-			);
-			path = "Venice High";
-			sourceTree = "<group>";
-		};
-		BA42837B1EC3ED110060441E /* System */ = {
-			isa = PBXGroup;
-			children = (
-				BAE480A32000622A005B891F /* Acknowledgements.plist */,
-				BAF8C0731E946CCB00DC80A7 /* AppData.swift */,
-				BA412E091E498A39005A0AB5 /* AppDelegate.swift */,
-				BA412E121E498A39005A0AB5 /* Assets.xcassets */,
-				BAA3A3731F69F90C00789DCD /* Classes.swift */,
-				BAA3A3711F69F90300789DCD /* Extensions.swift */,
-				BA412E171E498A39005A0AB5 /* Info.plist */,
-				BAA3A36F1F69F8FB00789DCD /* Structs.swift */,
-				BA3249021EC0E62A000F79F6 /* Venice High.entitlements */,
-			);
-			path = System;
-			sourceTree = "<group>";
-		};
-		BA42837C1EC3ED3F0060441E /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				BA4283791EC3ECF60060441E /* CalendarViewController.swift */,
-				BA0EC1352000A1420044A324 /* VisualViewController.swift */,
-				BA5A92771EC781E200CD85DC /* NoTimeTableViewCell.swift */,
-				BA5084822001E34E0080CB11 /* VisualViewCell.swift */,
-				BA5EA5521EC5A012008A24D2 /* TimeTableViewCell.swift */,
-				BA10BA291ED4038900A1EC9A /* CalendarScope.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		BA780BB02006EF880064CBB4 /* Json */ = {
-			isa = PBXGroup;
-			children = (
-				BA780BB12006EF880064CBB4 /* Buildings.json */,
-				BA780BB22006EF880064CBB4 /* Dates.json */,
-				BAB6310B200F231F00F9E6DF /* Events.json */,
-				BA780BBA2006EF880064CBB4 /* Rooms.json */,
-				BA780BB42006EF880064CBB4 /* Staff.json */,
-				BA780BB52006EF880064CBB4 /* Times */,
-				BA4A8E882006F4D400F6CBD0 /* Year.json */,
-			);
-			path = Json;
-			sourceTree = "<group>";
-		};
-		BA780BB52006EF880064CBB4 /* Times */ = {
-			isa = PBXGroup;
-			children = (
-				BA4880022007E34300FE434C /* Minimum.json */,
-				BA4880002007E34300FE434C /* Professional.json */,
-				BA4880012007E34300FE434C /* Regular.json */,
-				BA780BB72006EF880064CBB4 /* Schedules.json */,
-			);
-			path = Times;
-			sourceTree = "<group>";
-		};
-		BAA7653B1E63BBBF007EAA80 /* Bell */ = {
-			isa = PBXGroup;
-			children = (
-				BAB761D81E52207700658D0B /* BellViewController.swift */,
-			);
-			path = Bell;
-			sourceTree = "<group>";
-		};
-		BAC1D6E71EABE60700993ECD /* Bell Schedule */ = {
-			isa = PBXGroup;
-			children = (
-				BA3249031EC0E637000F79F6 /* Bell Schedule.entitlements */,
-				BA4ED0451F7E079000CF37ED /* Extension.swift */,
-				BAC1D6ED1EABE60700993ECD /* Info.plist */,
-				BA2842A31EBA756900AAB867 /* MainInterface.storyboard */,
-				BAC1D6E81EABE60700993ECD /* TodayViewController.swift */,
-			);
-			path = "Bell Schedule";
-			sourceTree = "<group>";
-		};
-		BACD52D11E6A4FEF00E6B5B0 /* Information */ = {
-			isa = PBXGroup;
-			children = (
-				BA879FFD1E69447D0012BC41 /* InformationViewController.swift */,
-			);
-			path = Information;
-			sourceTree = "<group>";
-		};
-		BAE0FDA31E90838300BCFF06 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				BAE0FDA41E9083C300BCFF06 /* SettingsViewController.swift */,
-				BA09DCAB1EDF35ED004725C8 /* ButtonTableViewCell.swift */,
-				BAE0FDA61E90856900BCFF06 /* SwitchTableViewCell.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		BAEF5A891F85C5F700302708 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				BA1CF27C2001861F003771CD /* SearchViewController.swift */,
-				BAB761DA1E52207700658D0B /* StaffViewController.swift */,
-				BA306B1D1E8F8F5200AD1B38 /* RoomViewController.swift */,
-				BA2F9C041E75156600B34EB7 /* SearchTableViewCell.swift */,
-				BA2F9C021E7514F300B34EB7 /* DetailViewController.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		DE0918E0FF9A7941CD0C8ABC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F35BB94F3ECB2C9ADB72B450 /* Pods-Bell Schedule.debug.xcconfig */,
-				26D814772511DEDFC940600D /* Pods-Bell Schedule.release.xcconfig */,
-				3492FC8C65EBEE2184704D1D /* Pods-Venice High.debug.xcconfig */,
-				56BB91E3D13E1C6D1891B27C /* Pods-Venice High.release.xcconfig */,
+				A6608DD949264FA95ECB5019 /* Pods-Bell Schedule.debug.xcconfig */,
+				340DF73BA7754C1543299921 /* Pods-Bell Schedule.release.xcconfig */,
+				3DEB4BA7918BFCEEDC7A51C8 /* Pods-Venice High.debug.xcconfig */,
+				35F6A02A66E9798C31A6AC74 /* Pods-Venice High.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD1344986E944F4602A85EF3 /* Frameworks */ = {
+		BA269F8720366B9A00259266 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				BA5FE3011EB9C38700ED6C54 /* MapKit.framework */,
-				BAC1D6E51EABE60700993ECD /* NotificationCenter.framework */,
-				929C8ADB87C647F6B78AB3DD /* Pods_Bell_Schedule.framework */,
-				666F750A9C09DE88EC46F9FF /* Pods_Venice_High.framework */,
+				BA269F9220366B9A00259266 /* Building.swift */,
+				BA269F8920366B9A00259266 /* DetailViewController.swift */,
+				BA269F8A20366B9A00259266 /* ResultsViewController.swift */,
+				BA269F9920366B9A00259266 /* Room.swift */,
+				BA269F8820366B9A00259266 /* SearchViewController.swift */,
+				BA269F9820366B9A00259266 /* Staff.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BA269F8B20366B9A00259266 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BA269F8D20366B9A00259266 /* Dark.plist */,
+				BA269F8E20366B9A00259266 /* Light.plist */,
+				BA269F8F20366B9A00259266 /* ThemeNavigationController.swift */,
+				BA269F8C20366B9A00259266 /* ThemePermissionScope.swift */,
+				BA269F9020366B9A00259266 /* ThemeTabBarController.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		BA269F9D20366B9A00259266 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FA220366B9A00259266 /* AlertScope.swift */,
+				BA269F9E20366B9A00259266 /* CalendarScope.swift */,
+				BA269FA120366B9A00259266 /* MD5Digest.swift */,
+				BA85B98420367720008CFA4E /* Setup.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BA269FA420366B9A00259266 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FA720366B9A00259266 /* Assets.xcassets */,
+				BA269FAB20366B9A00259266 /* Info.plist */,
+				BA269FBC20366B9A00259266 /* Json */,
+				BA269FA620366B9A00259266 /* Settings.bundle */,
+				BA269FA920366B9A00259266 /* Venice High.entitlements */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		BA269FAC20366B9A00259266 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FB020366B9A00259266 /* Acknowledgements.plist */,
+				BA269FAF20366B9A00259266 /* InfoViewController.swift */,
+				BA269FAE20366B9A00259266 /* SegmentTableViewCell.swift */,
+				BA269FAD20366B9A00259266 /* SegmentTableViewCell.xib */,
+				BA269FB220366B9A00259266 /* SwitchTableViewCell.swift */,
+				BA269FB120366B9A00259266 /* SwitchTableViewCell.xib */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		BA269FB620366B9A00259266 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BA269F9B20366B9A00259266 /* Article.swift */,
+				BA269F9320366B9A00259266 /* ArticleGroup.swift */,
+				BA269F9420366B9A00259266 /* Event.swift */,
+				BA269FB920366B9A00259266 /* EventTableViewCell.swift */,
+				BA269FB820366B9A00259266 /* EventTableViewCell.xib */,
+				BA269FB720366B9A00259266 /* EventViewController.swift */,
+				BA269FBA20366B9A00259266 /* SwipeFunctions.swift */,
+				BA269FBB20366B9A00259266 /* VisualViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		BA269FBC20366B9A00259266 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FBD20366B9A00259266 /* Buildings.json */,
+				BA269FBE20366B9A00259266 /* Dates.json */,
+				BA269FBF20366B9A00259266 /* Events.json */,
+				BA269FC020366B9A00259266 /* Staff.json */,
+				BA269FC120366B9A00259266 /* Times */,
+				BA269FC620366B9A00259266 /* Year.json */,
+				BA269FC720366B9A00259266 /* Rooms.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		BA269FC120366B9A00259266 /* Times */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FC220366B9A00259266 /* Minimum.json */,
+				BA269FC320366B9A00259266 /* Schedules.json */,
+				BA269FC420366B9A00259266 /* Regular.json */,
+				BA269FC520366B9A00259266 /* Professional.json */,
+			);
+			path = Times;
+			sourceTree = "<group>";
+		};
+		BA269FC820366B9B00259266 /* Bell */ = {
+			isa = PBXGroup;
+			children = (
+				BA269F9720366B9A00259266 /* BellSchedule.swift */,
+				BA269FC920366B9B00259266 /* BellViewController.swift */,
+				BA269F9A20366B9A00259266 /* Schedule.swift */,
+				BA269F9520366B9A00259266 /* Time.swift */,
+				BA269F9620366B9A00259266 /* YMD.swift */,
+			);
+			path = Bell;
+			sourceTree = "<group>";
+		};
+		BA26A00420366C0200259266 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FA520366B9A00259266 /* AppData.swift */,
+				BA269FAA20366B9A00259266 /* AppDelegate.swift */,
+				BA269F9C20366B9A00259266 /* Endpoint.swift */,
+				BA269FA820366B9A00259266 /* Extensions.swift */,
+				BA26A00120366BD400259266 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		BA722D9C2023092800248A03 = {
+			isa = PBXGroup;
+			children = (
+				BA722DA72023092800248A03 /* Venice High */,
+				BA722E0A202309FF00248A03 /* Bell Schedule */,
+				BA722E07202309FF00248A03 /* Frameworks */,
+				BA722DA62023092800248A03 /* Products */,
+				56813EA34D79C0A37F1C1B27 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BA722DA62023092800248A03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA722DA52023092800248A03 /* Venice High.app */,
+				BA722E06202309FF00248A03 /* Bell Schedule.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA722DA72023092800248A03 /* Venice High */ = {
+			isa = PBXGroup;
+			children = (
+				BA269FC820366B9B00259266 /* Bell */,
+				BA269FB620366B9A00259266 /* Calendar */,
+				BA269F9D20366B9A00259266 /* Classes */,
+				BA269FAC20366B9A00259266 /* Info */,
+				BA26A00420366C0200259266 /* Launch */,
+				BA269F8720366B9A00259266 /* Search */,
+				BA269FA420366B9A00259266 /* System */,
+				BA269F8B20366B9A00259266 /* Theme */,
+			);
+			path = "Venice High";
+			sourceTree = "<group>";
+		};
+		BA722E07202309FF00248A03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA722E08202309FF00248A03 /* NotificationCenter.framework */,
+				FD0FEE87A97FF58F0856B973 /* Pods_Bell_Schedule.framework */,
+				4277AD5042704888C149FAC7 /* Pods_Venice_High.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA722E0A202309FF00248A03 /* Bell Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				BA722E1820230A2200248A03 /* Bell Schedule.entitlements */,
+				BA722E1D20230A2200248A03 /* Extension.swift */,
+				BA722E10202309FF00248A03 /* Info.plist */,
+				BAEACFF120230B5E00553241 /* MainInterface.storyboard */,
+				BA722E1920230A2200248A03 /* TodayViewController.swift */,
+			);
+			path = "Bell Schedule";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA412E051E498A39005A0AB5 /* Venice High */ = {
+		BA722DA42023092800248A03 /* Venice High */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA412E301E498A39005A0AB5 /* Build configuration list for PBXNativeTarget "Venice High" */;
+			buildConfigurationList = BA722DB72023092800248A03 /* Build configuration list for PBXNativeTarget "Venice High" */;
 			buildPhases = (
-				5B31DF9C91DC36F5886CF01C /* [CP] Check Pods Manifest.lock */,
-				BA412E021E498A39005A0AB5 /* Sources */,
-				BA412E031E498A39005A0AB5 /* Frameworks */,
-				BA412E041E498A39005A0AB5 /* Resources */,
-				BAC1D6F41EABE60700993ECD /* Embed App Extensions */,
-				A20E6287932D297C28D06A84 /* [CP] Embed Pods Frameworks */,
-				66D76B65038C86AD1E74D994 /* [CP] Copy Pods Resources */,
+				E219A6BFC855CFE01E51BB31 /* [CP] Check Pods Manifest.lock */,
+				BA722DA12023092800248A03 /* Sources */,
+				BA722DA22023092800248A03 /* Frameworks */,
+				BA722DA32023092800248A03 /* Resources */,
+				BA722E17202309FF00248A03 /* Embed App Extensions */,
+				A0ED1B4BF6D8DE7D6FCFF25A /* [CP] Embed Pods Frameworks */,
+				7C6746B0A24DE33C295B538D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BAC1D6EF1EABE60700993ECD /* PBXTargetDependency */,
+				BA722E12202309FF00248A03 /* PBXTargetDependency */,
 			);
 			name = "Venice High";
-			productName = "Venice HS";
-			productReference = BA412E061E498A39005A0AB5 /* Venice High.app */;
+			productName = "Venice High";
+			productReference = BA722DA52023092800248A03 /* Venice High.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BAC1D6E31EABE60700993ECD /* Bell Schedule */ = {
+		BA722E05202309FF00248A03 /* Bell Schedule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAC1D6F31EABE60700993ECD /* Build configuration list for PBXNativeTarget "Bell Schedule" */;
+			buildConfigurationList = BA722E14202309FF00248A03 /* Build configuration list for PBXNativeTarget "Bell Schedule" */;
 			buildPhases = (
-				451B21DC4489F6C460BA2300 /* [CP] Check Pods Manifest.lock */,
-				BAC1D6E01EABE60700993ECD /* Sources */,
-				BAC1D6E11EABE60700993ECD /* Frameworks */,
-				BAC1D6E21EABE60700993ECD /* Resources */,
-				694FF31CEFBEF0DEA61BDCDE /* [CP] Copy Pods Resources */,
+				D6FCB6CCF06DF27F35FD5D4A /* [CP] Check Pods Manifest.lock */,
+				BA722E02202309FF00248A03 /* Sources */,
+				BA722E03202309FF00248A03 /* Frameworks */,
+				BA722E04202309FF00248A03 /* Resources */,
+				4DE5858CF9ED3D4E87959F27 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Bell Schedule";
-			productName = "VHS Bell Schedule";
-			productReference = BAC1D6E41EABE60700993ECD /* Bell Schedule.appex */;
+			productName = "Bell Schedule";
+			productReference = BA722E06202309FF00248A03 /* Bell Schedule.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BA412DFE1E498A39005A0AB5 /* Project object */ = {
+		BA722D9D2023092800248A03 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = steets250;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Steven Steiner";
 				TargetAttributes = {
-					BA412E051E498A39005A0AB5 = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JTK3ZSHMB9;
+					BA722DA42023092800248A03 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
-							com.apple.BackgroundModes = {
-								enabled = 0;
-							};
-							com.apple.Maps.iOS = {
-								enabled = 0;
-							};
-							com.apple.WAC = {
-								enabled = 0;
-							};
 						};
 					};
-					BAC1D6E31EABE60700993ECD = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JTK3ZSHMB9;
+					BA722E05202309FF00248A03 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -406,58 +450,142 @@
 					};
 				};
 			};
-			buildConfigurationList = BA412E011E498A39005A0AB5 /* Build configuration list for PBXProject "Venice High" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = BA722DA02023092800248A03 /* Build configuration list for PBXProject "Venice High" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
-			mainGroup = BA412DFD1E498A39005A0AB5;
-			productRefGroup = BA412E071E498A39005A0AB5 /* Products */;
+			mainGroup = BA722D9C2023092800248A03;
+			productRefGroup = BA722DA62023092800248A03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA412E051E498A39005A0AB5 /* Venice High */,
-				BAC1D6E31EABE60700993ECD /* Bell Schedule */,
+				BA722DA42023092800248A03 /* Venice High */,
+				BA722E05202309FF00248A03 /* Bell Schedule */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BA412E041E498A39005A0AB5 /* Resources */ = {
+		BA722DA32023092800248A03 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB1E6641ECD26080074F27F /* LaunchScreen.storyboard in Resources */,
-				BAEBE7571E8CCF24000F31B5 /* Main.storyboard in Resources */,
-				BA4880032007E34300FE434C /* Professional.json in Resources */,
-				BA780BC32006EF880064CBB4 /* Rooms.json in Resources */,
-				BA4880042007E34300FE434C /* Regular.json in Resources */,
-				BA4A8E892006F4D400F6CBD0 /* Year.json in Resources */,
-				BA780BBC2006EF880064CBB4 /* Dates.json in Resources */,
-				BAE480A42000622A005B891F /* Acknowledgements.plist in Resources */,
-				BA780BBE2006EF880064CBB4 /* Staff.json in Resources */,
-				BA780BC02006EF880064CBB4 /* Schedules.json in Resources */,
-				BA412E131E498A39005A0AB5 /* Assets.xcassets in Resources */,
-				BA4880052007E34300FE434C /* Minimum.json in Resources */,
-				BAB6310C200F231F00F9E6DF /* Events.json in Resources */,
-				BA780BBB2006EF880064CBB4 /* Buildings.json in Resources */,
+				BA269FF120366B9B00259266 /* EventTableViewCell.xib in Resources */,
+				BA269FEC20366B9B00259266 /* Acknowledgements.plist in Resources */,
+				BA269FCE20366B9B00259266 /* Dark.plist in Resources */,
+				BA269FE420366B9B00259266 /* Settings.bundle in Resources */,
+				BA269FE520366B9B00259266 /* Assets.xcassets in Resources */,
+				BA269FFA20366B9B00259266 /* Schedules.json in Resources */,
+				BA269FFB20366B9B00259266 /* Regular.json in Resources */,
+				BA269FFC20366B9B00259266 /* Professional.json in Resources */,
+				BA269FF820366B9B00259266 /* Staff.json in Resources */,
+				BA269FF920366B9B00259266 /* Minimum.json in Resources */,
+				BA269FF720366B9B00259266 /* Events.json in Resources */,
+				BA269FED20366B9B00259266 /* SwitchTableViewCell.xib in Resources */,
+				BA26A00320366BD400259266 /* LaunchScreen.storyboard in Resources */,
+				BA269FFE20366B9B00259266 /* Rooms.json in Resources */,
+				BA269FCF20366B9B00259266 /* Light.plist in Resources */,
+				BA269FF520366B9B00259266 /* Buildings.json in Resources */,
+				BA269FE920366B9B00259266 /* SegmentTableViewCell.xib in Resources */,
+				BA269FFD20366B9B00259266 /* Year.json in Resources */,
+				BA269FF620366B9B00259266 /* Dates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAC1D6E21EABE60700993ECD /* Resources */ = {
+		BA722E04202309FF00248A03 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA2842A51EBA756900AAB867 /* MainInterface.storyboard in Resources */,
+				BAEACFF320230B5E00553241 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		451B21DC4489F6C460BA2300 /* [CP] Check Pods Manifest.lock */ = {
+		4DE5858CF9ED3D4E87959F27 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C6746B0A24DE33C295B538D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0ED1B4BF6D8DE7D6FCFF25A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MWFeedParser/MWFeedParser.framework",
+				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
+				"${BUILT_PRODUCTS_DIR}/RFAboutView-Swift/RFAboutView_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMapVC/SwiftMapVC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftWebVC/SwiftWebVC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWFeedParser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFAboutView_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMapVC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebVC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6FCB6CCF06DF27F35FD5D4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -475,7 +603,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B31DF9C91DC36F5886CF01C /* [CP] Check Pods Manifest.lock */ = {
+		E219A6BFC855CFE01E51BB31 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -493,240 +621,207 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66D76B65038C86AD1E74D994 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		694FF31CEFBEF0DEA61BDCDE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bell Schedule/Pods-Bell Schedule-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A20E6287932D297C28D06A84 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MWFeedParser/MWFeedParser.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
-				"${BUILT_PRODUCTS_DIR}/RFAboutView-Swift/RFAboutView_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMapVC/SwiftMapVC.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftWebVC/SwiftWebVC.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWFeedParser.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFAboutView_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMapVC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebVC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venice High/Pods-Venice High-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BA412E021E498A39005A0AB5 /* Sources */ = {
+		BA722DA12023092800248A03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA42837A1EC3ECF60060441E /* CalendarViewController.swift in Sources */,
-				BA2F9C031E7514F300B34EB7 /* DetailViewController.swift in Sources */,
-				BAA3A3701F69F8FB00789DCD /* Structs.swift in Sources */,
-				BA0EC1362000A1420044A324 /* VisualViewController.swift in Sources */,
-				BA5A92781EC781E200CD85DC /* NoTimeTableViewCell.swift in Sources */,
-				BA306B211E8F8F5200AD1B38 /* RoomViewController.swift in Sources */,
-				BA5EA5531EC5A012008A24D2 /* TimeTableViewCell.swift in Sources */,
-				BA879FFE1E69447D0012BC41 /* InformationViewController.swift in Sources */,
-				BAE0FDA51E9083C300BCFF06 /* SettingsViewController.swift in Sources */,
-				BA10BA2A1ED4038900A1EC9A /* CalendarScope.swift in Sources */,
-				BA1CF27D2001861F003771CD /* SearchViewController.swift in Sources */,
-				BAB761DD1E52207700658D0B /* BellViewController.swift in Sources */,
-				BAE0FDA71E90856900BCFF06 /* SwitchTableViewCell.swift in Sources */,
-				BAB761DF1E52207700658D0B /* StaffViewController.swift in Sources */,
-				BAA3A3741F69F90C00789DCD /* Classes.swift in Sources */,
-				BA2F9C051E75156600B34EB7 /* SearchTableViewCell.swift in Sources */,
-				BAA3A3721F69F90300789DCD /* Extensions.swift in Sources */,
-				BA5084832001E34F0080CB11 /* VisualViewCell.swift in Sources */,
-				BA412E0A1E498A39005A0AB5 /* AppDelegate.swift in Sources */,
-				BA09DCAC1EDF35ED004725C8 /* ButtonTableViewCell.swift in Sources */,
-				BAF8C0741E946CCB00DC80A7 /* AppData.swift in Sources */,
+				BA269FCA20366B9B00259266 /* SearchViewController.swift in Sources */,
+				BA269FD420366B9B00259266 /* Event.swift in Sources */,
+				BA269FD920366B9B00259266 /* Room.swift in Sources */,
+				BA269FDA20366B9B00259266 /* Schedule.swift in Sources */,
+				BA269FF020366B9B00259266 /* EventViewController.swift in Sources */,
+				BA269FD520366B9B00259266 /* Time.swift in Sources */,
+				BA85B98520367720008CFA4E /* Setup.swift in Sources */,
+				BA269FEA20366B9B00259266 /* SegmentTableViewCell.swift in Sources */,
+				BA269FCB20366B9B00259266 /* DetailViewController.swift in Sources */,
+				BA269FE720366B9B00259266 /* AppDelegate.swift in Sources */,
+				BA269FEB20366B9B00259266 /* InfoViewController.swift in Sources */,
+				BA269FF420366B9B00259266 /* VisualViewController.swift in Sources */,
+				BA269FD020366B9B00259266 /* ThemeNavigationController.swift in Sources */,
+				BA269FE020366B9B00259266 /* MD5Digest.swift in Sources */,
+				BA269FD120366B9B00259266 /* ThemeTabBarController.swift in Sources */,
+				BA269FE320366B9B00259266 /* AppData.swift in Sources */,
+				BA269FF320366B9B00259266 /* SwipeFunctions.swift in Sources */,
+				BA269FCC20366B9B00259266 /* ResultsViewController.swift in Sources */,
+				BA269FCD20366B9B00259266 /* ThemePermissionScope.swift in Sources */,
+				BA269FD620366B9B00259266 /* YMD.swift in Sources */,
+				BA269FD720366B9B00259266 /* BellSchedule.swift in Sources */,
+				BA269FEE20366B9B00259266 /* SwitchTableViewCell.swift in Sources */,
+				BA269FF220366B9B00259266 /* EventTableViewCell.swift in Sources */,
+				BA269FDB20366B9B00259266 /* Article.swift in Sources */,
+				BA269FFF20366B9B00259266 /* BellViewController.swift in Sources */,
+				BA269FD320366B9B00259266 /* ArticleGroup.swift in Sources */,
+				BA269FE120366B9B00259266 /* AlertScope.swift in Sources */,
+				BA269FDD20366B9B00259266 /* CalendarScope.swift in Sources */,
+				BA269FE620366B9B00259266 /* Extensions.swift in Sources */,
+				BA269FD820366B9B00259266 /* Staff.swift in Sources */,
+				BA269FDC20366B9B00259266 /* Endpoint.swift in Sources */,
+				BA269FD220366B9B00259266 /* Building.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAC1D6E01EABE60700993ECD /* Sources */ = {
+		BA722E02202309FF00248A03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC1D6E91EABE60700993ECD /* TodayViewController.swift in Sources */,
-				BA4ED0461F7E079000CF37ED /* Extension.swift in Sources */,
+				BA722E1E20230A2200248A03 /* TodayViewController.swift in Sources */,
+				BA722E2020230A2200248A03 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BAC1D6EF1EABE60700993ECD /* PBXTargetDependency */ = {
+		BA722E12202309FF00248A03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BAC1D6E31EABE60700993ECD /* Bell Schedule */;
-			targetProxy = BAC1D6EE1EABE60700993ECD /* PBXContainerItemProxy */;
+			target = BA722E05202309FF00248A03 /* Bell Schedule */;
+			targetProxy = BA722E11202309FF00248A03 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BA2842A31EBA756900AAB867 /* MainInterface.storyboard */ = {
+		BA26A00120366BD400259266 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BA2842A41EBA756900AAB867 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-		BAB1E6621ECD26080074F27F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAB1E6631ECD26080074F27F /* Base */,
+				BA26A00220366BD400259266 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BAEACFF120230B5E00553241 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAEACFF220230B5E00553241 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BA412E2E1E498A39005A0AB5 /* Debug */ = {
+		BA722DB52023092800248A03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		BA412E2F1E498A39005A0AB5 /* Release */ = {
+		BA722DB62023092800248A03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		BA412E311E498A39005A0AB5 /* Debug */ = {
+		BA722DB82023092800248A03 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3492FC8C65EBEE2184704D1D /* Pods-Venice High.debug.xcconfig */;
+			baseConfigurationReference = 3DEB4BA7918BFCEEDC7A51C8 /* Pods-Venice High.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Venice High/System/Venice High.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -734,20 +829,21 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Venice High/System/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.steets250.Venice-High";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		BA412E321E498A39005A0AB5 /* Release */ = {
+		BA722DB92023092800248A03 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56BB91E3D13E1C6D1891B27C /* Pods-Venice High.release.xcconfig */;
+			baseConfigurationReference = 35F6A02A66E9798C31A6AC74 /* Pods-Venice High.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Venice High/System/Venice High.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -755,80 +851,87 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Venice High/System/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.steets250.Venice-High";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		BAC1D6F11EABE60700993ECD /* Debug */ = {
+		BA722E15202309FF00248A03 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F35BB94F3ECB2C9ADB72B450 /* Pods-Bell Schedule.debug.xcconfig */;
+			baseConfigurationReference = A6608DD949264FA95ECB5019 /* Pods-Bell Schedule.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bell Schedule/Bell Schedule.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JTK3ZSHMB9;
-				INFOPLIST_FILE = "$(SRCROOT)/Bell Schedule/Info.plist";
+				INFOPLIST_FILE = "Bell Schedule/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.steets250.Venice-High.Bell-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		BAC1D6F21EABE60700993ECD /* Release */ = {
+		BA722E16202309FF00248A03 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26D814772511DEDFC940600D /* Pods-Bell Schedule.release.xcconfig */;
+			baseConfigurationReference = 340DF73BA7754C1543299921 /* Pods-Bell Schedule.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bell Schedule/Bell Schedule.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JTK3ZSHMB9;
-				INFOPLIST_FILE = "$(SRCROOT)/Bell Schedule/Info.plist";
+				INFOPLIST_FILE = "Bell Schedule/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.steets250.Venice-High.Bell-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA412E011E498A39005A0AB5 /* Build configuration list for PBXProject "Venice High" */ = {
+		BA722DA02023092800248A03 /* Build configuration list for PBXProject "Venice High" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA412E2E1E498A39005A0AB5 /* Debug */,
-				BA412E2F1E498A39005A0AB5 /* Release */,
+				BA722DB52023092800248A03 /* Debug */,
+				BA722DB62023092800248A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA412E301E498A39005A0AB5 /* Build configuration list for PBXNativeTarget "Venice High" */ = {
+		BA722DB72023092800248A03 /* Build configuration list for PBXNativeTarget "Venice High" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA412E311E498A39005A0AB5 /* Debug */,
-				BA412E321E498A39005A0AB5 /* Release */,
+				BA722DB82023092800248A03 /* Debug */,
+				BA722DB92023092800248A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BAC1D6F31EABE60700993ECD /* Build configuration list for PBXNativeTarget "Bell Schedule" */ = {
+		BA722E14202309FF00248A03 /* Build configuration list for PBXNativeTarget "Bell Schedule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BAC1D6F11EABE60700993ECD /* Debug */,
-				BAC1D6F21EABE60700993ECD /* Release */,
+				BA722E15202309FF00248A03 /* Debug */,
+				BA722E16202309FF00248A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BA412DFE1E498A39005A0AB5 /* Project object */;
+	rootObject = BA722D9D2023092800248A03 /* Project object */;
 }

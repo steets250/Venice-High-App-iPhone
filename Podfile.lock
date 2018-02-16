@@ -2,11 +2,9 @@ PODS:
   - Alamofire (4.6.0)
   - Alamofire-Synchronous (4.0.0):
     - Alamofire (~> 4.0)
+  - Cartography (3.0.1)
   - FSCalendar (2.7.9)
   - JGProgressHUD (2.0)
-  - MarqueeLabel (3.1.4):
-    - MarqueeLabel/ObjC (= 3.1.4)
-  - MarqueeLabel/ObjC (3.1.4)
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser (= 1.0.1)
     - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
@@ -18,54 +16,75 @@ PODS:
   - MWFeedParser/NSString+HTML (1.0.1)
   - ObjectMapper (3.1.0)
   - PermissionScope (1.1.1)
+  - PMAlertController (3.2.0)
   - ReachabilitySwift (4.1.0)
   - RFAboutView-Swift (2.0.1)
   - Spruce (2.0.0)
   - SwiftMapVC (1.0.0)
-  - SwiftWebVC (0.4.1)
+  - SwiftTheme (0.4.1)
+  - SwiftWebVC (0.4.2)
   - SwipeCellKit (2.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - Alamofire-Synchronous
+  - Cartography
   - FSCalendar
   - JGProgressHUD
-  - MarqueeLabel
   - MWFeedParser
   - ObjectMapper
-  - PermissionScope
+  - PermissionScope (from `https://github.com/steets250/PermissionScope.git`)
+  - PMAlertController (from `https://github.com/steets250/PMAlertController.git`)
   - ReachabilitySwift
-  - RFAboutView-Swift
+  - RFAboutView-Swift (from `https://github.com/steets250/RFAboutView-Swift.git`)
   - Spruce
   - SwiftMapVC (from `https://github.com/steets250/SwiftMapVC.git`)
+  - SwiftTheme
   - SwiftWebVC
   - SwipeCellKit
 
 EXTERNAL SOURCES:
+  PermissionScope:
+    :git: https://github.com/steets250/PermissionScope.git
+  PMAlertController:
+    :git: https://github.com/steets250/PMAlertController.git
+  RFAboutView-Swift:
+    :git: https://github.com/steets250/RFAboutView-Swift.git
   SwiftMapVC:
     :git: https://github.com/steets250/SwiftMapVC.git
 
 CHECKOUT OPTIONS:
+  PermissionScope:
+    :commit: ece0bcd3f214841f08a960c1869873dbcae4f8f5
+    :git: https://github.com/steets250/PermissionScope.git
+  PMAlertController:
+    :commit: c59f87da4c21502094d33dc4af7eeda7660572bb
+    :git: https://github.com/steets250/PMAlertController.git
+  RFAboutView-Swift:
+    :commit: 777feb6e9b3cc38b90f2fb0d7638338c0a628d32
+    :git: https://github.com/steets250/RFAboutView-Swift.git
   SwiftMapVC:
-    :commit: 0b0d76185158c25827bc6359f963e7458a7404bf
+    :commit: 4eece0975fad38db20a720a24634e63a6cce1323
     :git: https://github.com/steets250/SwiftMapVC.git
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Alamofire-Synchronous: eedf1e6e961c3795a63c74990b3f7d9fbfac7e50
+  Cartography: f8c899bb0f5cf20758644a8eea59a75e98a03a5d
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
-  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
+  PMAlertController: b476d0962e61a8936384eb6ea3d6ff90ab0ce78f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   RFAboutView-Swift: dc31db0e7bc890ab6c9e1ca8f50e8f97bdba9622
   Spruce: 0932495938ccc0b75add674a99bc46c9d0e39111
   SwiftMapVC: 9fc5ca86c8317ecdfcbfae90de125cc8349749c5
-  SwiftWebVC: 17ad75e1fac143d421e0498fb40d7e37532f26d1
+  SwiftTheme: 36d71c4eed4b2c401c782cf036e4586c749a8173
+  SwiftWebVC: ecc4feaabe5a3f75e059a0a345d3386bb0d16c44
   SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
 
-PODFILE CHECKSUM: 0aa917cde3249aafaf8e874c588195829b869702
+PODFILE CHECKSUM: 830f595f5976b2a89047559f7d6fdec4a4e62e61
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.4.0

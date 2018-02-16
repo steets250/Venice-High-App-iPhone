@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Global</key>
+	<dict>
+		<key>textColor</key>
+		<string>#000000</string>
+		<key>backgroundColor</key>
+		<string>#E6E6E6</string>
+		<key>barColor</key>
+		<string>#F9F9F9</string>
+		<key>imageBackgroundColor</key>
+		<string>#FFFFFF</string>
+		<key>themeBlue</key>
+		<string>#007AFF</string>
+		<key>themeGray</key>
+		<string>#555555</string>
+		<key>themeOrange</key>
+		<string>#FF8000</string>
+	</dict>
+	<key>Info</key>
+	<dict>
+		<key>websiteColor</key>
+		<string>#50C0ED80</string>
+		<key>addressColor</key>
+		<string>#B2B26680</string>
+		<key>phoneColor</key>
+		<string>#65E16E80</string>
+		<key>cellColor</key>
+		<string>#FFFFFF80</string>
+	</dict>
+	<key>UISatusBar</key>
+	<dict>
+		<key>statusBarStyle</key>
+		<string>default</string>
+	</dict>
+	<key>UISearchBar</key>
+	<dict>
+		<key>barStyle</key>
+		<string>default</string>
+		<key>keyboardAppearance</key>
+		<string>light</string>
+		<key>textFieldColor</key>
+		<string>#FF0000</string>
+	</dict>
+</dict>
+</plist>

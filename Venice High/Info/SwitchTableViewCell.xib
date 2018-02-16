@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="deu-W1-TfL" customClass="SwitchTableViewCell" customModule="Venice_High" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="deu-W1-TfL" id="LOL-P5-RgB">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9k-CH-ttb">
+                        <rect key="frame" x="16" y="14" width="278" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5Y-aC-No5">
+                        <rect key="frame" x="310" y="9" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="C5Y-aC-No5" firstAttribute="leading" secondItem="K9k-CH-ttb" secondAttribute="trailing" constant="16" id="2bN-OF-mSI"/>
+                    <constraint firstItem="K9k-CH-ttb" firstAttribute="leading" secondItem="LOL-P5-RgB" secondAttribute="leadingMargin" id="EyN-Pg-KnD"/>
+                    <constraint firstItem="C5Y-aC-No5" firstAttribute="centerY" secondItem="LOL-P5-RgB" secondAttribute="centerY" id="kTY-SV-0DQ"/>
+                    <constraint firstItem="K9k-CH-ttb" firstAttribute="centerY" secondItem="LOL-P5-RgB" secondAttribute="centerY" id="suO-2L-EZ3"/>
+                    <constraint firstItem="C5Y-aC-No5" firstAttribute="trailing" secondItem="LOL-P5-RgB" secondAttribute="trailingMargin" id="zBi-Ir-9CI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="switcher" destination="C5Y-aC-No5" id="Xtm-0B-MPX"/>
+                <outlet property="titleLabel" destination="K9k-CH-ttb" id="UX3-Zo-LqK"/>
+            </connections>
+            <point key="canvasLocation" x="20" y="31"/>
+        </tableViewCell>
+    </objects>
+</document>

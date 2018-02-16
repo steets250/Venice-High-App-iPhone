@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en_US</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Venice High</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.2</string>
+	<string>2.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>34</string>
+	<string>36</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -46,6 +46,14 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
+			<string>List</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Upcoming Events</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openEvents</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
 			<string>Bells</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Bell Schedule</string>
@@ -54,19 +62,19 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>Staff</string>
+			<string>Search</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Staff Search</string>
+			<string>Search</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openStaff</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openSearch</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>Room</string>
+			<string>Info</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Room Search</string>
+			<string>Info and Settings</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openRooms</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openInfo</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -77,6 +85,8 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<string>YES</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>

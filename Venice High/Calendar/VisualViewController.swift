@@ -6,27 +6,93 @@
 //  Copyright © 2018 steets250. All rights reserved.
 //
 
+import Cartography
 import EventKit
 import FSCalendar
 import JGProgressHUD
 import PermissionScope
 import SwipeCellKit
+import SwiftWebVC
 
 class VisualViewController: UIViewController {
-    @IBOutlet var calendarView: FSCalendar!
-    @IBOutlet var seperatorView: UIView!
-    @IBOutlet var tableView: UITableView!
+    var container: UIView!
+    var calendarView: FSCalendar!
+    var seperatorView: UIView!
+    var tableView: UITableView!
 
     var dayEvents = [Article]()
     var eventList = [Article]()
     var selectedDate = Date()
     var style: JGProgressHUDStyle!
     var extras = [Event]()
+    var swipeFunctions: SwipeFunctions!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Setup.page(self, title: "Calendar View", leftButton: nil, rightButton: UIBarButtonItem(image: UIImage(named: "Help"), style: .plain, target: self, action: #selector(openHelp)), largeTitle: false, back: false)
+
+        extras = appDelegate.eventData
+        eventList = loadArticles()
+        eventList = importManual(eventList)
+        swipeFunctions = SwipeFunctions(self)
+
+        pageSetup()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        visualSetup()
+    }
+
+    func pageSetup() {
+        container = UIView()
+        container.backgroundColor = .clear
+        view.addSubview(container)
+        constrain(container, view, car_topLayoutGuide, car_bottomLayoutGuide) { container, view, car_topLayoutGuide, car_bottomLayoutGuide in
+            container.left == view.left
+            container.right == view.right
+            container.top == car_topLayoutGuide.bottom
+            container.bottom == car_bottomLayoutGuide.top
+        }
+
+        calendarView = FSCalendar()
+        calendarView.dataSource = self
+        calendarView.delegate = self
+        container.addSubview(calendarView)
+
+        seperatorView = UIView()
+        seperatorView.backgroundColor = .black
+        container.addSubview(seperatorView)
+
+        tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "eventCell")
+        container.addSubview(tableView)
+
+        constrain(calendarView, seperatorView, tableView, container) { calendarView, seperatorView, tableView, container in
+            calendarView.left == container.left
+            calendarView.right == container.right
+            calendarView.top == container.top
+            calendarView.width == calendarView.height
+
+            seperatorView.left == container.left
+            seperatorView.right == container.right
+            seperatorView.top == calendarView.bottom
+            seperatorView.height == 1
+
+            tableView.left == container.left
+            tableView.right == container.right
+            tableView.top == seperatorView.bottom
+            tableView.bottom == container.bottom
+        }
+    }
+
+    func visualSetup() {
         if defaults.bool(forKey: "Is Dark") {
             style = .light
+            calendarView.backgroundColor = .black
             calendarView.appearance.todayColor = UIColor.red.withAlphaComponent(0.5)
             calendarView.appearance.selectionColor = UIColor.blue.withAlphaComponent(0.5)
             calendarView.appearance.headerTitleColor = .white
@@ -37,22 +103,16 @@ class VisualViewController: UIViewController {
             calendarView.appearance.titlePlaceholderColor = .lightGray
             calendarView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
             tableView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
+            self.view.backgroundColor = .black
         } else {
             style = .dark
+            calendarView.backgroundColor = .white
             calendarView.appearance.todayColor = .red
             calendarView.appearance.selectionColor = .blue
+            self.view.backgroundColor = .white
         }
         calendarView.appearance.headerTitleColor = appDelegate.themeBlue
         calendarView.appearance.weekdayTextColor = appDelegate.themeBlue
-
-        extras = appDelegate.eventData
-        eventList = loadArticles()
-        eventList = importManual(eventList)
-        calendarView.select(Date())
-        dateChange(date: calendarView.selectedDate!)
-
-        let rightBarItem = UIBarButtonItem(title: "Today", style: .plain, target: self, action: #selector(openToday))
-        self.navigationItem.rightBarButtonItem = rightBarItem
     }
 
     func loadArticles() -> [Article] {
@@ -70,9 +130,19 @@ class VisualViewController: UIViewController {
         startTimeArray = defaults.array(forKey: "startTimeArray") as! [String]
         endTimeArray = defaults.array(forKey: "endTimeArray") as! [String]
         for i in 0 ..< titleArray.count {
-            temp.append(Article(title: titleArray[i], link: linkArray[i], startDate: startDateArray[i], endDate: endDateArray[i], startTime: startTimeArray[i], endTime: endTimeArray[i]))
+            temp.append(Article(title: titleArray[i], link: linkArray[i], startDate: startDateArray[i], endDate: endDateArray[i], startTime: startTimeArray[i], endTime: endTimeArray[i], calendar: nil, alert: nil))
         }
         return temp
+    }
+
+    func importManual(_ input: [Article]) -> [Article] {
+        var articles = input
+        if extras.isEmpty == false {
+            for event in extras {
+                articles.append(Article(title: event.title, link: event.link, startDate: stringToDate(event.startDate), endDate: stringToDate(event.endDate), startTime: event.startTime, endTime: event.endTime, calendar: nil, alert: nil))
+            }
+        }
+        return articles
     }
 
     func stringToDate(_ input: String) -> Date {
@@ -81,19 +151,8 @@ class VisualViewController: UIViewController {
         return formatter.date(from: input)!
     }
 
-    func importManual(_ input: [Article]) -> [Article] {
-        var articles = input
-        if extras.isEmpty == false {
-            for event in extras {
-                articles.append(Article(title: event.title, link: event.link, startDate: stringToDate(event.startDate), endDate: stringToDate(event.endDate), startTime: event.startTime, endTime: event.endTime))
-            }
-        }
-        return articles
-    }
-
-    func openToday() {
-        calendarView.select(Date())
-        dateChange(date: calendarView.selectedDate!)
+    @objc func openHelp() {
+        AlertScope.showAlert(.visualViewController, self)
     }
 }
 
@@ -101,10 +160,10 @@ extension VisualViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         var dots = 0
         for event in eventList {
-                if date.isBetween(date: event.startDate, andDate: event.endDate) {
-                    dots += 1
-                }
+            if date.isBetween(date: event.startDate, andDate: event.endDate) {
+                dots += 1
             }
+        }
         return dots
     }
 
@@ -117,10 +176,10 @@ extension VisualViewController: FSCalendarDataSource {
     }
 
     func maximumDate(for calendar: FSCalendar) -> Date {
-        if appDelegate.schoolEnd > eventList[eventList.count-1].endDate {
+        if appDelegate.schoolEnd > eventList[eventList.count - 1].endDate {
             return appDelegate.schoolEnd
         } else {
-            return eventList[eventList.count-1].endDate
+            return eventList[eventList.count - 1].endDate
         }
     }
 }
@@ -138,6 +197,7 @@ extension VisualViewController: FSCalendarDelegate, FSCalendarDelegateAppearance
             }
         }
         dayEvents = dayEvents.sorted(by: { $0.title.compare($1.title) == .orderedAscending })
+        dayEvents = dayEvents.sorted(by: { swipeFunctions.dateAndTime(date: $0.startDate, time: $0.startTime).compare(swipeFunctions.dateAndTime(date: $1.startDate, time: $1.startTime)) == .orderedAscending })
         tableView.reloadData()
     }
 
@@ -200,7 +260,7 @@ extension VisualViewController: UITableViewDataSource {
             let year = String(calendar.component(.year, from: currentDay))
             let month = String(calendar.component(.month, from: currentDay))
             let day = String(calendar.component(.day, from: currentDay))
-            EmptyMessage(message: "No events found on \(month)/\(day)/\(year.getLast(2)).", viewController: self)
+            emptyMessage(message: "No events found on \(month)/\(day)/\(year.getLast(2)).", viewController: self)
             return 0
         } else {
             tableView.backgroundView = .none
@@ -212,29 +272,57 @@ extension VisualViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dayEvents.isEmpty {
             let aCell = UITableViewCell()
+            aCell.selectionStyle = .none
             aCell.backgroundColor = .clear
             return aCell
         } else {
-            let aCell = tableView.dequeueReusableCell(withIdentifier: "visualCell") as! VisualViewCell
-            aCell.delegate = self
+            let article = dayEvents[indexPath.row]
+            let aCell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
+            aCell.selectionStyle = .none
             aCell.backgroundColor = .clear
+            aCell.delegate = self
+            aCell.titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18.0)
+            if article.link == "" {
+                aCell.selectionStyle = .none
+            }
             if defaults.bool(forKey: "Is Dark") {
                 aCell.titleLabel.textColor = .white
+            } else {
+                aCell.titleLabel.textColor = .black
             }
-            aCell.titleLabel.tapToScroll = true
-            aCell.titleLabel.rate = 75.0
-            aCell.titleLabel.trailingBuffer = 50.0
-            aCell.titleLabel.text = dayEvents[indexPath.row].title
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yy"
+            if article.startDate == article.endDate {
+                let dateString = formatter.string(from: article.startDate)
+                if defaults.bool(forKey: "🅱️") {
+                    aCell.titleLabel.text = String(dateString.dropLast(3)) + ": " + "🅱️" + String(article.title.dropFirst())
+                } else {
+                    aCell.titleLabel.text = String(dateString.dropLast(3)) + ": " + article.title
+                }
+            } else {
+                let startString = formatter.string(from: article.startDate)
+                let endString = formatter.string(from: article.endDate)
+                if defaults.bool(forKey: "🅱️") {
+                    aCell.titleLabel.text = startString.dropLast(3) + "-" + endString.dropLast(3) + ": " + "🅱️" + String(article.title.dropFirst())
+                } else {
+                    aCell.titleLabel.text = startString.dropLast(3) + "-" + endString.dropLast(3) + ": " + article.title
+                }
+            }
+
+            if !(article.startTime == "none" && article.endTime == "none")
+                && !(article.startTime == "12:00 AM" && article.endTime == "11:55 PM")
+                && !(article.startTime == "12:00 AM" && article.endTime == "11:59 PM") {
+                aCell.titleLabel.text = aCell.titleLabel.text! + " from " + article.startTime.lowercased() + " to " + article.endTime.lowercased()
+            }
             return aCell
         }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let temp = self.tableView.frame.height/62.5
-        return self.tableView.frame.height/round(temp)
+        return 77
     }
 
-    func EmptyMessage(message: String, viewController: VisualViewController) {
+    func emptyMessage(message: String, viewController: VisualViewController) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
         messageLabel.text = message
         if defaults.bool(forKey: "Is Dark") {
@@ -252,157 +340,77 @@ extension VisualViewController: UITableViewDataSource {
 }
 
 extension VisualViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = dayEvents[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        if article.link != "" {
+            if defaults.bool(forKey: "Is Dark") {
+                let webVC = SwiftModalWebVC(urlString: article.link, theme: .dark, dismissButtonStyle: .arrow)
+                present(webVC, animated: true, completion: nil)
+            } else {
+                let webVC = SwiftModalWebVC(urlString: article.link)
+                present(webVC, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension VisualViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .left else { return nil }
-
-        let calendarAction = SwipeAction(style: .default, title: nil) { _, indexPath in
-            self.articleToSave(indexPath)
+        var actions = [SwipeAction]()
+        let temp = self.dayEvents[indexPath.row]
+        if Date() < swipeFunctions.dateAndTime(date: temp.startDate, time: temp.startTime) {
+            let calendarAction = SwipeAction(style: .default, title: "Calendar") { _, indexPath in self.articleToSave(indexPath) }
+            calendarAction.image = UIImage(named: "CalendarLight")
+            calendarAction.hidesWhenSelected = true
+            if defaults.bool(forKey: "Is Dark") {
+                calendarAction.backgroundColor = UIColor(rgba: "#CC6600")
+            } else {
+                calendarAction.backgroundColor = UIColor.orange
+            }
+            actions.append(calendarAction)
+            let reminderAction = SwipeAction(style: .default, title: "Alert") { _, indexPath in self.articleToRemind(indexPath) }
+            reminderAction.image = UIImage(named: "ReminderLight")
+            reminderAction.hidesWhenSelected = true
+            reminderAction.backgroundColor = appDelegate.themeBlue
+            actions.append(reminderAction)
         }
-        calendarAction.image = UIImage(named: "CalendarLight")
-        calendarAction.backgroundColor = .orange
-        calendarAction.hidesWhenSelected = true
-        return [calendarAction]
+        return actions
     }
 
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
+        options.backgroundColor = .clear
         options.expansionStyle = .selection
-        options.transitionStyle = .drag
+        options.transitionStyle = .border
         return options
     }
 
     func articleToSave(_ indexPath: IndexPath) {
-        let pscope = PermissionScope()
+        let pscope = ThemePermissionScope()
         pscope.addPermission(EventsPermission(), message: "Lets us add events\r\nto your calendar.")
         pscope.show({ _, _ in
             let temp = self.dayEvents[indexPath.row]
-            if self.defaults.string(forKey: "Calendar Name") == "" {
+            if self.defaults.string(forKey: "Calendar Name") == nil {
                 let cscope = CalendarScope()
-                cscope.showAlert(finished: {done in
+                cscope.showAlert(finished: { done in
                     if done {
-                        self.saveToCalendarOne(temp: temp)
+                        self.swipeFunctions.eventToggle(temp: temp)
                     }
                 })
             } else {
-                self.saveToCalendarOne(temp: temp)
+                self.swipeFunctions.eventToggle(temp: temp)
             }
         }, cancelled: nil)
     }
-}
 
-extension VisualViewController /*Calendar Saving Functions*/ {
-    func saveToCalendarOne(temp: Article, force: Bool = false) {
-        saveToCalendarTwo(temp, force, completion: {status, error in
-            if status == false {
-                if error!.domain == "SavingEvent" && error!.code == 1 {
-                    let alertController = UIAlertController(title: nil, message: "This event is already in your calendar.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Add Anyway", style: UIAlertActionStyle.default, handler: {_ in
-                        self.saveToCalendarOne(temp: temp, force: true)
-                    }))
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                } else if error!.code == 14 {
-                    let alertController = UIAlertController(title: "\(self.defaults.string(forKey: "Calendar Name")!) Calendar Not Found", message: "Please select new event calendar.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {_ in
-                        let cscope = CalendarScope()
-                        cscope.showAlert(finished: {_ in
-                            self.saveToCalendarOne(temp: temp)
-                        })
-                    }))
-                    self.present(alertController, animated: true, completion: nil)
-                } else {
-                    let alertController = UIAlertController(title: error!.domain, message: error!.description.slice(from: "\"", to: "\"")!, preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            } else {
-                if self.defaults.bool(forKey: "Event Alert") {
-                    let alertController = UIAlertController(title: nil, message: "Event successfully saved to your calendar.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    alertController.addAction(UIAlertAction(title: "Don't Show Again", style: UIAlertActionStyle.cancel, handler: { _ in
-                        self.defaults.set(false, forKey: "Event Alert")
-                    }))
-                    self.present(alertController, animated: true, completion: nil)
-                } else {
-                    DispatchQueue.main.async {
-                        let popup = JGProgressHUD(style: self.style)
-                        popup.indicatorView = JGProgressHUDSuccessIndicatorView()
-                        popup.textLabel.text = "Success"
-                        popup.parallaxMode = .device
-                        popup.interactionType = .blockTouchesOnHUDView
-                        popup.show(in: self.parent!.view)
-                        popup.dismiss(afterDelay: 1.0)
-                    }
-                }
-            }
-        })
-    }
-
-    func saveToCalendarTwo(_ temp: Article, _ force: Bool, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
-        let eventStore = EKEventStore()
-        let event = EKEvent(eventStore: eventStore)
-
-        event.title = temp.title
-        if temp.link != "" {
-            event.url = URL(string: temp.link)
-        }
-        event.notes = "Added by the Venice High App"
-
-        if (temp.startTime == "none" && temp.endTime == "none") || (temp.startTime == "12:00 AM" && temp.endTime == "11:59 PM") || (temp.startTime == "12:00 AM" && temp.endTime == "11:55 PM") {
-            event.isAllDay = true
-            event.startDate = temp.startDate
-            event.endDate = temp.endDate
-        } else {
-            event.isAllDay = false
-            event.startDate = dateAndTime(date: temp.startDate, time: temp.startTime)
-            event.endDate = dateAndTime(date: temp.endDate, time: temp.endTime)
-        }
-
-        if force == false {
-            let possibleDuplicates = eventStore.events(matching: eventStore.predicateForEvents(withStart: event.startDate, end: event.endDate, calendars: nil))
-            for i in possibleDuplicates {
-                if i.title == temp.title {
-                    completion?(false, NSError(domain: "SavingEvent", code: 1, userInfo: nil))
-                    return
-                }
-            }
-        }
-
-        eventStore.requestAccess(to: .event) { (granted, error) in
-            if granted && error == nil {
-                var selectedCalendar = EKCalendar(for: .event, eventStore: eventStore)
-                let selectedCalendarIdentifier = UserDefaults.standard.string(forKey: "Calendar Identifier")!
-                let allCalendars = eventStore.calendars(for: .event)
-                for calendar: EKCalendar in allCalendars {
-                    if (calendar.calendarIdentifier == selectedCalendarIdentifier) {
-                        selectedCalendar = calendar
-                    }
-                }
-                event.calendar = selectedCalendar
-                do {
-                    try eventStore.save(event, span: .thisEvent)
-                } catch let e as NSError {
-                    completion?(false, e)
-                    return
-                }
-                completion?(true, nil)
-            } else {
-                completion?(false, error as NSError?)
-            }
-        }
-    }
-
-    func dateAndTime(date: Date, time: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy"
-        var dateString = formatter.string(from: date)
-        dateString = dateString + " " + time
-        formatter.dateFormat = "MM/dd/yy h:mm a"
-        return formatter.date(from: dateString)!
+    func articleToRemind(_ indexPath: IndexPath) {
+        let pscope = ThemePermissionScope()
+        pscope.addPermission(NotificationsPermission(), message: "Lets us send you\r\nan event notification.")
+        pscope.show({ _, _ in
+            let temp = self.dayEvents[indexPath.row]
+            self.swipeFunctions.reminderToggle(temp: temp)
+        }, cancelled: nil)
     }
 }

@@ -6,83 +6,204 @@
 //  Copyright © 2017 steets250. All rights reserved.
 //
 
+import Cartography
 import MessageUI
 import PermissionScope
+import PMAlertController
 import SwiftMapVC
+import SwiftTheme
 import SwiftWebVC
 
 class DetailViewController: UIViewController {
-    @IBOutlet var backgroundView: UIView!
-    @IBOutlet var mainView: UIView!
-    @IBOutlet var fullStack: UIStackView!
-    @IBOutlet var topSection: UIView!
-    @IBOutlet var pageTitle: UILabel!
-    @IBOutlet var tmSeperator: UIView!
-    @IBOutlet var middleSection: UIStackView!
-    @IBOutlet var mbSeperator: UIView!
-    @IBOutlet var bottomSection: UIStackView!
-    @IBOutlet var leftStack: UIStackView!
-    @IBOutlet var rightStack: UIStackView!
+    var container: UIView!
+    var fullStack: UIStackView!
+    var middleSection: UIStackView!
+    var mbSeperator: UIView!
+    var bottomSection: UIStackView!
+    var leftStack: UIStackView!
+    var rightStack: UIStackView!
 
-    var type: String!
-    var roomList = [Room]()
-    var staffList = [Staff]()
+    var type: DetailViewType
     var staffViaSegue: Staff!
     var roomViaSegue: Room!
+
+    var textColor: UIColor!
+    var roomList = [Room]()
+    var staffList = [Staff]()
     var allowButtonsViaSegue = true
     var parentNameViaSegue = ""
-    var textColor: UIColor!
+    var emailShortcut: (() -> Void)?
+    var websiteShortcut: (() -> Void)?
+    var locationShortcut: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Setup.page(self, title: nil, leftButton: nil, rightButton: UIBarButtonItem(image: UIImage(named: "Help"), style: .plain, target: self, action: #selector(openHelp)), largeTitle: false, back: true)
+
         staffList = appDelegate.staffData
         roomList = appDelegate.roomData
 
-        if defaults.bool(forKey: "Is Dark") {
-            mainView.backgroundColor = .darkGray
-            tmSeperator.backgroundColor = .black
-            mbSeperator.backgroundColor = .black
-            textColor = .white
-        } else {
-            mainView.backgroundColor = .lightGray
-            tmSeperator.backgroundColor = .white
-            mbSeperator.backgroundColor = .white
-            textColor = .black
-        }
+        pageSetup()
+    }
 
-        pageTitle.adjustsFontSizeToFitWidth = true
-        pageTitle.textColor = textColor
+    required init(type: DetailViewType, staff: Staff?, room: Room?, buttons: Bool) {
+        self.type = type
+        self.staffViaSegue = staff
+        self.roomViaSegue = room
+        self.allowButtonsViaSegue = buttons
+        super.init(nibName: nil, bundle: nil)
+    }
 
-        if type == "Staff" {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fullStack.removeFromSuperview()
+
+        pageSetup()
+        visualSetup()
+        if type == .staff {
             staffDidLoad()
-        } else if type == "Room" {
+        }
+        if type == .room {
             roomDidLoad()
         }
     }
 
-}
+    @objc func doneButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
-extension DetailViewController /*Shared Functions*/ {
-    func addButton(title: String, action: Selector) {
-        if title != "" {
-            let button = UIButton()
-            button.titleLabel?.textAlignment = .center
-            button.titleLabel?.font = button.titleLabel?.font.withSize(20)
-            button.setTitle(title, for: .normal)
-            button.setTitleColor(appDelegate.themeBlue, for: .normal)
-            button.addTarget(self, action: action, for: .touchUpInside)
-            middleSection.addArrangedSubview(button)
+    func pageSetup() {
+        container = UIView()
+        container.backgroundColor = .clear
+        view.addSubview(container)
+        constrain(container, view, car_topLayoutGuide, car_bottomLayoutGuide) { container, view, car_topLayoutGuide, car_bottomLayoutGuide in
+            container.left == view.left
+            container.right == view.right
+            container.top == car_topLayoutGuide.bottom
+            container.bottom == car_bottomLayoutGuide.top
+        }
+
+        fullStack = UIStackView(frame: container.frame)
+        fullStack.axis = .vertical
+        fullStack.alignment = .fill
+        fullStack.distribution = .fill
+        container.addSubview(fullStack)
+
+        constrain(fullStack, container) { fullStack, container in
+            fullStack.edges == container.edges
+        }
+
+        middleSection = UIStackView()
+        middleSection.axis = .vertical
+        middleSection.alignment = .fill
+        middleSection.distribution = .fillEqually
+        fullStack.addArrangedSubview(middleSection)
+
+        constrain(middleSection, fullStack) { middleSection, fullStack in
+            middleSection.height == fullStack.height * 0.2
+        }
+
+        mbSeperator = UIView()
+        fullStack.addArrangedSubview(mbSeperator)
+
+        constrain(mbSeperator) { mbSeperator in
+            mbSeperator.height == 2
+        }
+
+        bottomSection = UIStackView()
+        bottomSection.axis = .horizontal
+        bottomSection.alignment = .fill
+        bottomSection.distribution = .fillEqually
+        fullStack.addArrangedSubview(bottomSection)
+
+        leftStack = UIStackView()
+        leftStack.axis = .vertical
+        leftStack.alignment = .fill
+        leftStack.distribution = .fillEqually
+        bottomSection.addArrangedSubview(leftStack)
+
+        rightStack = UIStackView()
+        rightStack.axis = .vertical
+        rightStack.alignment = .fill
+        rightStack.distribution = .fillEqually
+        bottomSection.addArrangedSubview(rightStack)
+    }
+
+    func visualSetup() {
+        self.navigationController?.navigationBar.theme_tintColor = ThemeColorPicker(keyPath: "Global.themeBlue")
+        self.view.theme_backgroundColor = ThemeColorPicker(keyPath: "Global.backgroundColor")
+        if defaults.bool(forKey: "Is Dark") {
+            textColor = .white
+            mbSeperator.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.0)
+        } else {
+            textColor = .black
+            mbSeperator.backgroundColor = UIColor(red: 0.80, green: 0.80, blue: 0.80, alpha: 1.0)
         }
     }
 
-    func addLabel(title: String) {
+    override var previewActionItems: [UIPreviewActionItem] {
+        if type == .staff {
+            var actions = [UIPreviewAction]()
+            if staffViaSegue?.email != "" {
+                actions.append(UIPreviewAction(title: "Email", style: .default, handler: { (previewAction, viewController) in
+                    self.emailShortcut?()
+                }))
+            }
+            if staffViaSegue?.link != 0 {
+                actions.append(UIPreviewAction(title: "Website", style: .default, handler: { (previewAction, viewController) in
+                    self.websiteShortcut?()
+                }))
+            }
+            return actions
+        } else {
+            var actions = [UIPreviewAction]()
+            if roomViaSegue?.building != "" {
+                actions.append(UIPreviewAction(title: "Location", style: .default, handler: { (previewAction, viewController) in
+                    self.locationShortcut?()
+                }))
+            }
+            return actions
+        }
+    }
+
+    @objc func openHelp() {
+        if staffViaSegue != nil {
+            AlertScope.showAlert(.staffViewController, self)
+        } else {
+            AlertScope.showAlert(.roomViewController, self)
+        }
+    }
+}
+
+extension DetailViewController /*Shared Functions*/ {
+    func addButton(title: String, action: Selector, view: UIStackView) {
         if title != "" {
-            let label = RegularLabel()
+            let button = UIButton()
+            button.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0)!
+            button.titleLabel?.textAlignment = .center
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.contentHorizontalAlignment = .center
+            button.setTitle(title, for: .normal)
+            button.setTitleColor(appDelegate.themeBlue, for: .normal)
+            button.addTarget(self, action: action, for: .touchUpInside)
+            view.addArrangedSubview(button)
+        }
+    }
+
+    func addLabel(title: String, view: UIStackView) {
+        if title != "" {
+            let label = UILabel()
             label.textAlignment = .center
-            label.font = label.font.withSize(20)
+            label.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0)!
             label.textColor = textColor
             label.text = title
-            middleSection.addArrangedSubview(label)
+            label.adjustsFontSizeToFitWidth = true
+            view.addArrangedSubview(label)
         }
     }
 
@@ -96,184 +217,145 @@ extension DetailViewController /*Shared Functions*/ {
 
 extension DetailViewController /*Staff View*/ {
     func staffDidLoad() {
-        pageTitle.text = "\(staffViaSegue.firstName) \(staffViaSegue.lastName)"
+        if defaults.bool(forKey: "🅱️") {
+            self.navigationItem.title = "\("🅱️" + String(staffViaSegue.firstName.dropFirst())) \("🅱️" + String(staffViaSegue.lastName.dropFirst()))"
+        } else {
+            self.navigationItem.title = "\(staffViaSegue.firstName) \(staffViaSegue.lastName)"
+        }
         if staffViaSegue.email != "" {
-            addButton(title: "Email", action: #selector(emailAction))
+            addButton(title: "Email", action: #selector(emailAction), view: middleSection)
         }
         if staffViaSegue.link != 0 {
-            addButton(title: "Website", action: #selector(websiteAction))
+            addButton(title: "Website", action: #selector(websiteAction), view: middleSection)
         }
         middleSectionCheck()
 
-        fullStack.addArrangedSubview(bottomSection)
-        bottomSection.addArrangedSubview(leftStack)
-        bottomSection.addArrangedSubview(rightStack)
-        let s1Label = RegularLabel(); s1Label.text = "Period:"; s1Label.textColor = textColor; s1Label.textAlignment = .center; s1Label.font = s1Label.font.withSize(20)
-        let s2Label = RegularLabel(); s2Label.text = "Room:"; s2Label.textColor = textColor; s2Label.textAlignment = .center; s2Label.font = s2Label.font.withSize(20)
-        leftStack.addArrangedSubview(s1Label)
-        rightStack.addArrangedSubview(s2Label)
-
         let periods = [staffViaSegue.p0, staffViaSegue.p1, staffViaSegue.p2, staffViaSegue.p3, staffViaSegue.p4, staffViaSegue.p5, staffViaSegue.p6, staffViaSegue.p7]
-        var a: Int!; var b: Int!
 
-        if defaults.bool(forKey: "Show Period 0") { a = 0 } else { a = 1 }
-        if defaults.bool(forKey: "Show Period 7") { b = 7 } else { b = 6 }
-        for period in a...b {
-            let periodLabel = RegularLabel()
-            let roomLabel = UIButton()
-            let roomLabelDisable = RegularLabel()
-            periodLabel.textAlignment = .center; roomLabelDisable.textAlignment = .center
-            roomLabel.contentHorizontalAlignment = .center
-            roomLabel.setTitleColor(appDelegate.themeBlue, for: .normal)
-            periodLabel.textColor = textColor
-            roomLabelDisable.textColor = textColor
-
+        var empty = true
+        for period in 0...7 {
+            if period == 0 && defaults.bool(forKey: "Show Period 0") == false {
+                continue
+            }
+            if period == 7 && defaults.bool(forKey: "Show Period 7") == false {
+                continue
+            }
             if periods[period] != "" {
-                var temp: Any = roomLabel
-                periodLabel.text = String(period)
-                roomLabel.setTitle(periods[period], for: .normal)
-                roomLabelDisable.text = periods[period]
-                switch periods[period] {
-                case "CONF", "/", "WASC", "UTLA", "RSP":
-                    temp = roomLabelDisable
-                default:
-                    break
-                }
-
-                if allowButtonsViaSegue == false {
-                    temp = roomLabelDisable
-                }
-
-                if roomLabelDisable.text == "CONF" {
-                    roomLabelDisable.text = "Conference"
-                }
-                periodLabel.font = periodLabel.font.withSize(20)
-                roomLabelDisable.font = roomLabelDisable.font.withSize(20)
-                roomLabel.titleLabel!.font = roomLabel.titleLabel!.font.withSize(20)
-                roomLabel.addTarget(self, action: #selector(openRoom), for: .touchUpInside)
-                leftStack.addArrangedSubview(periodLabel)
-                rightStack.addArrangedSubview(temp as! UIView)
-            }
-            if allowButtonsViaSegue == false {
-                roomLabel.isUserInteractionEnabled = false; roomLabel.setTitleColor(textColor, for: .normal)
+                empty = false
             }
         }
-        var temp = 0
-        for period in a...b {
-            if periods[period] != "" {
-                temp += 1
+
+        if empty == false {
+            addLabel(title: "Period:", view: leftStack)
+            addLabel(title: "Room:", view: rightStack)
+
+            for period in 0...7 {
+                if period == 0 && defaults.bool(forKey: "Show Period 0") == false {
+                    continue
+                }
+                if period == 7 && defaults.bool(forKey: "Show Period 7") == false {
+                    continue
+                }
+                if periods[period] != "" {
+                    var periodRoom = periods[period]
+                    var disabled: Bool!
+
+                    switch periodRoom {
+                    case "CONF", "/", "WASC", "UTLA", "RSP":
+                        disabled = true
+                    default:
+                        disabled = false
+                    }
+
+                    if periodRoom == "CONF" {
+                        periodRoom = "Conference"
+                    }
+
+                    if allowButtonsViaSegue == false {
+                        disabled = true
+                    }
+
+                    addLabel(title: String(period), view: leftStack)
+                    if disabled {
+                        addLabel(title: periodRoom, view: rightStack)
+                    } else {
+                        addButton(title: periodRoom, action: #selector(openRoom), view: rightStack)
+                    }
+                }
             }
         }
-        if temp == 0 {
-            s1Label.removeFromSuperview()
-            s2Label.removeFromSuperview()
-        }
-
-        view.backgroundColor = .clear
-        mainView.layer.cornerRadius = 10
-        let tap = UITapGestureRecognizer(target: self, action: #selector(removeAnimate))
-        tap.delegate = self
-        backgroundView.addGestureRecognizer(tap)
-        showAnimate()
     }
 }
 
 extension DetailViewController /*Room View*/ {
     func roomDidLoad() {
         if CharacterSet.decimalDigits.contains(roomViaSegue.number.getFirst().unicodeScalars.first!) {
-            pageTitle.text = "Room \(roomViaSegue.number)"
+            self.navigationItem.title = "Room \(roomViaSegue.number)"
         } else {
-            pageTitle.text = roomViaSegue.altid
+            self.navigationItem.title = roomViaSegue.altid
         }
         if roomViaSegue.building != "" {
-            addButton(title: "Location", action: #selector(openBuilding))
+            addButton(title: "Location", action: #selector(openBuilding), view: middleSection)
         }
         middleSectionCheck()
-
-        let s1Label = RegularLabel(); s1Label.text = "Period:"; s1Label.textColor = textColor; s1Label.textAlignment = .center; s1Label.font = s1Label.font.withSize(20)
-        let s2Label = RegularLabel(); s2Label.text = "Staff:"; s2Label.textColor = textColor; s2Label.textAlignment = .center; s2Label.font = s2Label.font.withSize(20)
-        leftStack.addArrangedSubview(s1Label)
-        rightStack.addArrangedSubview(s2Label)
-
-        let period0 = defaults.bool(forKey: "Show Period 0")
-        let period7 = defaults.bool(forKey: "Show Period 7")
 
         roomViaSegue.teachers = roomViaSegue.teachers.sorted { $0.period < $1.period }
 
         var skipped = 0
+
         for pair in roomViaSegue.teachers {
-            if period0 == false && pair.period == "p0" {
+            if defaults.bool(forKey: "Show Period 0") == false && pair.period == "p0" {
                 skipped += 1
                 continue
             }
-            if period7 == false && pair.period == "p7" {
+            if defaults.bool(forKey: "Show Period 7") == false && pair.period == "p7" {
                 skipped += 1
                 continue
-            }
-            let periodLabel = RegularLabel()
-            let staffLabel = UIButton()
-            let staffLabelDisable = RegularLabel()
-            periodLabel.textAlignment = .center
-            staffLabel.contentHorizontalAlignment = .center
-            staffLabelDisable.textAlignment = .center
-            periodLabel.font = periodLabel.font.withSize(20)
-            staffLabel.titleLabel!.font = staffLabel.titleLabel!.font.withSize(20)
-            staffLabelDisable.font = staffLabelDisable.font.withSize(20)
-            staffLabel.titleLabel!.adjustsFontSizeToFitWidth = true
-            staffLabelDisable.adjustsFontSizeToFitWidth = true
-            staffLabel.setTitleColor(appDelegate.themeBlue, for: .normal)
-            periodLabel.textColor = textColor
-            staffLabelDisable.textColor = textColor
-
-            let person = staffList.first(where: { $0.id == pair.teacherId })!
-            let phrase = person.prefix + " " + person.lastName
-
-            periodLabel.text = pair.period[1]
-            staffLabel.setTitle(phrase, for: .normal)
-            staffLabel.addTarget(self, action: #selector(openStaff), for: .touchUpInside)
-            staffLabelDisable.text = phrase
-            self.leftStack.addArrangedSubview(periodLabel)
-            if allowButtonsViaSegue {
-                self.rightStack.addArrangedSubview(staffLabel)
-            } else {
-                self.rightStack.addArrangedSubview(staffLabelDisable)
             }
         }
 
-        if roomViaSegue.teachers.count-skipped == 0 {
-            s1Label.removeFromSuperview()
-            s2Label.removeFromSuperview()
-        } else if roomViaSegue.teachers.count-skipped < 6 {
-            for _ in roomViaSegue.teachers.count-skipped ..< 6 {
+        if roomViaSegue.teachers.count - skipped != 0 {
+            addLabel(title: "Period:", view: leftStack)
+            addLabel(title: "Staff:", view: rightStack)
+            for pair in roomViaSegue.teachers {
+                if defaults.bool(forKey: "Show Period 0") == false && pair.period == "p0" {
+                    continue
+                }
+                if defaults.bool(forKey: "Show Period 7") == false && pair.period == "p7" {
+                    continue
+                }
+
+                let person = staffList.first(where: { $0.id == pair.teacherId })!
+                let phrase = person.prefix + " " + person.lastName
+
+                addLabel(title: pair.period.getLast(), view: leftStack)
+
+                if allowButtonsViaSegue {
+                    addButton(title: phrase, action: #selector(openStaff), view: rightStack)
+                } else {
+                    addLabel(title: phrase, view: rightStack)
+                }
+            }
+        }
+
+        if roomViaSegue.teachers.count - skipped < 6 {
+            for _ in roomViaSegue.teachers.count - skipped ..< 6 {
                 self.leftStack.addArrangedSubview(UILabel())
                 self.rightStack.addArrangedSubview(UILabel())
             }
         }
-
-        self.view.backgroundColor = .clear
-        mainView.layer.cornerRadius = 10
-        let tap = UITapGestureRecognizer(target: self, action: #selector(removeAnimate))
-        tap.delegate = self
-        self.backgroundView.addGestureRecognizer(tap)
-        self.showAnimate()
     }
 }
 
 extension DetailViewController /*Action Functions*/ {
-    func openRoom(sender: UIButton!) {
+    @objc func openRoom(sender: UIButton!) {
         let roomLabel = sender.titleLabel!.text!
-        let room = roomList.filter({$0.number == roomLabel}).first!
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
-        popOverVC.type = "Room"
-        popOverVC.roomViaSegue = room
-        popOverVC.allowButtonsViaSegue = false
-        addChildViewController(popOverVC)
-        popOverVC.view.frame = view.frame
-        view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
+        let room = roomList.filter({ $0.number == roomLabel }).first!
+        let popOverVC = DetailViewController(type: .room, staff: nil, room: room, buttons: false)
+        self.navigationController!.pushViewController(popOverVC, animated: true)
     }
 
-    func websiteAction(sender: UIButton!) {
+    @objc func websiteAction() {
         if internet() {
             let url = "https://venicehs-lausd-ca.schoolloop.com/cms/user?d=x&group_id=" + String(staffViaSegue.link)
             if defaults.bool(forKey: "Is Dark") {
@@ -284,123 +366,75 @@ extension DetailViewController /*Action Functions*/ {
                 present(webVC, animated: true, completion: nil)
             }
         } else {
-            let alertController = UIAlertController(title: "No Network", message: "Please connect your phone to a wifi or cellular network.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alertController = PMAlertController(title: "No Network", message: "Please connect your phone to a wifi or cellular network.", preferredStyle: .alert, preferredTheme: appDelegate.themeAlert)
+            alertController.addAction(PMAlertAction(title: "OK", style: PMAlertActionStyle.default, handler: nil))
             present(alertController, animated: true, completion: nil)
         }
     }
 
-    func emailAction(_ sender: UIButton) {
-        let alertController = UIAlertController(title: staffViaSegue.email, message: nil, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Copy to Clipboard", style: UIAlertActionStyle.default, handler: {_ in
+    @objc func emailAction() {
+        let alertController = PMAlertController(title: "Email", message: staffViaSegue.email, preferredStyle: .alert, preferredTheme: appDelegate.themeAlert)
+        alertController.addAction(PMAlertAction(title: "Copy to Clipboard", style: PMAlertActionStyle.default, handler: {
             UIPasteboard.general.string = self.staffViaSegue.email
         }))
         if MFMailComposeViewController.canSendMail() {
-            alertController.addAction(UIAlertAction(title: "Send Email", style: UIAlertActionStyle.default, handler: {_ in
+            alertController.addAction(PMAlertAction(title: "Send Email", style: PMAlertActionStyle.default, handler: {
                 let mailComposerVC = MFMailComposeViewController()
                 mailComposerVC.mailComposeDelegate = self
                 mailComposerVC.setToRecipients([self.staffViaSegue.email])
                 self.present(mailComposerVC, animated: true, completion: nil)
             }))
         }
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+        alertController.addAction(PMAlertAction(title: "Dismiss", style: PMAlertActionStyle.cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 
-    func openBuilding(_ sender: UIButton) {
-        let building = roomViaSegue.building
-        var floor: String!
-        if roomViaSegue.floor == "1" {
-            floor = "1st Floor"
-        } else if roomViaSegue.floor == "2" {
-            floor = "2nd Floor"
-        }
-        switch PermissionScope().statusLocationInUse() {
+    @objc func openBuilding() {
+        switch ThemePermissionScope().statusLocationInUse() {
         case .unknown, .authorized:
-            let pscope = PermissionScope()
-            pscope.addPermission(LocationWhileInUsePermission(),
-                                 message: "Shows you how to get\r\nto a building.")
+            let pscope = ThemePermissionScope()
+            pscope.addPermission(LocationWhileInUsePermission(), message: "Shows you how to get\r\nto a building.")
             pscope.show({ _, _ in
-                self.openMap(building: building, floor: floor)
+                self.openMap(room: self.roomViaSegue)
             }, cancelled: { (_) -> Void in
-                self.openMap(building: building, floor: floor)
+                self.openMap(room: self.roomViaSegue)
             })
         case .unauthorized, .disabled:
-            openMap(building: building, floor: floor)
+            openMap(room: self.roomViaSegue)
             return
         }
     }
 
-    func openMap(building: String, floor: String?) {
-        let buildings = appDelegate.buildingData
+    func openMap(room: Room) {
         var longitude: Double!
         var latitude: Double!
-        var pageTitle: String!
-        if let location = buildings.filter({$0.name == building}).first {
-            longitude = location.longitude
-            latitude = location.latitude
-            if floor != nil {
-                pageTitle = "\(building): \(floor!)"
-            } else {
-                pageTitle = "\(building)"
-            }
+        if let building = appDelegate.buildingData.filter({ $0.name == room.building }).first {
+            longitude = building.longitude
+            latitude = building.latitude
         }
+        var mapVC: SwiftModalMapVC!
         if defaults.bool(forKey: "Is Dark") {
-            let mapVC = SwiftModalMapVC(name: pageTitle, latitude: latitude, longitude: longitude, theme: .dark)
-            self.present(mapVC, animated: true, completion: nil)
-        } else {
-            let mapVC = SwiftModalMapVC(name: pageTitle, latitude: latitude, longitude: longitude, theme: .lightBlue)
-            self.present(mapVC, animated: true, completion: nil)
-        }
-    }
-
-    func openStaff(sender: UIButton!) {
-        let staffLabel = sender.titleLabel!.text!
-        let staff = staffList.filter({$0.prefix + " " + $0.lastName == staffLabel}).first!
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
-        popOverVC.type = "Staff"
-        popOverVC.staffViaSegue = staff
-        popOverVC.allowButtonsViaSegue = false
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
-    }
-}
-
-extension DetailViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view == backgroundView {
-            return true
-        }
-        return false
-    }
-
-    @IBAction func closePopUp(_ sender: AnyObject) {
-        removeAnimate()
-    }
-
-    func showAnimate() {
-        backgroundView.backgroundColor = .clear
-        mainView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-        mainView.alpha = 0.0
-        UIView.animate(withDuration: 0.375, animations: {
-            self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-            self.mainView.alpha = 1.0
-            self.mainView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
-    }
-
-    func removeAnimate() {
-        UIView.animate(withDuration: 0.375, animations: {
-            self.mainView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-            self.mainView.alpha = 0.0
-            self.backgroundView.backgroundColor = .clear
-        }, completion: {(finished: Bool)  in
-            if (finished) {
-                self.view.removeFromSuperview()
+            if room.altid == "" {
+                mapVC = SwiftModalMapVC(room: room.number, building: room.building, floor: room.floor, latitude: latitude, longitude: longitude, theme: .dark)
+            } else {
+                mapVC = SwiftModalMapVC(room: room.altid, building: room.building, floor: room.floor, latitude: latitude, longitude: longitude, theme: .dark)
             }
-        })
+
+        } else {
+            if room.altid == "" {
+                mapVC = SwiftModalMapVC(room: room.number, building: room.building, floor: room.floor, latitude: latitude, longitude: longitude, theme: .lightBlue)
+            } else {
+                mapVC = SwiftModalMapVC(room: room.altid, building: room.building, floor: room.floor, latitude: latitude, longitude: longitude, theme: .lightBlue)
+            }
+        }
+        self.present(mapVC, animated: true, completion: nil)
+    }
+
+    @objc func openStaff(sender: UIButton!) {
+        let staffLabel = sender.titleLabel!.text!
+        let staff = staffList.filter({ $0.prefix + " " + $0.lastName == staffLabel }).first!
+        let popOverVC = DetailViewController(type: .staff, staff: staff, room: nil, buttons: false)
+        self.navigationController!.pushViewController(popOverVC, animated: true)
     }
 }
 
@@ -408,4 +442,9 @@ extension DetailViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+enum DetailViewType: String {
+    case staff = "staff"
+    case room = "room"
 }
