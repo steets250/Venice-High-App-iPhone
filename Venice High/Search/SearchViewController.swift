@@ -25,7 +25,7 @@ class SearchViewController: UITableViewController {
     var staffVisible = [Staff]()
     var roomList = [Room]()
     var roomVisible = [Room]()
-    var currentType = "staff"
+    var currentType: DetailViewType = .staff
     var currentText: String = ""
     var searching: Bool = false
     let animations: [StockAnimation] = [.slide(.left, .severely), .fadeIn]
@@ -111,16 +111,18 @@ class SearchViewController: UITableViewController {
 
     @objc func changeType() {
         if segmentedControl.selectedSegmentIndex == 0 {
-            currentType = "staff"
+            currentType = .staff
             self.navigationItem.title = "Staff List"
             searchBar.placeholder = "Search Staff"
             searchController.searchBar.placeholder = "Search Staff"
+            resultsController.updateCurrentType(.staff)
         }
         if segmentedControl.selectedSegmentIndex == 1 {
-            currentType = "room"
+            currentType = .room
             self.navigationItem.title = "Room List"
             searchBar.placeholder = "Search Rooms"
             searchController.searchBar.placeholder = "Search Rooms"
+            resultsController.updateCurrentType(.room)
         }
         refreshData()
     }
@@ -132,7 +134,7 @@ class SearchViewController: UITableViewController {
 
 extension SearchViewController /*TableView Methods*/ {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if currentType == "staff" {
+        if currentType == .staff {
             if staffVisible.count > 0 {
                 self.tableView.backgroundView = .none
                 self.tableView.separatorStyle = .singleLine
@@ -158,7 +160,7 @@ extension SearchViewController /*TableView Methods*/ {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if currentType == "staff" {
+        if currentType == .staff {
             let aCell = UITableViewCell()
             aCell.selectionStyle = .none
             aCell.backgroundColor = .clear
@@ -199,7 +201,7 @@ extension SearchViewController /*TableView Methods*/ {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if currentType == "staff" {
+        if currentType == .staff {
             let popOverVC = DetailViewController(type: .staff, staff: self.staffVisible[indexPath.row], room: nil, buttons: true)
             self.navigationController!.pushViewController(popOverVC, animated: true)
         } else {
@@ -211,7 +213,6 @@ extension SearchViewController /*TableView Methods*/ {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        resultsController.updateCurrentType(currentType)
         if let text = searchController.searchBar.text, !text.isEmpty {
             currentText = text
             searching = true
@@ -221,17 +222,17 @@ extension SearchViewController: UISearchResultsUpdating {
             refreshData()
         }
         if currentText == "🅰️" {
-            defaults.set(false, forKey: "🅱️")
+            defaults.set(false, forKey: "Queue 🅱️")
         }
-
+        
         if currentText == "🅱️" {
-            defaults.set(true, forKey: "🅱️")
+            defaults.set(true, forKey: "Queue 🅱️")
         }
         self.tableView.reloadData()
     }
 
     func refreshData() {
-        if currentType == "staff" {
+        if currentType == .staff {
             staffVisible = staffList
             if searching && currentText != "" {
                 staffVisible = staffList.filter { staff in
@@ -296,7 +297,7 @@ extension SearchViewController: UIViewControllerPreviewingDelegate {
         let indexPath = tableView.indexPathForRow(at: location)!
         let cell = tableView.cellForRow(at: indexPath)!
         var popOverVC: DetailViewController!
-        if currentType == "staff" {
+        if currentType == .staff {
             popOverVC = DetailViewController(type: .staff, staff: self.staffVisible[indexPath.row], room: nil, buttons: true)
         } else {
             popOverVC = DetailViewController(type: .room, staff: nil, room: self.roomVisible[indexPath.row], buttons: true)

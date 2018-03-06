@@ -98,7 +98,7 @@ class EventViewController: UITableViewController {
         searchController.hidesNavigationBarDuringPresentation = false
 
         searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
-        searchBar.placeholder = "Search"
+        searchBar.placeholder = "Search Events"
         searchBar.delegate = self
 
         definesPresentationContext = true

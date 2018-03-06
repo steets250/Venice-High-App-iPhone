@@ -226,16 +226,16 @@ extension VisualViewController: FSCalendarDelegate, FSCalendarDelegateAppearance
                     }
                     if date.schedule == 4 {
                         if defaults.bool(forKey: "Is Dark") {
-                            return UIColor.purple.withAlphaComponent(0.5)
+                            return UIColor.orange.withAlphaComponent(0.5)
                         } else {
-                            return UIColor.purple
+                            return UIColor.orange
                         }
                     }
                     if date.schedule == 5 {
                         if defaults.bool(forKey: "Is Dark") {
-                            return UIColor.orange.withAlphaComponent(0.5)
+                            return UIColor.purple.withAlphaComponent(0.5)
                         } else {
-                            return UIColor.orange
+                            return UIColor.purple
                         }
                     }
                     if date.schedule == 0 {

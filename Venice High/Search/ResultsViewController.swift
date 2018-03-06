@@ -16,7 +16,7 @@ class ResultsViewController: UITableViewController {
     var staffVisible = [Staff]()
     var roomList = [Room]()
     var roomVisible = [Room]()
-    var currentType = "staff"
+    var currentType: DetailViewType = .staff
     var currentText: String = ""
     var searching: Bool = false
 
@@ -34,7 +34,7 @@ class ResultsViewController: UITableViewController {
 
 extension ResultsViewController /*TableView Methods*/ {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if currentType == "staff" {
+        if currentType == .staff {
             if staffVisible.count > 0 {
                 self.tableView.backgroundView = .none
                 self.tableView.separatorStyle = .singleLine
@@ -60,7 +60,7 @@ extension ResultsViewController /*TableView Methods*/ {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if currentType == "staff" {
+        if currentType == .staff {
             let aCell = UITableViewCell()
             aCell.selectionStyle = .none
             aCell.backgroundColor = .clear
@@ -101,7 +101,7 @@ extension ResultsViewController /*TableView Methods*/ {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if currentType == "staff" {
+        if currentType == .staff {
             let popOverVC = DetailViewController(type: .staff, staff: self.staffVisible[indexPath.row], room: nil, buttons: true)
             self.navController?.pushViewController(popOverVC, animated: true)
         } else {
@@ -112,7 +112,7 @@ extension ResultsViewController /*TableView Methods*/ {
 }
 
 extension ResultsViewController: UISearchResultsUpdating {
-    func updateCurrentType(_ type: String) {
+    func updateCurrentType(_ type: DetailViewType) {
         currentType = type
         refreshData()
     }
@@ -127,17 +127,17 @@ extension ResultsViewController: UISearchResultsUpdating {
             refreshData()
         }
         if currentText == "🅰️" {
-            defaults.set(false, forKey: "🅱️")
+            defaults.set(false, forKey: "Queue 🅱️")
         }
 
         if currentText == "🅱️" {
-            defaults.set(true, forKey: "🅱️")
+            defaults.set(true, forKey: "Queue 🅱️")
         }
         tableView.reloadData()
     }
 
     func refreshData() {
-        if currentType == "staff" {
+        if currentType == .staff {
             staffVisible = staffList
             if searching && currentText != "" {
                 staffVisible = staffList.filter { staff in

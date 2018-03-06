@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
         }
+        
+        defaults.set(defaults.bool(forKey: "Queue 🅱️"), forKey: "🅱️")
 
         schoolData()
         tabSetup()
