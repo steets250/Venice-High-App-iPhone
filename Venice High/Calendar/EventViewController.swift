@@ -53,12 +53,12 @@ class EventViewController: UITableViewController {
         hudSetup()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if loaded == false {
             loaded = true
             initialLoad()
+            tableView.reloadData()
         }
-        tableView.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -188,35 +188,40 @@ class EventViewController: UITableViewController {
     }
 
     @objc func dataCheck() {
-        DispatchQueue.global(qos: .background).async {
-            let apiURL1 = URL(string: "https://venicehs-lausd-ca.schoolloop.com/cms/rss?d=x&group_id=1442645854073&types=_assignment__event_&return_url=1494562389332")!
-            let response1 = AppDelegate.Manager.request(apiURL1).responseString()
-            let data1 = response1.value ?? ""
-            let apiURL2 = URL(string: "https://raw.githubusercontent.com/steets250/Venice-High-App-Database/master/Events.json")!
-            let response2 = AppDelegate.Manager.request(apiURL2).responseString()
-            let data2 = response2.value ?? ""
+        if internet() {
+            DispatchQueue.global(qos: .background).async {
+                let apiURL1 = URL(string: "https://venicehs-lausd-ca.schoolloop.com/cms/rss?d=x&group_id=1442645854073&types=_assignment__event_&return_url=1494562389332")!
+                let response1 = AppDelegate.Manager.request(apiURL1).responseString()
+                let data1 = response1.value ?? ""
+                let apiURL2 = URL(string: "https://raw.githubusercontent.com/steets250/Venice-High-App-Database/master/Events.json")!
+                let response2 = AppDelegate.Manager.request(apiURL2).responseString()
+                let data2 = response2.value ?? ""
 
-            DispatchQueue.main.async {
-                var change = true
-                let fullData = data1 + data2
-                if fullData != "" {
-                    let newHash = String(describing: fullData.utf8.md5)
-                    if let oldHash = self.defaults.string(forKey: "Event Hash") {
-                        if oldHash == newHash {
-                            change = false
+                DispatchQueue.main.async {
+                    var change = true
+                    let fullData = data1 + data2
+                    if fullData != "" {
+                        let newHash = String(describing: fullData.utf8.md5)
+                        if let oldHash = self.defaults.string(forKey: "Event Hash") {
+                            if oldHash == newHash {
+                                change = false
+                            } else {
+                                self.defaults.set(newHash, forKey: "Event Hash")
+                            }
                         } else {
                             self.defaults.set(newHash, forKey: "Event Hash")
                         }
+                    }
+                    if change {
+                        self.hud.show(in: self.appDelegate.window!.rootViewController!.view)
+                        self.loadCount()
                     } else {
-                        self.defaults.set(newHash, forKey: "Event Hash")
+                        self.endRefresh()
                     }
                 }
-                if change {
-                    self.loadCount()
-                } else {
-                    self.endRefresh()
-                }
             }
+        } else {
+            self.endRefresh()
         }
     }
 

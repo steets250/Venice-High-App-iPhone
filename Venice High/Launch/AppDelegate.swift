@@ -23,10 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var themeBlue: UIColor!
     var themeAlert: PMAlertThemeStyle! {
         get {
-            if UserDefaults.standard.bool(forKey: "Is Dark") {
-                return .dark
+            if UserDefaults.standard.bool(forKey: "Auto Theme") {
+                if Sundown.isDark() {
+                    return .dark
+                } else {
+                    return .default
+                }
             } else {
-                return .default
+                if UserDefaults.standard.bool(forKey: "Is Dark") {
+                    return .dark
+                } else {
+                    return .default
+                }
             }
         }
     }
@@ -43,13 +51,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var timeData = [BellSchedule]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if defaults.bool(forKey: "Is Dark") {
-           ThemeManager.setTheme(plistName: "Dark", path: .mainBundle)
-        } else {
-            ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
-        }
-        
         defaults.set(defaults.bool(forKey: "Queue 🅱️"), forKey: "🅱️")
+        defaults.register(defaults: ["Auto Theme" : true])
+        if defaults.bool(forKey: "Auto Theme") {
+            defaults.set(Sundown.isDark(), forKey: "Is Dark")
+            if Sundown.isDark() {
+                ThemeManager.setTheme(plistName: "Dark", path: .mainBundle)
+            } else {
+                ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
+            }
+        } else {
+            if UserDefaults.standard.bool(forKey: "Is Dark") {
+                ThemeManager.setTheme(plistName: "Dark", path: .mainBundle)
+            } else {
+                ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
+            }
+        }
 
         schoolData()
         tabSetup()

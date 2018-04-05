@@ -22,6 +22,7 @@ target 'Venice High' do
   pod 'PMAlertController', :git => 'https://github.com/steets250/PMAlertController.git'
   pod 'ReachabilitySwift'
   pod 'RFAboutView-Swift', :git => 'https://github.com/steets250/RFAboutView-Swift.git'
+  pod 'Solar'
   pod 'Spruce'
   pod 'SwiftMapVC', :git => 'https://github.com/steets250/SwiftMapVC.git'
   pod 'SwiftTheme'

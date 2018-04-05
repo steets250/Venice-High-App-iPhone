@@ -254,7 +254,10 @@ extension VisualViewController: FSCalendarDelegate, FSCalendarDelegateAppearance
 
 extension VisualViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if dayEvents.isEmpty {
+        if calendarView.selectedDate == nil {
+            emptyMessage(message: "Select a date on the calendar.", viewController: self)
+            return 0
+        } else if dayEvents.isEmpty {
             let currentDay = calendarView.selectedDate ?? Date()
             let calendar = Calendar.current
             let year = String(calendar.component(.year, from: currentDay))
@@ -270,7 +273,7 @@ extension VisualViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if dayEvents.isEmpty {
+        if calendarView.selectedDate == nil || dayEvents.isEmpty {
             let aCell = UITableViewCell()
             aCell.selectionStyle = .none
             aCell.backgroundColor = .clear

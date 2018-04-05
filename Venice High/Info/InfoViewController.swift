@@ -109,11 +109,16 @@ extension InfoViewController: UITableViewDataSource {
             let aCell = tableView.dequeueReusableCell(withIdentifier: "segmentCell", for: indexPath) as! SegmentTableViewCell
             aCell.theme_backgroundColor = ThemeColorPicker(keyPath: "Info.cellColor")
             aCell.segmentedControl.theme_tintColor = ThemeColorPicker(keyPath: "Global.themeBlue")
-            if defaults.bool(forKey: "Is Dark") {
-                aCell.segmentedControl.selectedSegmentIndex = 1
-            } else {
+            if defaults.bool(forKey: "Auto Theme") {
                 aCell.segmentedControl.selectedSegmentIndex = 0
+            } else {
+                if defaults.bool(forKey: "Is Dark") {
+                    aCell.segmentedControl.selectedSegmentIndex = 2
+                } else {
+                    aCell.segmentedControl.selectedSegmentIndex = 1
+                }
             }
+            
             aCell.segmentedControl.addTarget(self, action: #selector(self.segment(sender:)), for: .valueChanged)
             aCell.selectionStyle = .none
             return aCell
@@ -187,12 +192,23 @@ extension InfoViewController: UITableViewDelegate {
     }
 
     @objc func segment(sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            defaults.set(true, forKey: "Auto Theme")
+            defaults.set(Sundown.isDark(), forKey: "Is Dark")
+        case 1:
+            defaults.set(false, forKey: "Auto Theme")
             defaults.set(false, forKey: "Is Dark")
-            ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
-        } else {
+        case 2:
+            defaults.set(false, forKey: "Auto Theme")
             defaults.set(true, forKey: "Is Dark")
+        default:
+            return
+        }
+        if defaults.bool(forKey: "Is Dark") {
             ThemeManager.setTheme(plistName: "Dark", path: .mainBundle)
+        } else {
+            ThemeManager.setTheme(plistName: "Light", path: .mainBundle)
         }
     }
 

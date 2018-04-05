@@ -19,6 +19,7 @@ PODS:
   - PMAlertController (3.2.0)
   - ReachabilitySwift (4.1.0)
   - RFAboutView-Swift (2.0.1)
+  - Solar (2.1.0)
   - Spruce (2.0.0)
   - SwiftMapVC (1.0.0)
   - SwiftTheme (0.4.1)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - PMAlertController (from `https://github.com/steets250/PMAlertController.git`)
   - ReachabilitySwift
   - RFAboutView-Swift (from `https://github.com/steets250/RFAboutView-Swift.git`)
+  - Solar
   - Spruce
   - SwiftMapVC (from `https://github.com/steets250/SwiftMapVC.git`)
   - SwiftTheme
@@ -79,12 +81,13 @@ SPEC CHECKSUMS:
   PMAlertController: b476d0962e61a8936384eb6ea3d6ff90ab0ce78f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   RFAboutView-Swift: dc31db0e7bc890ab6c9e1ca8f50e8f97bdba9622
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   Spruce: 0932495938ccc0b75add674a99bc46c9d0e39111
   SwiftMapVC: 9fc5ca86c8317ecdfcbfae90de125cc8349749c5
   SwiftTheme: 36d71c4eed4b2c401c782cf036e4586c749a8173
   SwiftWebVC: ecc4feaabe5a3f75e059a0a345d3386bb0d16c44
   SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
 
-PODFILE CHECKSUM: 830f595f5976b2a89047559f7d6fdec4a4e62e61
+PODFILE CHECKSUM: 04d41fd9860ab0a31a8cbc08095a77fdb2058ca0
 
 COCOAPODS: 1.4.0

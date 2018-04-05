@@ -63,6 +63,7 @@
 		BA722E13202309FF00248A03 /* Bell Schedule.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BA722E06202309FF00248A03 /* Bell Schedule.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BA722E1E20230A2200248A03 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA722E1920230A2200248A03 /* TodayViewController.swift */; };
 		BA722E2020230A2200248A03 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA722E1D20230A2200248A03 /* Extension.swift */; };
+		BA78298A206AEE920059AB1F /* Sundown.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782989206AEE920059AB1F /* Sundown.swift */; };
 		BA85B98520367720008CFA4E /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85B98420367720008CFA4E /* Setup.swift */; };
 		BAEACFF320230B5E00553241 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEACFF120230B5E00553241 /* MainInterface.storyboard */; };
 /* End PBXBuildFile section */
@@ -156,6 +157,7 @@
 		BA722E1820230A2200248A03 /* Bell Schedule.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Bell Schedule.entitlements"; sourceTree = "<group>"; };
 		BA722E1920230A2200248A03 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		BA722E1D20230A2200248A03 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BA782989206AEE920059AB1F /* Sundown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sundown.swift; sourceTree = "<group>"; };
 		BA85B98420367720008CFA4E /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		BAEACFF220230B5E00553241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FD0FEE87A97FF58F0856B973 /* Pods_Bell_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bell_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 				BA269F9E20366B9A00259266 /* CalendarScope.swift */,
 				BA269FA120366B9A00259266 /* MD5Digest.swift */,
 				BA85B98420367720008CFA4E /* Setup.swift */,
+				BA782989206AEE920059AB1F /* Sundown.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				"${BUILT_PRODUCTS_DIR}/PermissionScope/PermissionScope.framework",
 				"${BUILT_PRODUCTS_DIR}/RFAboutView-Swift/RFAboutView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
 				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMapVC/SwiftMapVC.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
@@ -573,6 +577,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PermissionScope.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFAboutView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMapVC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
@@ -653,6 +658,7 @@
 				BA269FF220366B9B00259266 /* EventTableViewCell.swift in Sources */,
 				BA269FDB20366B9B00259266 /* Article.swift in Sources */,
 				BA269FFF20366B9B00259266 /* BellViewController.swift in Sources */,
+				BA78298A206AEE920059AB1F /* Sundown.swift in Sources */,
 				BA269FD320366B9B00259266 /* ArticleGroup.swift in Sources */,
 				BA269FE120366B9B00259266 /* AlertScope.swift in Sources */,
 				BA269FDD20366B9B00259266 /* CalendarScope.swift in Sources */,
@@ -810,7 +816,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
